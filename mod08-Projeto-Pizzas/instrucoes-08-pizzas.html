@@ -14,6 +14,11 @@
 <hr>
 <strong>#1: Compra de Pizzas - parte 1</strong> 
 
+    explicando o projeto 
+
+<hr>
+<strong>#2: Compra de Pizzas - parte 2</strong> 
+
     const c = (el)=>document.querySelector(el);
     const cs = (el)=>document.querySelectorAll(el);
 
@@ -27,7 +32,7 @@
     });
 
 <hr>
-<strong>#2: Compra de Pizzas - parte 2</strong> 
+<strong>#3: Compra de Pizzas - parte 3</strong> 
 
     pizzaItem.querySelector('.pizza-item--img img').src = item.img;
     pizzaItem.querySelector('.pizza-item--price').innerHTML = `R$ ${item.price.toFixed(2)}`;
@@ -35,11 +40,18 @@
     pizzaItem.querySelector('.pizza-item--desc').innerHTML = item.description;
 
 <hr>
-<strong>#3: Compra de Pizzas - parte 3</strong> 
-
-<hr>
 <strong>#4: Compra de Pizzas - parte 4</strong> 
 
+    pizzaItem.querySelector('a').addEventListener('click', (e)=>{
+        e.preventDefault();
+
+        c('.pizzaWindowArea').style.opacity = 0;
+        c('.pizzaWindowArea').style.display = 'flex';
+        setTimeout(()=>{
+            c('.pizzaWindowArea').style.opacity = 1;
+        },200);
+    });
+    
 <hr>
 <strong>#5: Compra de Pizzas - parte 5</strong> 
 
