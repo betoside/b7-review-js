@@ -51,10 +51,24 @@
             c('.pizzaWindowArea').style.opacity = 1;
         },200);
     });
-    
+
 <hr>
 <strong>#5: Compra de Pizzas - parte 5</strong> 
 
+    temos 1 modal para todas as pizzas    
+    preciso saber em quem eu cliquei para exibir no modal
+    sabendo quem está no modal saberemos em quem adicionar no carrinho
+    - detalhes da pizza
+    - no json temos o id, é o item mais facil para especificar a pizza: index
+
+    let key = e.target.closest('.pizza-item').getAttribute('data-key');
+    console.log('pizza clicada:', key);
+    console.log(pizzaJson[key]);
+
+    c('.pizzaBig img').src = pizzaJson[key].img;
+    c('.pizzaInfo h1').innerHTML = pizzaJson[key].name;
+    c('.pizzaInfo--desc').innerHTML = pizzaJson[key].description;
+    
 <hr>
 <strong>#6: Compra de Pizzas - parte 6</strong> 
 
