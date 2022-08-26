@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 3: Conceitos Básicos</title>
+    <style>
+        .vermelho{ background-color: #f00;}
+        .verde{ background-color: #0f0;}
+        .azul{ background-color: #00f; color: #fff;}
+        
+        .codigo{
+            min-width: 80%; 
+            border:0; 
+            background: yellow;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+
+<pre>
+
+    <h3>Módulo 3: Conceitos Básicos</h3>
+    
+    #1: Evento de Clique
+    #2: Evento de teclado
+    #3: Mudança de estilos
+    #4: Array
+    #5: Objeto (1/2)
+    #6: Objeto (2/2)
+    #7: Projeto: Menu de Navegação
+    #8: Switch
+    #9: Loop For
+    #10: Loop While
+    #11: querySelector (querySelectorAll)
+
+
+    <hr>
+    <strong title="Clique para ver um alerta" onclick="alert(this.innerHTML)">#1: Evento de Clique</strong>
+
+        onclick
+        <input type="text" id="_1nome" placeholder="Digite seu nome para receber uma saudação">
+        <button onclick="document.getElementById('_1meuNome').innerHTML = 'Bom dia '+document.getElementById('_1nome').value">Salvar</button>
+        <div id="_1meuNome"></div>
+
+    <hr>
+    <strong>#2: Evento de teclado</strong> keyCode, ctrlkey, altkey, shiftkey
+
+        <script>
+            function digitou(e, printOnde = ""){
+                console.log('Digitou:', e);
+                if(printOnde != ""){
+                    document.querySelector(printOnde).innerHTML = e +' '+ e.keyCode +' '+ e.code;
+                }
+
+                if(e.ctrlKey == true){
+                    document.querySelector('#_2ctrlkey').checked = true;
+                }
+                if(e.altKey == true){
+                    document.querySelector('#_2altkey').checked = true;
+                }
+                if(e.shiftKey == true){
+                    document.querySelector('#_2shiftkey').checked = true;
+                }
+                if(e.keyCode == 13){
+                    document.querySelector('#_2enterkey').checked = true;
+                }
+
+                if(e.keyCode == 91 && e.keyCode == 13){
+                    _2clear();
+                }
+            }
+
+            function _2clear(){
+                document.querySelector('._2onkeydown_i').value = "";
+                document.querySelector('._2onkeydown').innerHTML = "";
+                document.querySelector('._2onkeyup_i').value = "";
+                document.querySelector('._2onkeyup').innerHTML = "";
+                document.querySelector('#_2ctrlkey').checked = false;
+                document.querySelector('#_2altkey').checked = false;
+                document.querySelector('#_2shiftkey').checked = false;
+                document.querySelector('#_2enterkey').checked = false;
+            }
+        </script>
+
+        onkeydown: <input class="_2onkeydown_i" type="text" onkeydown="digitou(event, '._2onkeydown');"><span class="_2onkeydown"></span>
+
+        onkeyup: <input class="_2onkeyup_i" type="text" onkeyup="digitou(event, '._2onkeyup');"><span class="_2onkeyup"></span>
+        <div>
+            <input type="checkbox" id="_2ctrlkey">ctrlkey
+            <input type="checkbox" id="_2altkey">altkey
+            <input type="checkbox" id="_2shiftkey">shiftlkey
+            <input type="checkbox" id="_2enterkey">enter
+        </div>
+        <button onclick="_2clear()">Clear</button>
+
+    <hr>
+    <strong>#3: Mudança de estilos</strong>
+
+        <div class="_3class">
+            document.querySelector('.class').classList.add('class');
+        </div>
+
+        <button onclick="vermelho()">Vermelho</button> <button onclick="verde()">Verde</button> <button onclick="azul()">Azul</button>
+
+        <script>
+            function vermelho(){
+                _3limpar();
+                document.querySelector('._3class').classList.add('vermelho');
+            }
+            function verde(){
+                _3limpar();
+                document.querySelector('._3class').classList.add('verde');
+            }
+            function azul(){
+                _3limpar();
+                document.querySelector('._3class').classList.add('azul');
+            }
+            function _3limpar(){
+                document.querySelector('._3class').classList.remove('vermelho');
+                document.querySelector('._3class').classList.remove('verde');
+                document.querySelector('._3class').classList.remove('azul');
+            }
+        </script>
+
+    <hr>
+    <strong>#4: Array</strong>
+
+        // let carro1 = 'fusca';
+        // let carro2 = 'corolla';
+        // let carro3 = 'ferrari';
+        let carros = [
+            'fusca', 
+            'ferrari', 
+            'corolla', 
+            'doblo',
+            function(){
+                console.log(".. executando uma função ..");
+            },
+            tipo = ['manual', 'automatico']
+        ];
+        console.log(carros, carros[0]);
+        console.log(carros[0]);
+        console.log(carros[4]());
+        console.log(carros[5]);
+
+        <script>
+            // let carro1 = 'fusca';
+            // let carro2 = 'corolla';
+            // let carro3 = 'ferrari';
+            let carros = [
+                'fusca', 
+                'ferrari', 
+                'corolla', 
+                'doblo',
+                function(){
+                    console.log(".. executando uma função ..");
+                },
+                tipo = ['manual', 'automatico']
+            ];
+            console.log(carros, carros[0]);
+            console.log(carros[0]);
+            console.log(carros[4]());
+            console.log(carros[5]);
+        </script>
+
+
+    <hr>
+    <strong>#5: Objeto (1/2)</strong>
+
+        <script>
+            let veiculo = {
+                tipo: 'moto',
+                marca: 'yamaha',
+                modelo: 'xt225',
+                ano: 2000,
+                ligado:false,
+                freiar: function(){
+                    console.log('.. parar: stop! ..');
+                },
+                ligar: function(){
+                    this.ligado = true;
+                    console.log('.. start: Run ..');
+                },
+                acelerar:function(){
+                    if(this.ligado){
+                        console.log("_ .. . aumentando a velocidade ..");
+                    }
+                },
+                desligar:function(){
+                    this.ligado = false;
+                    console.log(".. desligando o carro ..");
+                }
+            };
+            console.log( veiculo );
+            console.log( "veiculo['tipo']", veiculo['tipo'] );
+            console.log( "veiculo.tipo", veiculo.tipo );
+            veiculo.ligar();
+            veiculo.freiar();
+        </script>
+
+    <hr>
+    <strong>#6: Objeto (2/2)</strong>
+
+
+    <hr>
+    <strong>#7: Projeto: Menu de Navegação</strong>
+</pre>
+
+        <link rel="stylesheet" href="style.menu.css">
+        <aside>
+            <div id="menu-opener" onclick="menuToggle()">
+                <img src="menu.png" width="36">
+            </div>
+            <div id="menu-area">
+                <ul>
+                    <li>Home</li>
+                    <li>Sobre</li>
+                    <li>Contato</li>
+                </ul>
+            </div>
+        </aside>
+        <script>
+            function menuToggle(){
+                let menuArea = document.querySelector('#menu-area');
+
+                if(menuArea.classList.contains('menu-aberto') == true){
+                    menuArea.classList.remove('menu-aberto');
+                } else {
+                    menuArea.classList.add('menu-aberto');
+                }
+            }
+        </script>
+
+
+<pre>
+    <hr>
+    <strong>#8: Switch</strong>
+
+        <div class="_8dia"></div>
+
+
+        let _8dia = new Date();
+        let _8diaNome = "";
+        _8dia = _8dia.getDay();
+
+        switch (_8dia) {
+            case 1:
+                _8diaNome = 'Segunda-feira';
+                break;
+        
+            case 2:
+            _8diaNome = 'Terça-feira';
+            break;
+    
+            case 3:
+                _8diaNome = 'Quarta-feira';
+                break;
+        
+            case 4:
+            _8diaNome = 'Quinta-feira';
+            break;
+    
+            case 5:
+                _8diaNome = 'Sexta-feira';
+                break;
+        
+            case 6:
+            _8diaNome = 'Sábado';
+            break;
+    
+            case 0:
+                _8diaNome = 'Domingo';
+                break;
+        }
+
+        document.querySelector('._8dia').innerHTML = `Hoje é ${_8diaNome}`;
+
+        <script>
+            let _8dia = new Date();
+            let _8diaNome = "";
+            _8dia = _8dia.getDay();
+
+            switch (_8dia) {
+                case 1:
+                    _8diaNome = 'Segunda-feira';
+                    break;
+            
+                case 2:
+                _8diaNome = 'Terça-feira';
+                break;
+        
+                case 3:
+                    _8diaNome = 'Quarta-feira';
+                    break;
+            
+                case 4:
+                _8diaNome = 'Quinta-feira';
+                break;
+        
+                case 5:
+                    _8diaNome = 'Sexta-feira';
+                    break;
+            
+                case 6:
+                _8diaNome = 'Sábado';
+                break;
+        
+                case 0:
+                    _8diaNome = 'Domingo';
+                    break;
+            }
+
+            document.querySelector('._8dia').innerHTML = `Hoje é ${_8diaNome}`;
+        </script>
+
+        <input type="text" id="_8finalSemana">
+
+        let diaClassificacao = "";
+
+        switch (_8dia) {
+            case 0:
+            case 6:
+                diaClassificacao = "É Final de semana";
+                break;
+
+            default:
+                diaClassificacao = "É dia de semana";
+                break;
+        }
+        document.querySelector('#_8finalSemana').value = `Hoje é ${diaClassificacao}`;
+        <script>
+            let diaClassificacao = "";
+
+            switch (_8dia) {
+                case 0:
+                case 6:
+                    diaClassificacao = "É Final de semana";
+                    break;
+
+                default:
+                    diaClassificacao = "É dia de semana";
+                    break;
+            }
+            document.querySelector('#_8finalSemana').value = `Hoje é ${diaClassificacao}`;
+        </script>
+
+
+    <hr>
+    <strong>#9: Loop For</strong>
+
+        - FOR LOOP
+        - FOR LOOP ARRAY
+
+        for(){
+
+        }
+
+        <textarea class="codigo" id="_9demo"></textarea>
+        <textarea class="codigo" id="_9equipamentos"></textarea>
+
+        <script>
+            let _9texto = "";
+
+            for(let i=0; i<10; i++){
+                _9texto = _9texto + i + '\r';
+            }
+
+            document.querySelector('#_9demo').innerHTML = _9texto;
+
+
+            let equipamentos = ['skate', 'vassoura', 'caixa de som', 'joelheira', 'capacete'];
+
+            _9texto = "";
+
+            for(let i in equipamentos){
+                _9texto += equipamentos[i] + '\r';
+            }
+
+            document.querySelector('#_9equipamentos').innerHTML = _9texto;
+
+        </script>
+            let _9texto = "";
+
+            for(let i=0; i<10; i++){
+                _9texto = _9texto + i + '\r';
+            }
+
+            document.querySelector('#_9demo').innerHTML = _9texto;
+
+
+            let equipamentos = ['skate', 'vassoura', 'caixa de som', 'joelheira', 'capacete'];
+
+            _9texto = "";
+
+            for(let i in equipamentos){
+                _9texto += equipamentos[i] + '\r';
+            }
+            
+            document.querySelector('#_9equipamentos').innerHTML = _9texto;
+
+    <hr>
+    <strong>#10: Loop While</strong>
+
+        <textarea class="codigo" id="_10while"></textarea>
+
+
+        let contagem = 0;
+        let _10html = "";
+
+        while(contagem < 10){
+            _10html += 'Número ' + contagem + '\r';
+            contagem++;
+        }
+
+        document.querySelector('#_10while').innerHTML = _10html;
+
+        <script>
+            let contagem = 0;
+            let _10html = "";
+
+            while(contagem < 10){
+                _10html += 'Número ' + contagem + '\r';
+                contagem++;
+            }
+
+            document.querySelector('#_10while').innerHTML = _10html;
+        </script>
+
+    <hr>
+    <strong>#11: querySelector (querySelectorAll)</strong>
+    </pre>
+
+    <h5 class="lista_query_tit">Ferrametas</h5>
+    <ul class="lista_query">
+        <li>multímetro</li>
+        <li>chave de fenda</li>
+        <li>alicate</li>
+        <li>martelo</li>
+        <li>luva</li>
+        <li>óculos</li>
+    </ul>
+
+    <h5 class="lista_query_tit">Área de atuação</h5>
+    <ol class="lista_query">
+        <li>Residencial</li>
+        <li>Industrial</li>
+    </ol>
+
+    <pre>
+        let ulli = document.querySelectorAll('ul.lista_query li');
+        for(let i in ulli){
+            ulli[i].style = 'border: 1px solid #0f0';
+        }
+    </pre>
+
+    <style>
+        .borda-verde{
+            border: '1px solid #000';
+        }
+    </style>
+    <script>
+        console.log(document.querySelector('.lista_query'));
+        document.querySelector('.lista_query').style.border = '1px solid #000';
+        let ulli = document.querySelectorAll('ul.lista_query li');
+        for(let i in ulli){
+            ulli[i].style = 'border: 1px solid #0f0';
+        }
+        console.log(document.querySelectorAll('.lista_query'));
+
+        console.log(document.querySelector('.lista_query li'));
+        document.querySelector('ol.lista_query').style.border = '1px solid #f00';
+        console.log(document.querySelectorAll('.lista_query li'));
+
+        console.log(document.querySelector('body'));
+    </script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/autosize.js/4.0.2/autosize.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            autosize(document.querySelectorAll('.codigo'));
+        }, false);
+    </script>
+</body>
+</html>
+
+

@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 1: (NOVO) Primeiros Passos novo</title>
+</head>
+<body>
+
+<pre>
+
+    <h2>Módulo 1: (NOVO) Primeiros Passos novo</h2>
+    
+    <hr>
+    <strong>#1: Introdução ao Javascript</strong>
+
+        é uma linguagem de programação utilizada para mudar a 
+        estrutura de alguma coisas.
+
+        possivel rodam em: 
+        - servidor
+        - chips / arduino
+
+        antigamente rodava basicamente apenas em navegadores
+        utilizado apenas para fazer sites
+
+    <hr>
+    <strong>#2: Como vamos programar JS</strong>
+
+        avançar gradativamente
+        editor de código 
+        executar no navegador 
+        ainda não vamos manipular tela 
+        usar CONSOLE: CMD + ALT + J
+
+
+    <hr>
+    <strong>#3: Inserindo o arquivo JS na página</strong>
+
+        script src="PATH" /script
+
+        ordem de ser carregado: no header, no bottom
+
+        <textarea readonly style="width: 100%; border:0; background: yellow;">
+            <script src="PATH"></script>
+        </textarea>
+
+    <hr>
+    <strong>#4: Hello World</strong>
+
+        alert('Hello World')
+
+    <hr>
+    <strong>#5: Variáveis</strong>
+
+        let nome = "João"
+        let idade = 74
+
+    <hr>
+    <strong>#6: Tipos de dados</strong>
+
+        string: let nome = 'Mércia'
+        number: let idade = 90
+        boolean: true / false
+        array: (é uma variável que dentro dela tem mais de um tipo)
+        let lista = ['ovo', 'massa', 'fruta']
+
+        objeto: {}
+        let nomeCompleto = {
+            nome: 'Kaiane',
+            idade: 90
+        }
+
+        typeof var
+
+
+    <hr>
+    <strong>#7: Comentário no código</strong>
+
+        //
+        /*
+        comenário de bloco
+        */
+
+
+    <hr>
+    <strong>#8: Exercício de variáveis #1</strong>
+
+        1) crie uma variável para armazenar o nome do
+        carro e ponha o valor Ferrari. E exiba-a.
+
+        2) Crie uma variável para armazenar o preço 
+        do bolo que custa R$ 19,99. Exibir na tela.
+
+        3) Corrigir o código a seguir, exbir.
+        let "cidade" = São Paulo
+
+        script 
+            let carro = 'Ferrari'
+            console.log(carro)
+
+            let preco = 19,99
+            console.log(preco)
+
+            let cidade = 'São Paulo'
+            console.log(cidade)
+
+
+    <hr>
+    <strong>#9: Ponto e vírgula</strong>
+
+        é obrigatório quando usar instruções em uma linha só. 
+        se não usar o ';' aparecerá um erro de sintaxe.
+
+        o ';' define o final da linha / instrução.
+
+
+    <hr>
+    <strong>#10: let, const, var</strong>
+
+        let: funciona apenas no contexto em que foi criada.
+
+        const: para valores que não mudam
+
+        var: funciona em qualquer contexto.
+
+    <hr>
+    <strong>#11: Operações em variáveis</strong>
+
+        <script>
+            let num11 = 2;
+            num11 = num11 + 2;
+            console.log('num11: ', num11);
+
+            let nome11 = 'beto';
+            let sobreNome11 = 'side';
+            let nomeCompleto11 = nome11+' '+sobreNome11;
+            console.log('nomeCompleto11', nomeCompleto11);
+
+            let _n111 = 10;
+            let _n112 = 15;
+            let _n113 = 5;
+
+            let _soma11 = _n111 + _n112 - _n113;
+            console.log('_soma11', _soma11);
+
+            console.log(nome11 + _soma11);
+        </script>
+            let num11 = 2;
+            num11 = num11 + 2;
+            console.log('num11: ', num11);
+
+            let nome11 = 'beto';
+            let sobreNome11 = 'side';
+            let nomeCompleto11 = nome11+' '+sobreNome11;
+            console.log('nomeCompleto11', nomeCompleto11);
+
+            let _n111 = 10;
+            let _n112 = 15;
+            let _n113 = 5;
+
+            let _soma11 = _n111 + _n112 - _n113;
+            console.log('_soma11', _soma11);
+
+            console.log(nome11 + _soma11);
+
+
+
+    <hr>
+    <strong>#12: String e Template String</strong>
+
+        <script>
+            function capitalizeFirstLetter(string) {
+                return string.charAt(0).toUpperCase() + string.slice(1);
+            }
+
+            let nome12 = 'beto';
+            let sobreNome12 = 'side';
+            let nomeCompleto12 = nome12+' '+sobreNome12;
+            console.log('nomeCompleto12:', capitalizeFirstLetter(nomeCompleto12));
+
+            let templateString_Nome = `${nome12} ${sobreNome12}, gosta de esporte.`;
+            console.log('templateString_Nome:', templateString_Nome);
+            
+        </script>
+            function capitalizeFirstLetter(string) {
+                return string.charAt(0).toUpperCase() + string.slice(1);
+            }
+
+            let nome12 = 'beto';
+            let sobreNome12 = 'side';
+            let nomeCompleto12 = nome12+' '+sobreNome12;
+            console.log('nomeCompleto12:', capitalizeFirstLetter(nomeCompleto12));
+
+            let templateString_Nome = `${nome12} ${sobreNome12}, gosta de esporte.`;
+            console.log('templateString_Nome:', templateString_Nome);
+
+
+    <hr>
+    <strong>#13: Condicional If / else</strong>
+
+        if( condição ){
+
+        } else {
+
+        }
+
+        >
+        <
+        ==
+        >= 
+        <=
+
+
+    <hr>
+    <strong>#14: Condicional == e ===</strong>
+
+        == :
+        e 
+        === : ele é mais restritivo. precisa ser do tipo
+
+        Colocar como prioridade de uso no dia a dia de programação / trabalho 
+        e usar o ===, caso não seja necessário pode usar o ==
+
+
+    <hr>
+    <strong>#15: Multi-condicionais (&& e ||)</strong>
+
+        if( idade >= 18 && idade < 60 ){
+            console.log 'Você é um adulto'
+        }
+
+
+    <hr>
+    <strong>#16: Condicional Dupla (if else)</strong>
+
+        if( idade < 18 ){
+            console.log 'criança'
+        } else if ( idade >= 18 && idade < 60 ){
+            console.log 'adulto'
+        } else if ( idade >= 60 ){
+            console.log 'idoso'
+        }
+
+
+    <hr>
+    <strong>#17: Desmistificando o IF</strong>
+
+        if( TRUE / FALSE ){
+            ...
+        }
+
+        let idade = 36
+        let adulto = idade >= 18 && idade < 60
+        if(adulto){
+            console.log('é adulto')
+        }
+
+        console.log(idade > 18)
+
+
+    <hr>
+    <strong>#18: Exercício de condicional #2</strong>
+
+        // substitua o @ pela condicional correta para que 
+        o resultado seja true
+        let x = 10
+        let y = 5
+        console.log(x @ y)
+        <script>
+            let _18x = 10
+            let _18y = 5
+            console.log('_18x > _18y', _18x > _18y)
+        </script>
+
+        
+        // substitua o @ pela condicional correta para que 
+        o resultado seja false
+        let w = '10'
+        let z = 10
+        console.log(w @ z)
+        <script>
+            let _18w = '10'
+            let _18z = 10
+            console.log('_18w === _18z', _18w === _18z)
+        </script>
+
+        
+        // substitua o @ pela condicional correta para que 
+        o resultado seja true
+        let _18a = '10'
+        let _18b = 10
+        console.log(_18a @ _18b)
+        <script>
+            let _18a = '10';
+            let _18b = 10;
+            console.log('_18a == _18b:',_18a == _18b);
+        </script>
+
+        
+        // crie uma condicional para verificar se o preco 
+        da carne esta barato ou caro. ps: até 45 está barato
+        let preco = 40.3
+
+        if(preco <= 45){
+            console.log("O preço esá barato")
+        } else {
+            console.log("O preço esá barato")
+        }
+
+        <script>
+            let preco = 40.3
+    
+            if(preco <= 45){
+                console.log("O preço esá barato")
+            } else {
+                console.log("O preço esá barato")
+            }
+        </script>
+
+    <hr>
+    <strong>#19: Condicional Ternário</strong>
+
+        um if em uma linha
+
+        let isMember = true;
+        let shipping = isMember ? 2 : 10;
+
+        console.log('Frete:', shipping);
+        console.log( isMember ? 'Você é membro' : 'Você não é membro');
+        console.log( (isMember) ? 'Você é membro' : 'Você não é membro');
+
+        <script>
+
+            let isMember = true;
+            let shipping = isMember ? 2 : 10;
+    
+            console.log('Frete:', shipping);
+            console.log( isMember ? 'Você é membro' : 'Você não é membro');
+            console.log( (isMember) ? 'Você é membro' : 'Você não é membro');
+
+        </script>
+
+    <hr>
+    <strong>#20: Switch</strong>
+
+        policial branco
+        bombeiro vermelho
+        exercito verde
+
+        let profissao = ""
+
+        switch( profissao ){
+            case 'policial':
+                console.log('policial', 'branco');
+                break;
+
+            case 'bombeiro':
+                console.log('bombeiro', 'vermelho');
+                break;
+
+            case 'exercito':
+                console.log('exercito', 'verde');
+                break;
+
+            default:
+                console.log('default', 'pode escolher a cor')
+                break;
+        }
+
+        <script>
+            /*
+            policial branco
+            bombeiro vermelho
+            exercito verde
+            */ 
+
+            // let profissao = "";
+            // let profissao = "policial";
+            // let profissao = "bombeiro";
+            let profissao = "exercito";
+
+            switch( profissao ){
+                case 'policial':
+                    console.log('policial', 'branco');
+                    break;
+
+                case 'bombeiro':
+                    console.log('bombeiro', 'vermelho');
+                    break;
+
+                case 'exercito':
+                    console.log('exercito', 'verde');
+                    break;
+
+                default:
+                    console.log('default', 'pode escolher a cor')
+                    break;
+            }
+        </script>
+
+
+    
+</pre> 
+
+</body>
+</html>

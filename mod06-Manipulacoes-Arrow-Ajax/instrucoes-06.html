@@ -1,0 +1,1274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 6: Manipulações, Arrow, Ajax, etc</title>
+</head>
+<body>
+    <h2>Módulo 6: Manipulações, Arrow, Ajax, etc</h2>
+
+    <pre>
+        <a href="https://alunos.b7web.com.br/curso/javascript/metodos-de-string-1" target="_blank">https://alunos.b7web.com.br/curso/javascript/metodos-de-string-1</a>
+
+        #1: Métodos de String (1/3)
+        #2: Métodos de String (2/3)
+        #3: Métodos de String (3/3)
+        #4: Métodos de Numbers
+        #5: Métodos de Arrays (1/4)
+        #6: Métodos de Arrays (2/4)
+        #7: Métodos de Arrays (3/4)
+        #8: Métodos de Arrays (4/4)
+        #9: Datas (1/3)
+        #10: Datas (2/3)
+        #11: Datas (3/3)
+        #12: Matemática
+        #13: Intervalos (1/2)
+        #14: Intervalos (2/2)
+        #15: Template Strings
+        #16: Descontruindo Objetos (1/2)
+        #17: Descontruindo Objetos (2/2)
+        #18: Descontruindo Arrays
+        #19: Arrow Functions
+        #20: Operador Spread
+        #21: Operador Rest
+        #22: Includes e Repeat
+        #23: Objeto: Key, Values e Entries
+        #24: String, padStart, padEnd
+        
+        
+        <hr>
+        <strong>#1: Métodos de String (1/3)</strong> 
+            
+            let nome = 'Gustavo Souza Kaiane Cordeiro';
+            console.log('nome:', nome);
+            console.log('length:', nome.length);
+            console.log('nome.indexOf("Cor"):', nome.indexOf('Cor'));
+            <script>
+                let nome = 'Gustavo Souza Kaiane Cordeiro';
+                console.log('nome:', nome);
+                console.log('length:', nome.length);
+                console.log('nome.indexOf("Cor"):', nome.indexOf('Cor'));
+            </script>
+
+        <hr>
+        <strong>#2: Métodos de String (2/3)</strong> 
+
+            substr é o mais completo.
+            <script>
+                console.log('slice:', nome.slice(0,7));
+                console.log('slice (-):', nome.slice(-15,-10));
+                console.log('substr(inicio, qtd):', nome.substr(8, 5));
+                console.log('substr(-4, 2):', nome.substr(-4, 2));
+                console.log('substring(inicio, fim):', nome.substring(13, 28));
+            </script>
+
+            console.log('slice:', nome.slice(0,7));
+            console.log('slice (-):', nome.slice(-15,-10));
+            console.log('substr(inicio, qtd):', nome.substr(8, 5));
+            console.log('substr(-4, 2):', nome.substr(-4, 2));
+            console.log('substring(inicio, fim):', nome.substring(13, 28));
+
+        <hr>
+        <strong>#3: Métodos de String (3/3)</strong> 
+
+            automoveisPreferencia.replace(o que, pelo que, onde);
+            <script>
+                let automoveisPreferencia = "Eu gosto de carros";
+                let maisAutomoveis = ', motos, bicicletas, helicopteros etc';
+                console.log(automoveisPreferencia.replace('carros', 'motos', automoveisPreferencia));
+                console.log(automoveisPreferencia.toUpperCase());
+                console.log(automoveisPreferencia.toLowerCase());
+                console.log(automoveisPreferencia.concat(maisAutomoveis));
+
+                let nomeEspacos = "    surf    ";
+                console.log(nomeEspacos.length, nomeEspacos);
+                console.log(nomeEspacos.trim().length, nomeEspacos.trim());
+
+                let char_substr = 'surf_tecnologia_familia_saude_musica';
+                console.log('>> char_substr.charAt(0)');
+                console.log(char_substr.charAt(0));
+                console.log(char_substr.charAt(5));
+                console.log('index:'+char_substr.indexOf('t'), char_substr.charAt(char_substr.indexOf('t')));
+                console.log('index:'+char_substr.indexOf('fa'), char_substr.charAt(char_substr.indexOf('fa')));
+                console.log('index:'+char_substr.indexOf('sa'), char_substr.charAt(char_substr.indexOf('sa')));
+                console.log('index:'+char_substr.indexOf('mu'), char_substr.charAt(char_substr.indexOf('mu')));
+
+                console.log('>> substr(a partir de onde, quantos)');
+                console.log('index:'+char_substr.indexOf('su'), char_substr.substr(char_substr.indexOf('su'), 4));
+                console.log('index:'+char_substr.indexOf('tec'), char_substr.substr(char_substr.indexOf('tec'), ((char_substr.indexOf('fam')-1) - char_substr.indexOf('tec'))  ));
+                console.log('index:'+char_substr.indexOf('mu'), char_substr.substr(char_substr.indexOf('mu'), 6));
+                console.log('index:'+char_substr.indexOf('fa'), char_substr.substr(char_substr.indexOf('fa'), 7));
+                console.log('index:'+char_substr.indexOf('sau'), char_substr.substr(char_substr.indexOf('sau'), ((char_substr.indexOf('musica')-1) - char_substr.indexOf('saude'))   ));
+                console.log('index:'+char_substr.indexOf('musica'), char_substr.substr(char_substr.indexOf('musica')));
+
+                console.log('char_substr:', char_substr );
+                console.log('char_substr[0]', char_substr[0] );
+                console.log('char_substr[1]', char_substr[1] );
+                console.log('char_substr[2]', char_substr[2] );
+                console.log('char_substr[3]', char_substr[3] );
+
+
+                char_substr_split = char_substr.split('_');
+                console.log('char_substr_split:', char_substr_split);
+                console.log('char_substr_split length:', char_substr_split.length);
+                console.log('char_substr_split[0]:', char_substr_split[0]);
+                console.log('char_substr_split[1]:', char_substr_split[1]);
+                console.log('char_substr_split[2]:', char_substr_split[2]);
+                console.log('char_substr_split[3]:', char_substr_split[3]);
+                console.log('char_substr_split[4]:', char_substr_split[4]);
+            </script>
+            let automoveisPreferencia = "Eu gosto de carros";
+            let maisAutomoveis = ', motos, bicicletas, helicopteros etc';
+            console.log(automoveisPreferencia.replace('carros', 'motos', automoveisPreferencia));
+            console.log(automoveisPreferencia.toUpperCase());
+            console.log(automoveisPreferencia.toLowerCase());
+            console.log(automoveisPreferencia.concat(maisAutomoveis));
+
+            let nomeEspacos = "    surf    ";
+            console.log(nomeEspacos.length, nomeEspacos);
+            console.log(nomeEspacos.trim().length, nomeEspacos.trim());
+
+            let char_substr = 'surf_tecnologia_familia_saude_musica';
+            console.log('>> char_substr.charAt(0)');
+            console.log(char_substr.charAt(0));
+            console.log(char_substr.charAt(5));
+            console.log('index:'+char_substr.indexOf('t'), char_substr.charAt(char_substr.indexOf('t')));
+            console.log('index:'+char_substr.indexOf('fa'), char_substr.charAt(char_substr.indexOf('fa')));
+            console.log('index:'+char_substr.indexOf('sa'), char_substr.charAt(char_substr.indexOf('sa')));
+            console.log('index:'+char_substr.indexOf('mu'), char_substr.charAt(char_substr.indexOf('mu')));
+
+            console.log('>> substr(a partir de onde, quantos)');
+            console.log('index:'+char_substr.indexOf('su'), char_substr.substr(char_substr.indexOf('su'), 4));
+            console.log('index:'+char_substr.indexOf('tec'), char_substr.substr(char_substr.indexOf('tec'), ((char_substr.indexOf('fam')-1) - char_substr.indexOf('tec'))  ));
+            console.log('index:'+char_substr.indexOf('mu'), char_substr.substr(char_substr.indexOf('mu'), 6));
+            console.log('index:'+char_substr.indexOf('fa'), char_substr.substr(char_substr.indexOf('fa'), 7));
+            console.log('index:'+char_substr.indexOf('sau'), char_substr.substr(char_substr.indexOf('sau'), ((char_substr.indexOf('musica')-1) - char_substr.indexOf('saude'))   ));
+            console.log('index:'+char_substr.indexOf('musica'), char_substr.substr(char_substr.indexOf('musica')));
+
+            console.log('char_substr:', char_substr );
+            console.log('char_substr[0]', char_substr[0] );
+            console.log('char_substr[1]', char_substr[1] );
+            console.log('char_substr[2]', char_substr[2] );
+            console.log('char_substr[3]', char_substr[3] );
+
+
+            char_substr_split = char_substr.split('_');
+            console.log('char_substr_split:', char_substr_split);
+            console.log('char_substr_split length:', char_substr_split.length);
+            console.log('char_substr_split[0]:', char_substr_split[0]);
+            console.log('char_substr_split[1]:', char_substr_split[1]);
+            console.log('char_substr_split[2]:', char_substr_split[2]);
+            console.log('char_substr_split[3]:', char_substr_split[3]);
+            console.log('char_substr_split[4]:', char_substr_split[4]);
+        <hr>
+        <strong>#4: Métodos de Numbers</strong> 
+
+            Tem 4 principais:
+
+            nomeVariavel.toString()
+            nomeVariavel.toFixed(5)
+            nomeVariavel.parseInt(nro)
+            nomeVariavel.parseFloat(nro)
+
+            <script>
+                let numero = 10;
+                let resultado = numero;
+
+                console.log('xxxx');
+                console.log('resultado:', resultado);
+                console.log('resultado.toString():', resultado.toString());
+                console.log('resultado.toString() + 5:', resultado.toString() + 5);
+                console.log('resultado + 5:', resultado + 5);
+
+                numeroDecimal = 9.123456789;
+                console.log('numeroDecimal.toFixed(4)', numeroDecimal.toFixed(4), 'obs: arredondou pra cima o 4' );
+
+                numero = '25.8';
+                console.log( numero + 5 );
+                console.log('parseInt(numero) + 5:', parseInt(numero) + 5 );
+                console.log('parseFloat(numero) + 5:', parseFloat(numero) + 5 );
+            </script>
+            let numero = 10;
+            let resultado = numero;
+
+            console.log('xxxx');
+            console.log('resultado:', resultado);
+            console.log('resultado.toString():', resultado.toString());
+            console.log('resultado.toString() + 5:', resultado.toString() + 5);
+            console.log('resultado + 5:', resultado + 5);
+
+            numeroDecimal = 9.123456789;
+            console.log('numeroDecimal.toFixed(4)', numeroDecimal.toFixed(4), 'obs: arredondou pra cima o 4' );
+
+            numero = '25.8';
+            console.log( numero + 5 );
+            console.log('parseInt(numero) + 5:', parseInt(numero) + 5 );
+            console.log('parseFloat(numero) + 5:', parseFloat(numero) + 5 );
+
+        <hr>
+        <strong>#5: Métodos de Arrays (1/4)</strong> 
+
+            <script>
+                let listaAssuntos = ['tecnologia', 'esporte', 'saúde', 'família', 'finanças'];
+                console.log( listaAssuntos );
+                console.log('.toString()', listaAssuntos.toString() );
+                console.log('.join(\'=\')', listaAssuntos.join('=') );
+                console.log('.indexOf("esporte")', listaAssuntos.indexOf('esporte') );
+                console.log('.indexOf("blablabla")', listaAssuntos.indexOf('blablabla') );
+
+                lista_pop = listaAssuntos.pop();
+                console.log("lista_pop:", lista_pop);
+                console.log("listaAssuntos.pop():", listaAssuntos);
+                
+                lista_shift = listaAssuntos.shift();
+                console.log("lista_shift:", lista_shift);
+                console.log("listaAssuntos.shift():", listaAssuntos);
+                
+                lista_push = listaAssuntos.push('cultura');
+                console.log("listaAssuntos.push('cultura'):", listaAssuntos);
+                listaAssuntos.push('infra-estrutura');
+                listaAssuntos.push('recursos');
+                console.log("listaAssuntos:", listaAssuntos);
+                console.log("listaAssuntos.length:", listaAssuntos.length);
+            </script>
+            .toString()
+            .join('=')
+            .indexOf('esporte')
+            .pop()
+            .shift()
+            .push('cultura')
+            .length
+
+            let listaAssuntos = ['tecnologia', 'esporte', 'saúde', 'família', 'finanças'];
+            console.log( listaAssuntos );
+            console.log('.toString()', listaAssuntos.toString() );
+            console.log('.join(\'=\')', listaAssuntos.join('=') );
+            console.log('.indexOf("esporte")', listaAssuntos.indexOf('esporte') );
+            console.log('.indexOf("blablabla")', listaAssuntos.indexOf('blablabla') );
+
+            lista_pop = listaAssuntos.pop();
+            console.log("lista_pop:", lista_pop);
+            console.log("listaAssuntos.pop():", listaAssuntos);
+
+            lista_shift = listaAssuntos.shift();
+            console.log("lista_shift:", lista_shift);
+            console.log("listaAssuntos.shift():", listaAssuntos);
+
+            lista_push = listaAssuntos.push('cultura');
+            console.log("listaAssuntos.push('cultura'):", listaAssuntos);
+            listaAssuntos.push('infra-estrutura');
+            listaAssuntos.push('recursos');
+            console.log("listaAssuntos:", listaAssuntos);
+            console.log("listaAssuntos.length:", listaAssuntos.length);
+
+        <hr>
+        <strong>#6: Métodos de Arrays (2/4)</strong> 
+
+            <script>
+                delete listaAssuntos[1];
+                console.log("delete listaAssuntos[1]",listaAssuntos);
+
+                listaAssuntos.splice(1,1);
+                console.log("listaAssuntos.splice(1,1):",listaAssuntos);
+
+                listaAssuntos.splice(3,2);
+                console.log("listaAssuntos.splice(3,2):",listaAssuntos);
+
+                listaDois = ['computador', 'skate','celular', 'bateria', 'moto'];
+                array_resultado = listaAssuntos.concat(listaDois);
+                console.log("listaAssuntos.concat(listaDois):", array_resultado);
+
+                array_resultado.sort();
+                console.log("array_resultado.sort()", array_resultado );
+                console.log("array_resultado.reverse()", array_resultado.reverse() );
+            </script>
+            delete listaAssuntos[1]
+            .splice(1,1)
+            .concat(listaDois)
+            .sort()
+            .reverse()
+
+            delete listaAssuntos[1];
+            console.log("delete listaAssuntos[1]",listaAssuntos);
+
+            listaAssuntos.splice(1,1);
+            console.log("listaAssuntos.splice(1,1):",listaAssuntos);
+
+            listaAssuntos.splice(3,2);
+            console.log("listaAssuntos.splice(3,2):",listaAssuntos);
+
+            listaDois = ['computador', 'skate','celular', 'bateria', 'moto'];
+            array_resultado = listaAssuntos.concat(listaDois);
+            console.log("listaAssuntos.concat(listaDois):", array_resultado);
+
+            array_resultado.sort();
+            console.log("array_resultado.sort()", array_resultado );
+            console.log("array_resultado.reverse()", array_resultado.reverse() );
+
+        <hr>
+        <strong>#7: Métodos de Arrays (3/4)</strong> 
+
+            <script>
+                array_numeros = [3, 9, 6, 2, 4, 55];
+                array_numeros_resultado = [];
+                array_numeros_resultado = array_numeros.map(function(item){
+                    return item * 2;
+                });
+                console.log('array_numeros:', array_numeros);
+                console.log('array_numeros_resultado map():', array_numeros_resultado);
+
+                array_res_3 = [];
+                for(i in array_numeros){
+                    array_res_3.push(array_numeros[i] * 2) ;
+                }
+                console.log('array_res_3 for loop:', array_res_3);
+
+                array_res_4 = [];
+                array_res_4 = array_numeros.filter(function(item){
+                    if(item > 10){
+                        return true;
+                    } else {
+                        return false;
+                    }
+                });
+                console.log('array_res_4 filter():', array_res_4);
+
+                array_res_5 = [];
+                array_res_5 = array_numeros.every(function(item){
+                    if(item > 10){
+                        return true;
+                    } else {
+                        return false;
+                    }
+                });
+                console.log('array_res_5 every():', array_res_5);
+
+
+                array_res_6 = [];
+                array_res_6 = array_numeros.some(function(item){
+                    if(item > 10){
+                        return true;
+                    } else {
+                        return false;
+                    }
+                });
+                console.log('array_res_6 some():', array_res_6);
+
+            </script>
+            .map(function(){})
+            .filter(function(){})
+            .every(function(){})
+            .some(function(){})
+
+
+            array_numeros = [3, 9, 6, 2, 4, 55];
+            array_numeros_resultado = [];
+            array_numeros_resultado = array_numeros.map(function(item){
+                return item * 2;
+            });
+            console.log('array_numeros:', array_numeros);
+            console.log('array_numeros_resultado map():', array_numeros_resultado);
+
+            array_res_3 = [];
+            for(i in array_numeros){
+                array_res_3.push(array_numeros[i] * 2) ;
+            }
+            console.log('array_res_3 for loop:', array_res_3);
+
+            array_res_4 = [];
+            array_res_4 = array_numeros.filter(function(item){
+                if(item > 10){
+                    return true;
+                } else {
+                    return false;
+                }
+            });
+            console.log('array_res_4 filter():', array_res_4);
+
+            array_res_5 = [];
+            array_res_5 = array_numeros.every(function(item){
+                if(item > 10){
+                    return true;
+                } else {
+                    return false;
+                }
+            });
+            console.log('array_res_5 every():', array_res_5);
+
+
+            array_res_6 = [];
+            array_res_6 = array_numeros.some(function(item){
+                if(item > 10){
+                    return true;
+                } else {
+                    return false;
+                }
+            });
+            console.log('array_res_6 some():', array_res_6);
+
+        <hr>
+        <strong>#8: Métodos de Arrays (4/4)</strong> 
+
+            <script>
+                lista8_barbearia = ['tesoura', 'máquina', 'pente', 'máquina de café', 'espelho'];
+                console.log('lista8_barbearia', lista8_barbearia);
+
+                lista8_resultado = lista8_barbearia.find(function(item){
+                //    return (item == 13) ;
+                //    return (item == 'tesoura') ;
+                //    return (item == 'pente') ;
+                   return (item == 'máquina de café') ;
+                });
+                console.log("lista8_resultado find()", lista8_resultado);
+
+                lista8_resultado = lista8_barbearia.findIndex(function(item){
+                   return (item == 'máquina de café') ;
+                });
+                console.log("lista8_resultado findIndex()", lista8_resultado);
+
+                lista8_primos = [
+                    {id:1, nome:'Gustavo', cidade:'Bordeux'},
+                    {id:2, nome:'Rafael', cidade:'São José'},
+                    {id:3, nome:'Bruno', cidade:'Rio de Janeiro'},
+                    {id:4, nome:'Eduardo', cidade:'Lorena'}
+                ];
+                lista8_resultado = lista8_primos.find(function(item){
+                    // return (item.id == 2);
+                    // return (item.nome == 'Eduardo');
+                    return (item.cidade == 'Bordeux');
+                });
+                console.log(lista8_resultado);
+
+            </script>
+            .find()
+            .findIndex()
+
+
+            lista8_barbearia = ['tesoura', 'máquina', 'pente', 'máquina de café', 'espelho'];
+            console.log('lista8_barbearia', lista8_barbearia);
+
+            lista8_resultado = lista8_barbearia.find(function(item){
+            //    return (item == 13) ;
+            //    return (item == 'tesoura') ;
+            //    return (item == 'pente') ;
+               return (item == 'máquina de café') ;
+            });
+            console.log("lista8_resultado find()", lista8_resultado);
+
+            lista8_resultado = lista8_barbearia.findIndex(function(item){
+               return (item == 'máquina de café') ;
+            });
+            console.log("lista8_resultado findIndex()", lista8_resultado);
+
+            lista8_primos = [
+                {id:1, nome:'Gustavo', cidade:'Bordeux'},
+                {id:2, nome:'Rafael', cidade:'São José'},
+                {id:3, nome:'Bruno', cidade:'Rio de Janeiro'},
+                {id:4, nome:'Eduardo', cidade:'Lorena'}
+            ];
+            lista8_resultado = lista8_primos.find(function(item){
+                // return (item.id == 2);
+                // return (item.nome == 'Eduardo');
+                return (item.cidade == 'Bordeux');
+            });
+            console.log(lista8_resultado);
+
+        <hr>
+        <strong>#9: Datas (1/3)</strong> 
+
+            <script>
+                data1 = new Date();
+                console.log( data1 );
+                console.log( data1.toDateString() );
+                console.log( data1.toUTCString() );
+
+                data12 = new Date(2021, 10, 4, 18, 30, 30); 
+                // 7 parametros: ano, mes, dia, hora, minuto, segundo, gmt
+                // janeiro = 0
+                // dezembro = 11
+                // dia começa do 1
+                console.log( data12.toString() );
+                data12 = new Date(2022, 10, 4, 18, 30, 30); 
+                console.log( data12.toString() );
+                data12 = new Date(2023, 10, 4, 18, 30, 30); 
+                console.log( data12.toString() );
+                data12 = new Date(1974, 10, 4, 18, 30, 30); 
+                console.log( data12.toString() );
+
+                // date string
+                data12 = new Date('1946-03-30, 18:30:30'); 
+                console.log( data12.toString() );
+
+                // minimo necessario, o ano e o mes
+                data12 = new Date(2022, 10); 
+                console.log( data12.toString() );
+
+                // quando comecou tudo
+                data12 = new Date(0); 
+                console.log( data12.toString() );
+
+                // milisegundos
+                data12 = new Date(321654987); 
+                console.log( data12.toString() );
+                data12 = new Date(-321654987); 
+                console.log( data12.toString() );
+
+                // timestamp é o valor da data em milisegundos
+            </script>
+            data1 = new Date();
+            console.log( data1 );
+            console.log( data1.toDateString() );
+            console.log( data1.toUTCString() );
+
+            data12 = new Date(2021, 10, 4, 18, 30, 30); 
+            // 7 parametros: ano, mes, dia, hora, minuto, segundo, gmt
+            // janeiro = 0
+            // dezembro = 11
+            // dia começa do 1
+            console.log( data12.toString() );
+            data12 = new Date(2022, 10, 4, 18, 30, 30); 
+            console.log( data12.toString() );
+            data12 = new Date(2023, 10, 4, 18, 30, 30); 
+            console.log( data12.toString() );
+            data12 = new Date(1974, 10, 4, 18, 30, 30); 
+            console.log( data12.toString() );
+
+            // date string
+            data12 = new Date('1946-03-30, 18:30:30'); 
+            console.log( data12.toString() );
+
+            // minimo necessario, o ano e o mes
+            data12 = new Date(2022, 10); 
+            console.log( data12.toString() );
+
+            // quando comecou tudo
+            data12 = new Date(0); 
+            console.log( data12.toString() );
+
+            // milisegundos
+            data12 = new Date(321654987); 
+            console.log( data12.toString() );
+            data12 = new Date(-321654987); 
+            console.log( data12.toString() );
+
+            // timestamp é o valor da data em milisegundos
+
+        <hr>
+        <strong>#10: Datas (2/3)</strong> 
+
+            <script>
+                console.log('-- - -- #10: Datas (2/3)');
+                data2 = new Date();
+                console.log( data2.toString() );
+                console.log( data2.getFullYear() );
+                console.log('data2.getMonth() (mes comeca do 0):', data2.getMonth() );
+                console.log('data2.getDay() (dia da semana, domingo começa do 0):', data2.getDay() );
+                console.log('data2.getDate():', data2.getDate() );
+                console.log('data2.getHours():', data2.getHours() );
+                console.log('data2.getMinutes():', data2.getMinutes() );
+                console.log('data2.getSeconds():', data2.getSeconds() );
+                console.log('data2.getMilliseconds() (milisegundos do segundo)):', data2.getMilliseconds() );
+                console.log('data2.getTime() (milisegundos desde 1970):', data2.getTime() );
+                console.log('Date.now():', Date.now() );
+            </script>
+            data2 = new Date();
+            console.log( data2.toString() );
+            console.log( data2.getFullYear() );
+            console.log('data2.getMonth() (mes comeca do 0):', data2.getMonth() );
+            console.log('data2.getDay() (dia da semana, domingo começa do 0):', data2.getDay() );
+            console.log('data2.getDate():', data2.getDate() );
+            console.log('data2.getHours():', data2.getHours() );
+            console.log('data2.getMinutes():', data2.getMinutes() );
+            console.log('data2.getSeconds():', data2.getSeconds() );
+            console.log('data2.getMilliseconds() (milisegundos do segundo)):', data2.getMilliseconds() );
+            console.log('data2.getTime() (milisegundos desde 1970):', data2.getTime() );
+            console.log('Date.now():', Date.now() );
+
+        <hr>
+        <strong>#11: Datas (3/3)</strong> 
+
+            <script>
+                data3 = new Date();
+                data3.setFullYear(1974);
+                console.log( data3 );
+                data3.setMonth(0);
+                console.log( data3 );
+                data3.setDate(15);
+                console.log( data3 );
+
+                data32 = new Date();
+                data32.setDate( data32.getDate() + 5 );
+                console.log('data32.getDate() + 5:', data32 );
+                console.log('dia da semana:', data32.getDay() );
+
+                data32.setHours( data32.getHours() + 7 );
+                console.log('hora no futuro:', data32.getHours() );
+            </script>
+            data3 = new Date();
+            data3.setFullYear(1974);
+            console.log( data3 );
+            data3.setMonth(0);
+            console.log( data3 );
+            data3.setDate(15);
+            console.log( data3 );
+
+            data32 = new Date();
+            data32.setDate( data32.getDate() + 5 );
+            console.log('data32.getDate() + 5:', data32 );
+            console.log('dia da semana:', data32.getDay() );
+
+            data32.setHours( data32.getHours() + 7 );
+            console.log('hora no futuro:', data32.getHours() );
+
+        <hr>
+        <strong>#12: Matemática</strong> 
+
+            <script>
+                console.log( '--> #12: Matemática <--' );
+                matematica12 = Math.PI;
+                console.log( matematica12 );
+                console.log( Math.floor(matematica12) );
+
+                matematica12 = 3.67;
+                console.log( matematica12 );
+                console.log('round:', Math.round(matematica12) );
+                console.log('floor', Math.floor(matematica12) );
+                console.log('ceil', Math.ceil(matematica12) );
+
+                matematica12 = -27.67;
+                console.log('abs:', Math.abs(matematica12) );
+
+                console.log('min:', Math.min(3, 7, 8, 15) );
+                console.log('max:', Math.max(3, 7, 8, 15) );
+                console.log('randon:', Math.random() );
+                console.log('randon entre 0 e 9:', Math.floor(Math.random() * 10) );
+            </script>
+
+            console.log( '--> #12: Matemática <--' );
+            matematica12 = Math.PI;
+            console.log( matematica12 );
+            console.log( Math.floor(matematica12) );
+
+            matematica12 = 3.67;
+            console.log( matematica12 );
+            console.log('round:', Math.round(matematica12) );
+            console.log('floor', Math.floor(matematica12) );
+            console.log('ceil', Math.ceil(matematica12) );
+
+            matematica12 = -27.67;
+            console.log('abs:', Math.abs(matematica12) );
+
+            console.log('min:', Math.min(3, 7, 8, 15) );
+            console.log('max:', Math.max(3, 7, 8, 15) );
+            console.log('randon:', Math.random() );
+            console.log('randon entre 0 e 9:', Math.floor(Math.random() * 10) );
+
+        <hr>
+        <strong>#13: Intervalos (1/2)</strong> 
+
+            setInterval(showtime, 1000)
+
+            Exibir a hora atual: <span class="demo13"></span>
+
+            <script>
+                console.log('--* #13: Intervalos (1/2)');
+                function showtime(){
+                    let d = new Date();
+                    let h = d.getHours();
+                    let m = d.getMinutes();
+                    let s = d.getSeconds();
+
+                    if(h<10){
+                        h = 0+h.toString();
+                    }
+                    if(m<10){
+                        m = 0+m.toString();
+                    }
+                    if(s<10){
+                        s = 0+s.toString();
+                    }
+
+                    let txt = h+':'+m+':'+s;
+
+                    document.querySelector('.demo13').innerHTML = txt;
+
+                    console.log(txt);
+                }
+                // showtime();
+                // let timer13 = setInterval(showtime, 1000);
+
+                function comecar(){
+                    timer13 = setInterval(showtime, 1000);
+                }
+
+                function parar(){
+                    clearInterval( timer13 );
+                }
+            </script>
+            <button onclick="comecar()">Começar</button> <button onclick="parar()">Parar</button>
+
+            console.log('--* #13: Intervalos (1/2)');
+            function showtime(){
+                let d = new Date();
+                let h = d.getHours();
+                let m = d.getMinutes();
+                let s = d.getSeconds();
+
+                if(h<10){
+                    h = 0+h.toString();
+                }
+                if(m<10){
+                    m = 0+m.toString();
+                }
+                if(s<10){
+                    s = 0+s.toString();
+                }
+
+                let txt = h+':'+m+':'+s;
+
+                document.querySelector('.demo13').innerHTML = txt;
+
+                console.log(txt);
+            }
+            // showtime();
+            // let timer13 = setInterval(showtime, 1000);
+
+            function comecar(){
+                timer13 = setInterval(showtime, 1000);
+            }
+
+            function parar(){
+                clearInterval( timer13 );
+            }
+        <hr>
+        <strong>#14: Intervalos (2/2)</strong>
+
+            setTimeOut()
+            ele espera esse tempo e roda a função 1x: 
+
+            Action: <span class="timeout-show"></span>
+
+            <button onclick="rodar_timeout()">Rodar em 3 segundos</button> <button onclick="parar_timeout()">Parar timeout</button> 
+
+            <script>
+                function rodar_timeout(){
+                    timer_timeout = setTimeout(function(){
+                        console.log('-- #14: Intervalos (2/2)');
+                        console.log('setTimeOut rodou');
+                        document.querySelector('.timeout-show').innerHTML = 'settimeout rodou';
+                    }, 3000);
+                }
+
+                function parar_timeout(){
+                    clearTimeout( timer_timeout );
+                    console.log('setTimeOut parou');
+                }
+            </script>
+            function rodar_timeout(){
+                timer_timeout = setTimeout(function(){
+                    console.log('-- #14: Intervalos (2/2)');
+                    console.log('setTimeOut rodou');
+                    document.querySelector('.timeout-show').innerHTML = 'settimeout rodou';
+                }, 3000);
+            }
+
+            function parar_timeout(){
+                clearTimeout( timer_timeout );
+                console.log('setTimeOut parou');
+            }
+
+        <hr>
+        <strong>#15: Template Strings</strong> 
+
+            <script>
+                console.log('--> #15: Template Strings');
+                template_nome = 'beto';
+                template_idade = 90;
+                template_frase = `Meu nome é ${template_nome} e tenho ${template_idade} anos, ano que vem farei ${template_idade + 1}`
+
+                console.log( template_frase );
+            </script>
+
+            console.log('--> #15: Template Strings');
+            template_nome = 'beto';
+            template_idade = 90;
+            template_frase = `Meu nome é ${template_nome} e tenho ${template_idade} anos, ano que vem farei ${template_idade + 1}`
+
+            console.log( template_frase );
+
+        <hr>
+        <strong>#16: Descontruindo Objetos (1/2)</strong> 
+
+            Veio no ecma script 6
+            pode ser chamado tb de desestruturação.
+            o conceio é o mesmo.
+
+            <script>
+                console.log('--* #16: Descontruindo Objetos (1/2)');
+
+                obj_pessoa = {
+                    nome: 'beto',
+                    sobrenome: undefined,
+                    idade: 90,
+                    social: {
+                        facebook: '++ info do facebook',
+                        instagram: {
+                            url:'@betao',
+                            seguidores: 100
+                        }
+                    },
+                    nomeCompleto: function(){
+                        return `${this.nome} ${this.sobrenome}`;
+                    }
+                }
+
+                console.log( 'obj_pessoa.nome:', obj_pessoa.nome );
+                console.log( 'obj_pessoa.social:', obj_pessoa.social );
+                console.log( 'obj_pessoa.social.facebook:', obj_pessoa.social.facebook );
+                console.log( 'obj_pessoa.nomeCompleto():', obj_pessoa.nomeCompleto() );
+
+                let { nome:desc_nome, sobrenome:desc_sobrenome, idade:desc_idade } = obj_pessoa;
+                console.log( desc_nome, desc_sobrenome, desc_idade, desc_apelido = 0 );
+            </script>
+
+            console.log('--* #16: Descontruindo Objetos (1/2)');
+
+            obj_pessoa = {
+                nome: 'beto',
+                sobrenome: 'side',
+                idade: 90,
+                social: {
+                    facebook: '++ info do facebook',
+                    instagram: {
+                        url:'@betao',
+                        seguidores: 100
+                    }
+                },
+                nomeCompleto: function(){
+                    return `${this.nome} ${this.sobrenome}`;
+                }
+            }
+
+            console.log( 'obj_pessoa.nome:', obj_pessoa.nome );
+            console.log( 'obj_pessoa.social:', obj_pessoa.social );
+            console.log( 'obj_pessoa.social.facebook:', obj_pessoa.social.facebook );
+            console.log( 'obj_pessoa.nomeCompleto():', obj_pessoa.nomeCompleto() );
+
+            let { nome:desc_nome, sobrenome:desc_sobrenome, idade:desc_idade } = obj_pessoa;
+            console.log( desc_nome, desc_sobrenome, desc_idade, desc_apelido = 0 );
+
+        <hr>
+        <strong>#17: Descontruindo Objetos (2/2)</strong> 
+
+            <script>
+                console.log('== #17: Descontruindo Objetos (2/2)');
+                let {facebook, instagram} = obj_pessoa.social;
+                console.log('facebook:', facebook);
+                console.log('instagram:', instagram);
+                
+                let { social:{ instagram:{seguidores:nro_seguidores} }} = obj_pessoa;
+                console.log('nro_seguidores', nro_seguidores);
+
+                function pegarNomeCompleto(obj){
+                    let nome = obj.nome
+                    let sobrenome = obj.sobrenome;
+                    return `dentro da função: ${nome} ${sobrenome}`;
+                }
+                console.log( pegarNomeCompleto( obj_pessoa ) );
+
+
+                function pegarNomeCompleto2({nome, sobrenome = 'sem sobrenome', social:{instagram:{url:instAdress}}}){
+                    return `dentro da função: ${nome} ${sobrenome}, siga em ${instAdress}`;
+                }
+                console.log( pegarNomeCompleto2( obj_pessoa ) );
+            </script>
+
+            let {facebook, instagram} = obj_pessoa.social;
+            console.log('facebook:', facebook);
+            console.log('instagram:', instagram);
+
+            let { social:{ instagram:{seguidores:nro_seguidores} }} = obj_pessoa;
+            console.log('nro_seguidores', nro_seguidores);
+
+            function pegarNomeCompleto(obj){
+                let nome = obj.nome
+                let sobrenome = obj.sobrenome;
+                return `dentro da função: ${nome} ${sobrenome}`;
+            }
+            console.log( pegarNomeCompleto( obj_pessoa ) );
+
+
+            function pegarNomeCompleto2({nome, sobrenome = 'sem sobrenome', social:{instagram:{url:instAdress}}}){
+                return `dentro da função: ${nome} ${sobrenome}, siga em ${instAdress}`;
+            }
+            console.log( pegarNomeCompleto2( obj_pessoa ) );
+
+        <hr>
+        <strong>#18: Descontruindo Arrays</strong> 
+
+            <script>
+                console.log('== #18: Descontruindo Arrays');
+                array18 = ['Chokito', 'Gustavo', 'Henrique', '@chok'];
+
+                let [apelido, nomenome, sobrenome, _instagram] = array18;
+                console.log(apelido, nomenome, sobrenome, _instagram);
+
+                let [a, b, c, d] = array18;
+                console.log(a, b, c, d);
+
+                let [, e, f, ] = array18;
+                console.log(e, f);
+
+                let [a_nome, a_sobrenome, a_idade = 90] = ['Gutaco', 'Aranha', 190];
+                console.log(a_nome, a_sobrenome, a_idade);
+
+                function criarArray(){
+                    let a = [1,2,3];
+                    return a;
+                }
+                let aaNumeros = criarArray();
+                let[kk_a, kk_b, kk_c] = aaNumeros;
+                console.log( kk_a, kk_b, kk_c );
+            </script>
+
+            array18 = ['Chokito', 'Gustavo', 'Henrique', '@chok'];
+
+            let [apelido, nomenome, sobrenome, _instagram] = array18;
+            console.log(apelido, nomenome, sobrenome, _instagram);
+
+            let [a, b, c, d] = array18;
+            console.log(a, b, c, d);
+
+            let [, e, f, ] = array18;
+            console.log(e, f);
+
+            let [a_nome, a_sobrenome, a_idade = 90] = ['Gutaco', 'Aranha', 190];
+            console.log(a_nome, a_sobrenome, a_idade);
+
+            function criarArray(){
+                let a = [1,2,3];
+                return a;
+            }
+            let aaNumeros = criarArray();
+            let[kk_a, kk_b, kk_c] = aaNumeros;
+            console.log( kk_a, kk_b, kk_c );
+
+        <hr>
+        <strong>#19: Arrow Functions</strong> 
+
+            <script>
+                console.log('== #19: Arrow Functions');
+
+                function somar19(x,y){
+                    return x+y;
+                }
+                console.log( somar19(30,33) );
+
+
+                somar19_2 = function(x,y){
+                    return x+y;
+                }
+                console.log( somar19_2(33,33) );
+
+
+                somar19_3 = (x,y) => {
+                    return x+y;
+                }
+                console.log( somar19_3(25,25) );
+
+
+                somar19_4 = (x,y) => x+y;
+                console.log( somar19_4(40,40) );
+
+
+                somar19_5 = nome => nome.length; // quando possui um parâmetro o parenteses é opcional
+                console.log('Natércia:', somar19_5('Natércia') );
+
+                somar19_6 = nome => {
+                    let qtd_letras = nome
+                    return qtd_letras.length;
+                }
+                console.log('skateboard:', somar19_6('skateboard') );
+
+            </script>
+            console.log('== #19: Arrow Functions');
+
+            function somar19(x,y){
+                return x+y;
+            }
+            console.log( somar19(30,33) );
+
+
+            somar19_2 = function(x,y){
+                return x+y;
+            }
+            console.log( somar19_2(33,33) );
+
+
+            somar19_3 = (x,y) => {
+                return x+y;
+            }
+            console.log( somar19_3(25,25) );
+
+
+            somar19_4 = (x,y) => x+y;
+            console.log( somar19_4(40,40) );
+
+
+            somar19_5 = nome => nome.length; // quando possui um parâmetro o parenteses é opcional
+            console.log('Natércia:', somar19_5('Natércia') );
+
+            somar19_6 = nome => {
+                let qtd_letras = nome
+                return qtd_letras.length;
+            }
+            console.log('skateboard:', somar19_6('skateboard') );
+
+        <hr>
+        <strong>#20: Operador Spread</strong> 
+
+            <script>
+                console.log('== #20: Operador Spread');
+                let numeros20 = [1,2,3,4];
+                let numeros201 = [...numeros20, 5,6,7,8]
+                console.log('numeros20:', numeros20);
+                console.log('numeros201:', numeros201);
+
+                info20 = {
+                    nome: 'Maria Rosa',
+                    cidade: 'Lorena',
+                    idade: 92
+                }
+
+                info20mais = {
+                    ...info20,
+                    outracidade: 'Piquete',
+                    filhos: 'Eurico, José Maria, Márcio',
+                    netos: 'Filipe, Rafaela'
+                }
+                console.log( info20mais );
+
+
+                // EM UMA FUNÇÃO
+                function adicionarInfo(info){
+
+                    let novasInfo = {
+                        ...info,
+                        status:0,
+                        token:654654654,
+                        data_cadastro: '........'
+                    }
+
+                    return novasInfo;
+                }
+                console.log( adicionarInfo({nome:'Marco', apelido:'ET'}) );
+
+            </script>
+            console.log('== #20: Operador Spread');
+            let numeros20 = [1,2,3,4];
+            let numeros201 = [...numeros20, 5,6,7,8]
+            console.log('numeros20:', numeros20);
+            console.log('numeros201:', numeros201);
+
+            info20 = {
+                nome: 'Maria Rosa',
+                cidade: 'Lorena',
+                idade: 92
+            }
+
+            info20mais = {
+                ...info20,
+                outracidade: 'Piquete',
+                filhos: 'Eurico, José Maria, Márcio',
+                netos: 'Filipe, Rafaela'
+            }
+            console.log( info20mais );
+
+
+            // EM UMA FUNÇÃO
+            function adicionarInfo(info){
+
+                let novasInfo = {
+                    ...info,
+                    status:0,
+                    token:654654654,
+                    data_cadastro: '........'
+                }
+
+                return novasInfo;
+            }
+            console.log( adicionarInfo({nome:'Marco', apelido:'ET'}) );
+
+        <hr>
+        <strong>#21: Operador Rest</strong> 
+
+            <script>
+                console.log('== #21: Operador Rest');
+
+                function adicionar21(...numeros){
+                    console.log(numeros);
+                }
+                adicionar21(5,6,7,8,9);
+
+                function adicionar22(...nomes){
+                    console.log(nomes);
+                }
+                adicionar22('jose', 'marta', 'marcio', 'eurico', 'rosinha');
+
+
+                function adicionar222(nomes, ...novosNomes){
+                    let novoConjunto = [
+                        ...nomes,
+                        ...novosNomes
+                    ]
+                    console.log(novoConjunto);
+                }
+
+                nomes222 = ['carlos', 'edno'];
+                outros222 = adicionar222(nomes222, 'marcia', 'cintia', 'ricardo', 'fabio', 'natanael');
+
+
+            </script>
+            console.log('== #21: Operador Rest');
+
+            function adicionar21(...numeros){
+                console.log(numeros);
+            }
+            adicionar21(5,6,7,8,9);
+
+            function adicionar22(...nomes){
+                console.log(nomes);
+            }
+            adicionar22('jose', 'marta', 'marcio', 'eurico', 'rosinha');
+
+
+            function adicionar222(nomes, ...novosNomes){
+                let novoConjunto = [
+                    ...nomes,
+                    ...novosNomes
+                ]
+                console.log(novoConjunto);
+            }
+
+            nomes222 = ['carlos', 'edno'];
+            outros222 = adicionar222(nomes222, 'marcia', 'cintia', 'ricardo', 'fabio', 'natanael');
+
+        <hr>
+        <strong>#22: Includes e Repeat</strong> 
+
+            Includes retorna TRUE ou FALSE se existir no array
+            útil para procurar algo
+            includes pode ser usado em strings
+
+            <script>
+                console.log('#22: Includes e Repeat');
+
+                lista22 = ['cafe', 'paes', 'frutas', 'ovo'];
+
+                console.log( lista22 );
+                console.log('lista22.includes(\'carne\'):', lista22.includes('carne') );
+                console.log('lista22.includes(\'ovo\'):', lista22.includes('ovo') );
+
+                nome22 = 'Maria Rosa Ferreira de Oliveira';
+                console.log( nome22 );
+                console.log('nome22.includes(\'Ma\'):', nome22.includes('Ma') );
+
+                console.log("'x='.repeat(10):", 'x='.repeat(10) );
+
+            </script>
+            console.log('#22: Includes e Repeat');
+
+            lista22 = ['cafe', 'paes', 'frutas', 'ovo'];
+
+            console.log( lista22 );
+            console.log('lista22.includes(\'carne\'):', lista22.includes('carne') );
+            console.log('lista22.includes(\'ovo\'):', lista22.includes('ovo') );
+
+            nome22 = 'Maria Rosa Ferreira de Oliveira';
+            console.log( nome22 );
+            console.log('nome22.includes(\'Ma\'):', nome22.includes('Ma') );
+
+            console.log("'x='.repeat(10):", 'x='.repeat(10) );
+
+        <hr>
+        <strong>#23: Objeto: Key, Values e Entries</strong> 
+
+            <script>
+                console.log('== #23: Objeto: Key, Values e Entries');
+
+                array23 = [];
+                console.log('array23:', typeof array23 );
+
+                array23 = ['misto quente', 'x-salada', 'esfiha', 'empanada'];
+                console.log("Object.values(array23):", Object.values(array23) );
+                console.log("Object.entries(array23):", Object.entries(array23) );
+
+                objeto23 = {
+                    nome: 'Primo Joe',
+                    cidade: 'Chapada',
+                    status: 1
+                }
+                console.log(objeto23);
+                console.log('Object.values(objeto23):', Object.values(objeto23) );
+                console.log('Object.keys(objeto23):', Object.keys(objeto23) );
+                console.log('Object.entries(objeto23):', Object.entries(objeto23) );
+
+            </script>
+            console.log('== #23: Objeto: Key, Values e Entries');
+
+            array23 = [];
+            console.log('array23:', typeof array23 );
+
+            array23 = ['misto quente', 'x-salada', 'esfiha', 'empanada'];
+            console.log("Object.values(array23):", Object.values(array23) );
+            console.log("Object.entries(array23):", Object.entries(array23) );
+
+            objeto23 = {
+                nome: 'Primo Joe',
+                cidade: 'Chapada',
+                status: 1
+            }
+            console.log(objeto23);
+            console.log('Object.values(objeto23):', Object.values(objeto23) );
+            console.log('Object.keys(objeto23):', Object.keys(objeto23) );
+            console.log('Object.entries(objeto23):', Object.entries(objeto23) );
+
+        <hr>
+        <strong>#24: String, padStart, padEnd</strong> 
+
+            <script>
+                console.log('== #24: String, padStart, padEnd');
+
+                telefone = '5654';
+                console.log('telefone:', telefone);
+                console.log('telefone.padEnd(9,\'?\'):', telefone.padEnd(9,'?') );
+                console.log('telefone.padEnd(9,\'_\'):', telefone.padEnd(9,'_') );
+                console.log('telefone.padStart(9,\'_\'):', telefone.padStart(9,'_') );
+
+                cartao = '3211654498773211';
+                cartao4 = cartao.slice(-4);
+                cartaoMask = cartao4.padStart(cartao.length - 4, '*');
+                console.log('cartao4:', cartao4);
+                console.log('cartaoMask:', `Este é o seu cartão? ${cartaoMask}`);
+
+            </script>
+            console.log('== #24: String, padStart, padEnd');
+
+            telefone = '5654';
+            console.log('telefone:', telefone);
+            console.log('telefone.padEnd(9,\'?\'):', telefone.padEnd(9,'?') );
+            console.log('telefone.padEnd(9,\'_\'):', telefone.padEnd(9,'_') );
+            console.log('telefone.padStart(9,\'_\'):', telefone.padStart(9,'_') );
+
+            cartao = '3211654498773211';
+            cartao4 = cartao.slice(-4);
+            cartaoMask = cartao4.padStart(cartao.length - 4, '*');
+            console.log('cartao4:', cartao4);
+            console.log('cartaoMask:', `Este é o seu cartão? ${cartaoMask}`);
+
+        
+    </pre>    
+</body>
+</html>

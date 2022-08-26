@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 4: DOM</title>
+    <style>
+        body{
+            background: #eee;
+        }
+    </style>
+</head>
+<body>
+
+<pre>
+    Módulo 4: DOM
+    
+    https://alunos.b7web.com.br/curso/javascript/o-que-e-dom
+
+    #1: O que é DOM
+    #2: Selecionando Elementos (4 funções) 1
+    #3: Selecionando Elementos (4 funções) 2
+    #4: Selecionando com querySelector
+    #5: Manipulando Class do elemento 1
+    #6: Manipulando Class do elemento 2
+    #7: Tipos de dados
+    #8: Comentários
+    #9: Funções (1/2)
+    #10: Funções (2/2)
+    #11: Manipulando Atributos
+    #12: Dimensões
+    #13: Distâncias e Scroll Suave
+    #14: Resposta do Exercício Scroll
+
+
+
+    <hr>
+    <strong>#1: O que é DOM</strong> 
+
+        DOM Document Object Model
+        é a referência de cada item/objeto que tem na página
+        possível de manipular
+
+        Virtual DOM, um conjunto de elementos similar ao que está na tela
+        mas que está na memória do computador. tem uma diferença entre
+        manipular um ou outro.
+        
+    <hr>
+    <strong>#2: Selecionando Elementos (4 funções) 1</strong> 
+
+        <style>
+            .borda{
+                border: 1px solid #f00;
+            }
+        </style>
+
+        <input type="text" id="_2_sugestao-inserir" placeholder="digite uma sugestão">
+        <span class="borda" id="_2_sugestao-receber"></span><button onclick="_2_sugerir()">Sugerir</button>
+
+
+        function _2_sugerir(){
+            if(
+                document.getElementById('_2_sugestao-inserir').value == ""
+                ||
+                document.getElementById('_2_sugestao-inserir').value.length < 2
+            ){
+                document.getElementById('_2_sugestao-receber').innerHTML = "Digite alguma coisa";
+                return;
+            }
+            document.getElementById('_2_sugestao-receber').innerHTML = document.getElementById('_2_sugestao-inserir').value;
+        }
+
+        <script>
+            function _2_sugerir(){
+                if(
+                    document.getElementById('_2_sugestao-inserir').value == ""
+                    ||
+                    document.getElementById('_2_sugestao-inserir').value.length < 2
+                ){
+                    document.getElementById('_2_sugestao-receber').innerHTML = "Digite alguma coisa";
+                    return;
+                }
+                document.getElementById('_2_sugestao-receber').innerHTML = document.getElementById('_2_sugestao-inserir').value;
+            }
+        
+        </script>
+    <hr>
+    <strong>#3: Selecionando Elementos (4 funções) 2</strong> 
+    </pre>
+
+        <ul class="_3_classe">
+            <li>esporte</li>
+            <li>alimentação</li>
+            <li name="profissionalismo">profissionalismo</li>
+        </ul>
+        <ol class="_3_classe">
+            <li name="amigos">amigos</li>
+            <li>família</li>
+            <li>sociedade</li>
+        </ol>
+        <input type="text" name="batman" value="Batman e Homem de Ferro" style="width: 80%;">
+        <br>
+
+        document.getElementsByClassName('_3_classe');
+        <br>
+        document.getElementsByTagName('ol')
+        <br>
+        document.getElementsByTagName('ul')
+        <br>
+        document.getElementsByTagName('li')
+        <br>
+        document.getElementsByName('amigos')
+        <br>
+        >>> retornam um array
+
+        <script>
+            console.log(document.getElementsByClassName('_3_classe'));
+            console.log(document.getElementsByTagName('ol'));
+            console.log(document.getElementsByTagName('ul'));
+            console.log(document.getElementsByTagName('li'));
+            let bat = document.getElementsByName('batman').value;
+            console.log(bat);
+        </script>
+    
+    <pre><hr>
+    <strong>#4: Selecionando com querySelector</strong> 
+
+        possivel selecionar por:
+        - id
+        - class 
+
+        <div class="_4_container">
+            <div id="_4_id">#_4_id</div>
+            <div class="_4_class">_4_class</div>
+            <div class="_4_class">_4_class</div>
+            <div class="_4_class">_4_class</div>
+            <button class="_4_btn">_4_btn</button>
+        </div>
+
+        document.querySelector('#_4_id')
+        document.querySelector('._4_class')
+        document.querySelectorAll('._4_class')
+        document.querySelector('._4_container button')
+
+        <script>
+            console.log(document.querySelector('#_4_id'));
+            console.log(document.querySelector('._4_class'));
+            console.log(document.querySelectorAll('._4_class'));
+            console.log(document.querySelector('._4_container button'));
+        </script>
+
+    <hr>
+    <strong>#5: Manipulando Class do elemento 1</strong> 
+
+        <div class="_5_box">
+            <span class="tit">Título</span>
+            <button id="_5_vermelho" onclick="aplicarCor(this.id, 'vermelho')" class="vermelho">vermelho</button> <button id="_5_verde" onclick="aplicarCor(this.id, 'verde')" class="verde">verde</button> <button id="_5_azul" onclick="aplicarCor(this.id, 'azul')" class="azul">azul</button>
+        </div>
+        <style>
+            ._5_box .tit{ padding: 5px; }
+            ._5_box button{ border: 1px solid #000; padding: 5px; }
+            .vermelho{ background: #f00; padding: 10px; }
+            .verde{ background: #0f0; padding: 1px; }
+            .azul{ background: #00f; color: #fff; padding: 10px; }
+        </style>
+        <script>
+            function aplicarCor(btn, classe){
+                document.querySelector('._5_box .tit').classList.remove('vermelho');
+                document.querySelector('._5_box .tit').classList.remove('verde');
+                document.querySelector('._5_box .tit').classList.remove('azul');
+                document.querySelector('._5_box .tit').classList.add(classe);
+            }
+        </script>
+            function aplicarCor(btn, classe){
+                document.querySelector('._5_box .tit').classList.remove('vermelho');
+                document.querySelector('._5_box .tit').classList.remove('verde');
+                document.querySelector('._5_box .tit').classList.remove('azul');
+                document.querySelector('._5_box .tit').classList.add(classe);
+            }
+    <hr>
+    <strong>#6: Manipulando Class do elemento 2</strong> 
+
+        toggle preto/verde
+
+        <div class="_6_trocar preto">toggle</div>
+        <button onclick="_6_trocar()">toggle cor</button>
+        <style>
+            .preto{ background: #000; color: #fff; padding: 10px; }
+        </style>
+
+        <script>
+            function _6_trocar(){
+                if(document.querySelector('._6_trocar').classList.contains('preto')){
+                    document.querySelector('._6_trocar').classList.remove('preto');
+                    document.querySelector('._6_trocar').classList.add('vermelho');
+                } else {
+                    document.querySelector('._6_trocar').classList.remove('vermelho');
+                    document.querySelector('._6_trocar').classList.add('preto');
+                }
+            }
+        </script>
+            function _6_trocar(){
+                if(document.querySelector('._6_trocar').classList.contains('preto')){
+                    document.querySelector('._6_trocar').classList.remove('preto');
+                    document.querySelector('._6_trocar').classList.add('vermelho');
+                } else {
+                    document.querySelector('._6_trocar').classList.remove('vermelho');
+                    document.querySelector('._6_trocar').classList.add('preto');
+                }
+            }
+
+    <hr>
+    <strong>#7: Tipos de dados</strong> 
+
+        string
+        number
+        boolean
+        undefined
+
+        <script>
+            let _7_nome = 'Bside';
+            let _7_idade = 90;
+            let _7_salvo = true; 
+            let _7_cidade;
+
+            console.log('typeof _7_nome:', typeof _7_nome );
+            console.log('typeof _7_idade:', typeof _7_idade );
+            console.log('typeof _7_salvo:', typeof _7_salvo );
+            console.log('typeof _7_cidade:', typeof _7_cidade );
+
+        </script>
+
+        console.log(typeof _7_nome );
+        console.log(typeof _7_idade );
+        console.log(typeof _7_salvo );
+        console.log(typeof _7_cidade );
+
+    <hr>
+    <strong>#8: Comentários</strong> 
+
+        //
+
+        /*
+        lol
+        */
+
+    <hr>
+    <strong>#9: Funções (1/2)</strong> 
+
+        função é um conjunto de códigos e você vai utilizar
+        quando você determinar.
+
+        function NOME(){
+
+        }
+
+        <script>
+            function alterar(params) {
+                
+            }
+
+        </script>
+
+    <hr>
+    <strong>#10: Funções (2/2)</strong> 
+
+        função nativa do js: alert('funcionou');
+
+        <strong>criar:</strong> function alterar(titulo){
+
+            document.getElementById("titulo").innerHTML = titutlo;
+            document.getElementById("campo").innerHTML = titutlo;
+
+        }
+
+        <strong>executar:</strong> alterar('Segunda-feira');
+
+
+        Parametros:
+
+        let: será enxergada apenas no contexto onde está sendo criada.
+        var: é visto no documento todo, na página.
+
+        <input type="text" id="_10_campo">
+        
+        <script>
+            function somar(x, y){
+                let total = x + y;
+                return total;
+            }
+            var resultado = somar(10, 15);
+            document.querySelector('#_10_campo').value = resultado;
+        </script>
+
+        function somar(x, y){
+            let total = x + y;
+            return total;
+        }
+        var resultado = somar(10, 15);
+        document.querySelector('#_10_campo').value = resultado;
+
+
+    <hr>
+    <strong>#11: Manipulando Atributos</strong> 
+
+        <style>
+            ._11_container .imagem{
+                max-width: 150px;
+            }
+            button{
+                cursor: pointer;
+            }
+            .hidden{
+                visibility: hidden;
+            }
+        </style>
+
+        <div class="_11_container">
+            <img class="imagem camiseta" src="camiseta.jpg" data-descricao="camiseta thin lizzy jailbreak" title="camiseta thin lizzy jailbreak" data-tipo="camiseta">
+            <div class="_11_descricao hidden">
+            <strong>Descrição:</strong> <span class="_11_descr">camiseta thin lizzy jailbreak</span>
+            <strong>Tipo:</strong> <span class="_11_tipo">camiseta</span></div>
+        </div>
+        <button onclick="trocarImagem('roda.jpg', 'Dressen VomitMini Turquoise 56mm', 'Roda de skate')">Roda</button> <button onclick="trocarImagem('camiseta.jpg', 'camiseta thin lizzy jailbreak', 'Camiseta')">Camiseta</button> <button onclick="pegarDetalhes(this)">Mostrar descricao</button>
+        <script>
+            function trocarImagem(img, descricao, tipo) {
+                document.querySelector('.imagem').setAttribute('src', img);
+                document.querySelector('.imagem').setAttribute('data-descricao', descricao);
+                document.querySelector('.imagem').setAttribute('title', descricao);
+                document.querySelector('.imagem').setAttribute('data-tipo', tipo);
+                document.querySelector('._11_descr').innerHTML = descricao;
+                document.querySelector('._11_tipo').innerHTML = tipo;
+            }
+            function pegarDetalhes(botao) {
+                if(botao.innerHTML == 'Mostrar descricao'){
+                    botao.innerHTML = 'Esconder descricao';
+                    document.querySelector('._11_container ._11_descricao').classList.remove('hidden');
+                } else {
+                    document.querySelector('._11_container ._11_descricao').classList.add('hidden');
+                    botao.innerHTML = 'Mostrar descricao';
+                }
+            }
+        </script>
+        function trocarImagem(img, descricao, tipo) {
+            document.querySelector('.imagem').setAttribute('src', img);
+            document.querySelector('.imagem').setAttribute('data-descricao', descricao);
+            document.querySelector('.imagem').setAttribute('title', descricao);
+            document.querySelector('.imagem').setAttribute('data-tipo', tipo);
+            document.querySelector('._11_descr').innerHTML = descricao;
+            document.querySelector('._11_tipo').innerHTML = tipo;
+        }
+        function pegarDetalhes(botao) {
+            if(botao.innerHTML == 'Mostrar descricao'){
+                botao.innerHTML = 'Esconder descricao';
+                document.querySelector('._11_container ._11_descricao').classList.remove('hidden');
+            } else {
+                document.querySelector('._11_container ._11_descricao').classList.add('hidden');
+                botao.innerHTML = 'Mostrar descricao';
+            }
+        }
+
+    <hr>
+    <strong>#12: Dimensões</strong> 
+    </pre>
+
+        <style>
+            ._12_dimensoes{
+                width: 80%;
+                height: 200px;
+                overflow-y: scroll;
+                border: 3px dotted #f00;
+                padding: 10px;
+                background: #fff;
+            }
+        </style>
+        <blockquote>
+            <div class="_12_dimensoes">
+            <h2>Primeira Leitura (Is 9,1-6)</h2>
+            <p><strong>Leitura do Livro do Profeta Isaías.</strong></p>
+            <p>1. O povo, que andava na escuridão, viu uma grande luz; para os que habitavam nas sombras da morte, uma luz resplandeceu. 2Fizeste crescer a alegria, e aumentaste a felicidade; todos se regozijam em tua presença como alegres ceifeiros na colheita, ou como exaltados guerreiros ao dividirem os despojos. 3Pois o jugo que oprimia o povo, — a carga sobre os ombros, o orgulho dos fiscais — tu os abateste como na jornada de Madiã. 4Botas de tropa de assalto, trajes manchados de sangue, tudo será queimado e devorado pelas chamas. 5Porque nasceu para nós um menino, foi-nos dado um filho; ele traz aos ombros a marca da realeza; o nome que lhe foi dado é: Conselheiro admirável, Deus forte, Pai dos tempos futuros, Príncipe da Paz.
+            </p>
+            <p>6. Grande será o seu reino e a paz não há de ter fim sobre o trono de Davi e sobre o seu reinado, que ele irá consolidar e confirmar em justiça e santidade, a partir de agora e para todo o sempre. O amor zeloso do Senhor dos exércitos há de realizar estas coisas.
+            </p>
+            <p>- Palavra do Senhor.</p>
+            <p>- Graças a Deus.</p>
+            </div>
+        </blockquote>
+        <script>
+            // offset considera width padding border etc
+            console.log('--- grupo 1 ---');
+            let _12_dimensoes_osw = document.querySelector('._12_dimensoes').offsetWidth;
+            let _12_dimensoes_osh = document.querySelector('._12_dimensoes').offsetHeight;
+            console.log('offset considera width padding border etc');
+            console.log('_12_dimensoes_osw offsetWidth:', _12_dimensoes_osw);
+            console.log('_12_dimensoes_osh offsetHeight:', _12_dimensoes_osh);
+
+            console.log('--- grupo 2 ---');
+            let _12_dimensoes_cliW = document.querySelector('._12_dimensoes').clientWidth;
+            let _12_dimensoes_cliH = document.querySelector('._12_dimensoes').clientHeight;
+            console.log('_12_dimensoes_cliW clientWidth:', _12_dimensoes_cliW);
+            console.log('_12_dimensoes_cliH clientHeight:', _12_dimensoes_cliH);
+
+            console.log('--- grupo 3 ---');
+            let _12_dimensoes_scrollW = document.querySelector('._12_dimensoes').scrollWidth;
+            let _12_dimensoes_scrollH = document.querySelector('._12_dimensoes').scrollHeight;
+            console.log('_12_dimensoes_scrollW scrollWidth:', _12_dimensoes_scrollW);
+            console.log('_12_dimensoes_scrollH scrollHeight:', _12_dimensoes_scrollH);
+        </script>
+        <pre>
+
+        // offset considera width padding border etc
+        console.log('--- grupo 1 ---');
+        let _12_dimensoes_osw = document.querySelector('._12_dimensoes').offsetWidth;
+        let _12_dimensoes_osh = document.querySelector('._12_dimensoes').offsetHeight;
+        console.log('offset considera width padding border etc');
+        console.log('_12_dimensoes_osw offsetWidth:', _12_dimensoes_osw);
+        console.log('_12_dimensoes_osh offsetHeight:', _12_dimensoes_osh);
+
+        console.log('--- grupo 2 ---');
+        let _12_dimensoes_cliW = document.querySelector('._12_dimensoes').clientWidth;
+        let _12_dimensoes_cliH = document.querySelector('._12_dimensoes').clientHeight;
+        console.log('_12_dimensoes_cliW clientWidth:', _12_dimensoes_cliW);
+        console.log('_12_dimensoes_cliH clientHeight:', _12_dimensoes_cliH);
+
+        console.log('--- grupo 3 ---');
+        let _12_dimensoes_scrollW = document.querySelector('._12_dimensoes').scrollWidth;
+        let _12_dimensoes_scrollH = document.querySelector('._12_dimensoes').scrollHeight;
+        console.log('_12_dimensoes_scrollW scrollWidth:', _12_dimensoes_scrollW);
+        console.log('_12_dimensoes_scrollH scrollHeight:', _12_dimensoes_scrollH);
+
+    <hr>
+    <strong>#13: Distâncias e Scroll Suave</strong> 
+
+        window.scrollX
+        window.scrollY
+        document.querySelector('.texto-container').scrollTop
+        document.querySelector('.texto-container').scrollLeft
+
+        <script>
+            console.log('---  ---');
+            let window_scroll_horiz = window.scrollX;
+            let window_scroll_vert = window.scrollY;
+            console.log('window_scroll_horiz window.scrollX:', window_scroll_horiz);
+            console.log('window_scroll_vert window.scrollY:', window_scroll_vert);
+
+            console.log('--- -- ---');
+            let _12_dimensoes_scrollTop = document.querySelector('._12_dimensoes').scrollTop;
+            console.log('_12_dimensoes_scrollTop scrollTop:', _12_dimensoes_scrollTop);
+            let _12_dimensoes_scrollLeft = document.querySelector('._12_dimensoes').scrollLeft;
+            console.log('_12_dimensoes_scrollLeft scrollLeft:', _12_dimensoes_scrollLeft);
+
+            console.log('--- -- ---');
+            document.querySelector('._12_dimensoes').scrollTo(0, 190);
+
+            function moverTela(horizontal, vertical){
+                switch(horizontal){
+                    case "":
+                    case "0":
+                    case "inicio":
+                        horizontal = 0;
+                        break;
+                    case 'meio':
+                        horizontal = (document.body.scrollWidth / 2);
+                        break;
+                    case 'fim':
+                        horizontal = document.body.scrollWidth;
+                        break;
+                    default:
+                        horizontal = calculaPosicaoDigitada('horizontal', horizontal);
+                        break;
+                }
+
+                switch(vertical){
+                    case "":
+                    case "0":
+                    case "inicio":
+                        vertical = 0;
+                        break;
+                    case 'meio':
+                        vertical = (document.body.scrollHeight / 2);
+                        break;
+                    case 'fim':
+                        vertical = document.body.scrollHeight;
+                        break;
+                    default:
+                        vertical = calculaPosicaoDigitada('vertical', vertical);
+                        break;
+                }
+
+                // console.log('vertical', vertical);
+                // console.log('horizontal', horizontal);
+                // return;
+
+                window.scrollTo({
+                    top: vertical,
+                    left: horizontal,
+                    behavior: "smooth"
+                });
+            }
+            function calculaPosicaoDigitada(eixo_xy, posicao){
+                
+                if(eixo_xy == 'vertical'){
+                    referenciaDoCalculo = document.body.scrollHeight;
+                } else {
+                    referenciaDoCalculo = document.body.scrollWidth;
+                }
+
+                if(posicao.indexOf('px') > 0){
+                    posicao = posicao.substring(0, posicao.indexOf('px'));
+
+                } else {
+                    posicao = posicao.substring(0, posicao.indexOf('%'));
+                    posicao = (posicao / 100) * referenciaDoCalculo;
+                }
+                return posicao;
+            }
+        </script>
+        <button onclick="moverTela('meio', 'meio')">x_ meio, y_ meio</button>
+        <button onclick="moverTela('fim', 'fim')">x_ fim, y_ fim</button>
+        <button onclick="moverTela(0, 0)">x_ 0, y_ 0</button>
+        <button onclick="moverTela('10%', '33%')">x_ 10%, y_ 33%</button>
+        
+        console.log('---  ---');
+        let window_scroll_horiz = window.scrollX;
+        let window_scroll_vert = window.scrollY;
+        console.log('window_scroll_horiz window.scrollX:', window_scroll_horiz);
+        console.log('window_scroll_vert window.scrollY:', window_scroll_vert);
+
+        console.log('--- -- ---');
+        let _12_dimensoes_scrollTop = document.querySelector('._12_dimensoes').scrollTop;
+        console.log('_12_dimensoes_scrollTop scrollTop:', _12_dimensoes_scrollTop);
+        let _12_dimensoes_scrollLeft = document.querySelector('._12_dimensoes').scrollLeft;
+        console.log('_12_dimensoes_scrollLeft scrollLeft:', _12_dimensoes_scrollLeft);
+
+        console.log('--- -- ---');
+        document.querySelector('._12_dimensoes').scrollTo(0, 190);
+
+        function moverTela(horizontal, vertical){
+            switch(horizontal){
+                case "":
+                case "0":
+                case "inicio":
+                    horizontal = 0;
+                    break;
+                case 'meio':
+                    horizontal = (document.body.scrollWidth / 2);
+                    break;
+                case 'fim':
+                    horizontal = document.body.scrollWidth;
+                    break;
+                default:
+                    horizontal = calculaPosicaoDigitada('horizontal', horizontal);
+                    break;
+            }
+
+            switch(vertical){
+                case "":
+                case "0":
+                case "inicio":
+                    vertical = 0;
+                    break;
+                case 'meio':
+                    vertical = (document.body.scrollHeight / 2);
+                    break;
+                case 'fim':
+                    vertical = document.body.scrollHeight;
+                    break;
+                default:
+                    vertical = calculaPosicaoDigitada('vertical', vertical);
+                    break;
+            }
+
+            // console.log('vertical', vertical);
+            // console.log('horizontal', horizontal);
+            // return;
+
+            window.scrollTo({
+                top: vertical,
+                left: horizontal,
+                behavior: "smooth"
+            });
+        }
+        function calculaPosicaoDigitada(eixo_xy, posicao){
+            
+            if(eixo_xy == 'vertical'){
+                referenciaDoCalculo = document.body.scrollHeight;
+            } else {
+                referenciaDoCalculo = document.body.scrollWidth;
+            }
+
+            if(posicao.indexOf('px') > 0){
+                posicao = posicao.substring(0, posicao.indexOf('px'));
+
+            } else {
+                posicao = posicao.substring(0, posicao.indexOf('%'));
+                posicao = (posicao / 100) * referenciaDoCalculo;
+            }
+            return posicao;
+        }
+    <hr>
+    <strong>#14: Resposta do Exercício Scroll</strong> 
+        <div class="_14_container">
+            <div class="horizontal">
+                <strong>horizontal</strong>
+
+                <input type="radio" name="horiz" value="inicio"> no início
+                <input type="radio" name="horiz" value="meio"> no meio
+                <input type="radio" name="horiz" value="fim"> no fim
+
+                <input type="text" name="horiz_pos_espec" onkeyup="capturarValor(this)"> posicao específica 
+                <input type="radio" name="horiz" value="px">px
+                <input type="radio" name="horiz" value="%">%
+            </div>
+
+            <div class="vertical">
+                <strong>vertical</strong>
+
+                <input type="radio" name="vert" value="inicio"> no início
+                <input type="radio" name="vert" value="meio"> no meio
+                <input type="radio" name="vert" value="fim"> no fim
+
+                <input type="text" name="vert_pos_espec" onkeyup="capturarValor(this)"> posicao específica 
+                <input type="radio" name="vert" value="px">px
+                <input type="radio" name="vert" value="%">%
+            </div>
+
+            <button onclick="posicionarTela()">Posicionar a tela</button>
+            <script>
+                function posicionarTela(){
+                    let posicaoHorizontal = document.querySelectorAll('input[name=horiz]');
+                    let posicaoVertical = document.querySelectorAll('input[name=vert]');
+                    let horizFinal;
+                    let vertFinal;
+
+                    for (i in posicaoHorizontal) {
+
+                        if( posicaoHorizontal[i].checked === true ){
+                            let posicaoH = posicaoHorizontal[i].value;
+                            let horiz_pos_espec = document.querySelector('input[name=horiz_pos_espec]');
+
+                            if(  (posicaoH == 'px' || posicaoH == '%') && horiz_pos_espec.value.length > 0 ){
+                                horizFinal = horiz_pos_espec.value.concat(posicaoH);
+
+                            } else {
+                                horizFinal = posicaoH;
+
+                            }
+                        }
+                    }
+
+
+                    for (i in posicaoVertical) {
+
+                        if( posicaoVertical[i].checked === true ){
+                            let posicaoV = posicaoVertical[i].value;
+                            let vert_pos_espec = document.querySelector('input[name=vert_pos_espec]');
+
+                            if(  (posicaoV == 'px' || posicaoV == '%') && vert_pos_espec.value.length > 0 ){
+                                vertFinal = vert_pos_espec.value.concat(posicaoV);
+
+                            } else {
+                                vertFinal = posicaoV;
+
+                            }
+                        }
+                    }
+
+                    console.log('horizFinal:', horizFinal );
+                    console.log('vertFinal:', vertFinal );
+
+                    moverTela(horizFinal, vertFinal);
+
+                }
+                // posicionarTela();
+                
+                function capturarValor(obj){
+                    obj.setAttribute('value', obj.value);
+                }
+            </script>
+            function posicionarTela(){
+                let posicaoHorizontal = document.querySelectorAll('input[name=horiz]');
+                let posicaoVertical = document.querySelectorAll('input[name=vert]');
+                let horizFinal;
+                let vertFinal;
+
+                for (i in posicaoHorizontal) {
+
+                    if( posicaoHorizontal[i].checked === true ){
+                        let posicaoH = posicaoHorizontal[i].value;
+                        let horiz_pos_espec = document.querySelector('input[name=horiz_pos_espec]');
+
+                        if(  (posicaoH == 'px' || posicaoH == '%') && horiz_pos_espec.value.length > 0 ){
+                            horizFinal = horiz_pos_espec.value.concat(posicaoH);
+
+                        } else {
+                            horizFinal = posicaoH;
+
+                        }
+                    }
+                }
+
+
+                for (i in posicaoVertical) {
+
+                    if( posicaoVertical[i].checked === true ){
+                        let posicaoV = posicaoVertical[i].value;
+                        let vert_pos_espec = document.querySelector('input[name=vert_pos_espec]');
+
+                        if(  (posicaoV == 'px' || posicaoV == '%') && vert_pos_espec.value.length > 0 ){
+                            vertFinal = vert_pos_espec.value.concat(posicaoV);
+
+                        } else {
+                            vertFinal = posicaoV;
+
+                        }
+                    }
+                }
+
+                console.log('horizFinal:', horizFinal );
+                console.log('vertFinal:', vertFinal );
+
+                moverTela(horizFinal, vertFinal);
+
+            }
+            // posicionarTela();
+
+            function capturarValor(obj){
+                obj.setAttribute('value', obj.value);
+            }
+            
+        </div>
+
+
+</pre>
+    
+
+</body>
+</html>
+
+
