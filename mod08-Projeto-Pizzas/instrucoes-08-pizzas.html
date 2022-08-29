@@ -206,8 +206,53 @@
 <hr>
 <strong>#11: Compra de Pizzas - parte 11</strong> 
 
+    ... comencando a mexer no próprio carrinho
+
+    recapitulando:
+        - listamos as pizzas 
+        - clicaos nela e abriu o modal 
+        - colocamos as informacoes no modal 
+        - mudamos as coisas no modal, detalhes da pizza que queremos adicionar 
+        - adicionarmos a pizza ao carrinho (array 'cart')
+        
+        
+    faremos agora essa informações sobre as pizzas adicionadas aparecer no aside/carrinho
+
+    sera criada uma funcao que vai atualizar o carrinho 
+    se tiver coisa, tem que abrir 
+    se nao tiver coisa, tem que fechar 
+    se forem adicionadas coisas, estando aberto ou fechado, tem que atualizar as informacoes no carrinho 
+
+    funcao updateCart: mostrar ou nao dependendo 
+    preencher os itens no proprio carrinho
+    fazer calculos 
+    subtotal 
+    desconto 
+    total 
+    mostrar as informacoes na tela
+
+
+    function updateCart(){
+        if(cart.length > 0){
+            c('aside').classList.add('show');
+
+            for(let i in cart){
+                let pizzaItem = pizzaJson.find((item)=>{
+                    return item.id == cart[i].id;
+
+                    console.log(pizzaItem);
+                });
+            }
+        } else {
+            c('aside').classList.remove('show');
+        }
+    }
+
 <hr>
 <strong>#12: Compra de Pizzas - parte 12</strong> 
+
+    ... fazer p clone do item do carrinho 
+    inserir no aside 
 
 <hr>
 <strong>#13: Compra de Pizzas - parte 13</strong> 
