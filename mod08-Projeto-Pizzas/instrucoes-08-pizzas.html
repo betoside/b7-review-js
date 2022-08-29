@@ -129,6 +129,8 @@
 <hr>
 <strong>#9: Compra de Pizzas - parte 9</strong> 
 
+    AULA BOA
+
     ... adicionar ao carrinho
 
     fazer o processo de adicionar ao carrinho 
@@ -159,6 +161,47 @@
 
 <hr>
 <strong>#10: Compra de Pizzas - parte 10</strong> 
+
+    caso queira aumentar a quantidade de uma pizza 
+    no carrinho de compra. neste ponto do desenvolvimento 
+    o botao adicionar itens ao carrinho. o correto é atualizar a info sobre qtd.
+
+
+    c('.pizzaInfo--addButton').addEventListener('click', ()=>{
+        // qdo clicar precisa reunir todas as informacoes 
+        // qual pizza
+        // console.log('pizza: ', modalKey);
+
+        // qual o tamanho 
+        let size = parseInt( c('.pizzaInfo--size.selected').getAttribute('data-key') );
+        // console.log('tamanho: ', size);
+
+        // quantas pizzas 
+        // console.log('quantidade: ', modalqt);
+
+        // criar um identificador: juntar o id + tamanho da pizza 
+        let identifier = pizzaJson[modalKey].id+'@'+size;
+
+        let key = cart.findIndex((item)=>{
+            return item.identifier == identifier
+        }); // poderia ser com a sintaxe return automatico
+
+        if(key > -1){
+            cart[key].qt += modalqt; 
+        } else {
+            cart.push({
+                identifier,
+                id:pizzaJson[modalKey].id,
+                size,
+                qt: modalqt
+            });
+        }
+
+        console.log(cart);
+
+        closeModal();
+
+    });
 
 <hr>
 <strong>#11: Compra de Pizzas - parte 11</strong> 

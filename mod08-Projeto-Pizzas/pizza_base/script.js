@@ -92,12 +92,27 @@ c('.pizzaInfo--addButton').addEventListener('click', ()=>{
     // quantas pizzas 
     // console.log('quantidade: ', modalqt);
 
-    cart.push({
-        id:pizzaJson[modalKey].id,
-        size,
-        qt: modalqt
-    });
+    // criar um identificador: juntar o id + tamanho da pizza 
+    let identifier = pizzaJson[modalKey].id+'@'+size;
+
+    let key = cart.findIndex((item)=>{
+        return item.identifier == identifier
+    }); // poderia ser com a sintaxe return automatico
+
+    if(key > -1){
+        cart[key].qt += modalqt; 
+    } else {
+        cart.push({
+            identifier,
+            id:pizzaJson[modalKey].id,
+            size,
+            qt: modalqt
+        });
+    }
 
     console.log(cart);
 
+    closeModal();
+
 });
+
