@@ -97,13 +97,39 @@
     ... continuando
 
     fechar modal 
-    aumentar / diminuir qtd
+
+    c('.pizzaInfo--qtmenos').addEventListener('click',()=>{
+        if(modalqt>1){
+            modalqt--;
+            c('.pizzaInfo--qt').innerHTML = modalqt;
+        }
+    });
+    
+    c('.pizzaInfo--qtmais').addEventListener('click',()=>{
+        modalqt++;
+        c('.pizzaInfo--qt').innerHTML = modalqt;
+    });
 
 <hr>
 <strong>#8: Compra de Pizzas - parte 8</strong> 
 
+    ... continuando
+
+    aumentar / diminuir qtd
+
+    ação de click para cada tamanho
+
+    cs('.pizzaInfo--size').forEach((size, sizeIndex)=>{
+        size.addEventListener('click',(e)=>{
+            c('.pizzaInfo--size.selected').classList.remove('selected');
+            size.classList.add('selected');
+        });
+    });
+
 <hr>
 <strong>#9: Compra de Pizzas - parte 9</strong> 
+
+    ... adicionar ao carrinho
 
 <hr>
 <strong>#10: Compra de Pizzas - parte 10</strong> 
