@@ -25,24 +25,79 @@
 
 <hr>
 <strong>#1: Criando a interface (parte 1)</strong> 
+<strong>#2: Criando a interface (parte 2)</strong> 
+<strong>#3: Criando a interface (parte 3)</strong> 
 
     montando a tela: html css
 
 <hr>
-<strong>#2: Criando a interface (parte 2)</strong> 
-
-
-<hr>
-<strong>#3: Criando a interface (parte 3)</strong> 
-
-
-<hr>
 <strong>#4: Controle das áreas da tela</strong> 
 
+    fazer funcionar os botões
+    o 'votar' é feito de etapas 
+    apresentando a organização do arquivo js 
 
+    let seuVotoPara = document.querySelector('.d-1-1 span');
+    let cargo = document.querySelector('.d-1-2 span');
+    let descricao = document.querySelector('.d-1-4');
+    let aviso = document.querySelector('.d-2');
+    let lateral = document.querySelector('.d-1-right');
+    let numeros = document.querySelector('.d-1-3');
+    
 <hr>
 <strong>#5: Preenchendo Interface com números</strong> 
 
+    colocar as ações de cada um dos botões da tela
+
+    verificar a etapa 
+    preencher os numeros 
+    verificar se digitou o último número para o cargo
+
+
+    // limpar a tela
+    // pegar as infos da etapa atual
+    // preencher o que precisa ser preenchido
+    function comecarEtapa(){
+        
+        let etapa = etapas[etapaAtual];
+    
+        let numeroHtml = ``;
+    
+        for(let i=0; i<etapa.numeros; i++){
+            if(i === 0){
+                numeroHtml += '<div class="numero pisca"></div>';
+            } else {
+                numeroHtml += '<div class="numero"></div>';
+            }
+        }
+    
+        seuVotoPara.style.display = 'none';
+        cargo.innerHTML = etapa.titulo;
+        descricao.innerHTML = '';
+        aviso.style.display = 'none';
+        lateral.innerHTML = '';
+        numeros.innerHTML = numeroHtml;
+    
+    }
+
+    function atualizaInterface(){
+        console.log('finalizou de digitar o voto');
+    }
+
+    function clicou(n){
+        console.log('clicou', n);
+        let elNumero = document.querySelector('.numero.pisca');
+        if(elNumero !== null){
+            elNumero.innerHTML = n;
+            numero = `${numero}${n}`;
+            elNumero.classList.remove('pisca');
+            if(elNumero.nextElementSibling != null){
+                elNumero.nextElementSibling.classList.add('pisca');
+            } else {
+                atualizaInterface();
+            }
+        }
+    }
 
 <hr>
 <strong>#6: Procurando candidato + voto nulo</strong> 
