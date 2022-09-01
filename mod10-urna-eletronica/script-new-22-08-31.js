@@ -35,12 +35,49 @@ function comecarEtapa(){
 }
 
 function atualizaInterface(){
-    console.log('finalizou de digitar o voto');
+
+    console.log('finalizou de digitar o voto: ', numero);
+
+    let etapa = etapas[etapaAtual];
+    let candidato = etapa.candidatos.filter((item)=>{
+        if(item.numero === numero){
+            return true;
+        } else {
+            return false;
+        }
+    });
+
+    console.log('candidato', candidato);
+
+    if(candidato.length > 0){
+        candidato = candidato[0];
+        seuVotoPara.style.display = 'block';
+        aviso.style.display = 'block';
+        descricao.innerHTML = `Nome: ${candidato.nome} <br>Partido: ${candidato.partido}`;
+        let fotosHtml = '';
+        for(let i in candidato.fotos){
+            fotosHtml += '<div class="d-1-image">';
+            fotosHtml += `  <img src="images/${candidato.fotos[i].url}" alt="">`;
+            fotosHtml += `  ${candidato.fotos[i].legenda}`;
+            fotosHtml += '</div>';
+
+        }
+        lateral.innerHTML = fotosHtml;
+    } else { // VOTO NULO
+        seuVotoPara.style.display = 'block';
+        aviso.style.display = 'block';
+        descricao.innerHTML = `<div class="aviso-grande">Voto Nulo</div>`;
+
+    }
+
 }
 
 function clicou(n){
+
     console.log('clicou', n);
+
     let elNumero = document.querySelector('.numero.pisca');
+
     if(elNumero !== null){
         elNumero.innerHTML = n;
         numero = `${numero}${n}`;
@@ -51,6 +88,8 @@ function clicou(n){
             atualizaInterface();
         }
     }
+
+    // console.log('numero:', numero);
 }
 function branco(){
     console.log('clicou: branco');
