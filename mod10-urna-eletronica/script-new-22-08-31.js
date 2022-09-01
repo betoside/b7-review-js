@@ -8,6 +8,7 @@ let numeros = document.querySelector('.d-1-3');
 let etapaAtual = 0;
 let numero = '';
 let votoBranco = false;
+let votos = [];
 
 // limpar a tela
 // pegar as infos da etapa atual
@@ -133,9 +134,17 @@ function confirma(){
     if(votoBranco === true){
         console.log('confirmando como BRANCO');
         votoConfirmado = true;
+        votos.push({
+            etapa: etapas[etapaAtual].titulo,
+            voto: 'Branco'
+        });
     } else if(numero.length === etapa.numeros) {
         console.log('confirmando como:', numero);
         votoConfirmado = true;
+        votos.push({
+            etapa: etapas[etapaAtual].titulo,
+            voto: numero
+        });
     }
 
     
@@ -147,6 +156,8 @@ function confirma(){
             comecarEtapa();
         } else {
             console.log('FIM');
+            document.querySelector('.tela').innerHTML = '<div class="aviso-gigante pisca">FIM</div>';
+            console.log(votos);
         }
     }
 }
