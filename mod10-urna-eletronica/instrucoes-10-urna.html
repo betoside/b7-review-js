@@ -65,9 +65,9 @@
     
         for(let i=0; i < etapa.numeros; i++){
             if(i === 0){
-                numeroHtml += '<div class="numero pisca"></div>';
+                numeroHtml += '< div class="numero pisca"></ div >';
             } else {
-                numeroHtml += '<div class="numero"></div>';
+                numeroHtml += '< div class="numero"></ div >';
             }
         }
     
@@ -121,20 +121,20 @@
             candidato = candidato[0];
             seuVotoPara.style.display = 'block';
             aviso.style.display = 'block';
-            descricao.innerHTML = `Nome: ${candidato.nome} <br>Partido: ${candidato.partido}`;
+            descricao.innerHTML = `Nome: ${candidato.nome} < br >Partido: ${candidato.partido}`;
             let fotosHtml = '';
             for(let i in candidato.fotos){
-                fotosHtml += '<div class="d-1-image">';
-                fotosHtml += `  <img src="images/${candidato.fotos[i].url}" alt="">`;
+                fotosHtml += '< div class="d-1-image">';
+                fotosHtml += `  < img src="images/${candidato.fotos[i].url}" alt="">`;
                 fotosHtml += `  ${candidato.fotos[i].legenda}`;
-                fotosHtml += '</div>';
+                fotosHtml += '</ div>';
 
             }
             lateral.innerHTML = fotosHtml;
         } else { // VOTO NULO
             seuVotoPara.style.display = 'block';
             aviso.style.display = 'block';
-            descricao.innerHTML = `<div class="aviso-grande">Voto Nulo</div>`;
+            descricao.innerHTML = `< div class="aviso-grande" >Voto Nulo</ div >`;
 
         }
 
@@ -143,6 +143,60 @@
 <hr>
 <strong>#7: Corrige, Branco, Confirma</strong> 
 
+    fazer o botao corrigir. zerar a etapa e o numero que fica na memoria
+
+
+    function branco(){
+        console.log('clicou: branco');
+
+        numero = '';
+        votoBranco = true;
+        seuVotoPara.style.display = 'block';
+        aviso.style.display = 'block';
+        numeros.innerHTML = '';
+        descricao.innerHTML = `< div class="aviso-grande">Voto em Branco< /div>`;
+        lateral.innerHTML = '';
+
+        // if( numero === ''){
+        //     votoBranco = true;
+        //     seuVotoPara.style.display = 'block';
+        //     aviso.style.display = 'block';
+        //     numeros.innerHTML = '';
+        //     descricao.innerHTML = `< div class="aviso-grande">Voto em Branco< /div>`;
+        // } else {
+        //     alert('Para votar em branco não pode ter digitado nenhum número');
+        // }
+    }
+    function corrige(){
+        console.log('clicou: corrige');
+        comecarEtapa();
+    }
+
+    function confirma(){
+        console.log('clicou: confirma');
+        let etapa = etapas[etapaAtual];
+        let votoConfirmado = false;
+
+        if(votoBranco === true){
+            console.log('confirmando como BRANCO');
+            votoConfirmado = true;
+        } else if(numero.length === etapa.numeros) {
+            console.log('confirmando como:', numero);
+            votoConfirmado = true;
+        }
+
+        
+        if(votoConfirmado){
+            etapaAtual++;
+            console.log( etapas[etapaAtual] );
+
+            if(etapas[etapaAtual] !== undefined){
+                comecarEtapa();
+            } else {
+                console.log('FIM');
+            }
+        }
+    }
 
 <hr>
 <strong>#8: Tela Fim e Salvando Voto</strong> 
