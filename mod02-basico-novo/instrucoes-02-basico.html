@@ -21,23 +21,136 @@
 <hr>
 <strong>#3: Como usar uma função</strong> 
 
+    function gravidade(){
+
+        let msg = 'A gravidade do planeta é: ';
+        msg += 9.8;
+        console.log(msg);
+    }
+    gravidade();
+
 <hr>
 <strong>#4: Passando parâmetros em funções</strong> 
 
 <hr>
 <strong>#5: Retorno da função</strong> 
 
+    return
+
 <hr>
 <strong>#6: Função com retorno condicional</strong> 
+
+    function maiorIdade(idade){
+        if(idade >= 18){
+            return true;
+        } else {
+            return false;
+        }
+    }
 
 <hr>
 <strong>#7: Exercício de funções #4</strong> 
 
+    calcule a porcentagem entre 2 números
+    exemplo: 25% de 40 é 10
+    fórmula da porcentagem: (x/y) * 100
+
+    uso da função:
+    let x = 40;
+    let y = 10;
+    let pct = calcPct(x,y);
+    !-- let pct = (x/y) * 100; --
+    console.log(`${pct}% de ${x} é {y}`);
+
+    <script>
+    let x = 50;
+    let y = 10;
+    let pct = calcPct(x,y);
+
+    function calcPct(n1,n2){
+        return (n2 / n1) * 100;
+    }
+    console.log(`${pct}% de ${x} é ${y}`);
+
+    </script>
+
 <hr>
 <strong>#8: Exercício de funções #5</strong> 
 
+    calcule o preço do imóvel
+    - m2 = 3.000
+    - se tiver 1 quarto, o m2 é 1x
+    - se tiver 2 quartos, o m2 é 1.2x
+    - se tiver 3 quartos, o m2 é 1.5x
+
+    let metragem = 123;
+    let quartos = 3;
+    let preco = calcularImovel(metragem, quartos);
+    console.log(`A casa custa R$ ${preco}`);
+
+    <script>
+
+        let metragem = 75;
+        let quartos = 3;
+        let preco = calcularImovel(metragem, quartos);
+        console.log(`A casa custa R$ ${preco}`);
+
+        function calcularImovel(metragem, quartos){
+            let m2 = 3000;
+            let fator = 1;
+
+            if(quartos == 1){
+                fator = 1;
+            } else if( quartos == 2 ){
+                fator = 1.2;
+            } else if(quartos > 2){
+                fator = 1.5;
+            }
+
+            m2 = m2 * fator;
+            return metragem * m2;
+        }
+
+    </script>
+
 <hr>
 <strong>#9: Exercício de funções #6 (mais fácil)</strong> 
+
+    crie uma funcao que valide usuario e senha
+    usuario coreto: pedro
+    senha correta: 123
+
+    uso da funcao:
+    let usuario = 'boniek';
+    let senha = '1234';
+    let validacao = validar (usuario, senha);
+    if (validacao){
+        console.log('acesso concedido.');
+    } else {
+        console.log('acesso negado.');
+    }
+
+    <script>
+    let usuario = 'boniek';
+    let senha = '123';
+    let validacao = validar(usuario, senha);
+    if (validacao){
+        console.log('acesso concedido.');
+    } else {
+        console.log('acesso negado.');
+    }
+
+    function validar(usuario, senha){
+        if(usuario === 'boniek' && senha === '123'){
+            return true;
+        }
+
+        return false;
+    }
+
+    </script>
+
+
 
 <hr>
 <strong>#10: Arrow Function</strong> 
