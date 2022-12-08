@@ -360,9 +360,36 @@
         console.log(obj_pessoa.caracteristicas.peso + 'kg');
 
     </script>
+    let obj_pessoa = {
+        nome: 'Travis Pastrana',
+        esportes: ['automobilismo', 'motociclismo', 'snowboard', 'bmx'],
+        nacionalidade: 'Norte Americano',
+        caracteristicas: {
+            altura: 1.80,
+            peso: 79,
+            idade: 31
+        }
+    }
+
+    console.log(obj_pessoa);
+    console.log(obj_pessoa.nome);
+    console.log(obj_pessoa.esportes);
+    console.log(obj_pessoa.caracteristicas.altura + 'm');
+    console.log(obj_pessoa.caracteristicas.peso + 'kg');
 
 <hr>
 <strong>#17: Acessando e alterando objetos</strong> 
+
+    <script>
+        obj_pessoa.nome = 'Pedro';
+        console.log(obj_pessoa);
+        obj_pessoa.caracteristicas.peso = 81;
+        console.log(obj_pessoa.caracteristicas.peso + 'kg');
+    </script>
+    obj_pessoa.nome = 'Pedro';
+    console.log(obj_pessoa);
+    obj_pessoa.caracteristicas.peso = 81;
+    console.log(obj_pessoa.caracteristicas.peso + 'kg');
 
 <hr>
 <strong>#18: Função dentro de objeto</strong> 
