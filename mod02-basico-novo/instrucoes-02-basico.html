@@ -434,6 +434,42 @@
 <hr>
 <strong>#20: Dando loop em arrays</strong> 
 
+    <script>
+        let lista20cores = ['preto', 'branco', 'vermelho', 'verde', 'azul'];
+        for(n20 = 0; n20 < lista20cores.length; n20++){
+            console.log('lista20cores[n20]', n20,lista20cores[n20]);
+        }
+
+        for(let n20 in lista20cores){
+            console.log(
+                'for i in:', lista20cores[n20]
+            );
+        }
+
+        for(let cor of lista20cores){
+            console.log(
+                'cor OF:', cor
+            );
+        }
+
+        lista20cores = [
+            {nome:'preto', qt: 15}, 
+            {nome:'branco', qt: 25}, 
+            {nome:'vermelho', qt: 35}, 
+            {nome:'verde', qt: 45}, 
+            {nome:'azul', qt: 55}
+        ];
+        for (key in lista20cores) {
+            console.log(
+                `{} cor: ${lista20cores[key].nome}, qt: ${lista20cores[key].qt}`
+            );
+        }
+        for(key of lista20cores){
+            console.log(
+                key, key.nome, key.qt
+            );
+        }
+    </script>
 
 <hr>
 <strong>#21: O loop while</strong>
