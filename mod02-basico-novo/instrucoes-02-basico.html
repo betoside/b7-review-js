@@ -471,20 +471,365 @@
         }
     </script>
 
+    let lista20cores = ['preto', 'branco', 'vermelho', 'verde', 'azul'];
+    for(n20 = 0; n20 < lista20cores.length; n20++){
+        console.log('lista20cores[n20]', n20,lista20cores[n20]);
+    }
+
+    for(let n20 in lista20cores){
+        console.log(
+            'for i in:', lista20cores[n20]
+        );
+    }
+
+    for(let cor of lista20cores){
+        console.log(
+            'cor OF:', cor
+        );
+    }
+
+    lista20cores = [
+        {nome:'preto', qt: 15}, 
+        {nome:'branco', qt: 25}, 
+        {nome:'vermelho', qt: 35}, 
+        {nome:'verde', qt: 45}, 
+        {nome:'azul', qt: 55}
+    ];
+    for (key in lista20cores) {
+        console.log(
+            `{} cor: ${lista20cores[key].nome}, qt: ${lista20cores[key].qt}`
+        );
+    }
+    for(key of lista20cores){
+        console.log(
+            key, key.nome, key.qt
+        );
+    }
+
 <hr>
 <strong>#21: O loop while</strong>
+
+    <script>
+        n21 = 0;
+        while (n21 < 10) {
+            console.log(
+                'while:', 'O nro da vez é', n21
+            );
+            n21++;
+        }
+
+        for(n21=0; n21<10; n21++){
+            console.log(
+                'for:', 'O nro da vez é', n21
+            );
+        }
+
+    </script>
+    n21 = 0;
+    while (n21 MENOR 10) {
+        console.log(
+            'while:', 'O nro da vez é', n21
+        );
+        n21++;
+    }
+
+    for(n21=0; n21 MENOR 10; n21++){
+        console.log(
+            'for:', 'O nro da vez é', n21
+        );
+    }
 
 <hr>
 <strong>#22: Exercício de loops #8</strong>
 
+    <script>
+        // 1 faça um loop que mostre todas as frutas
+        n22frutas = ['maçã', 'uva', 'banana'];
+        for (n22 of n22frutas) {
+            console.log(
+                n22
+            );
+        }
+        for (n22 in n22frutas) {
+            console.log(
+                n22, n22frutas[n22]
+            );
+        }
+
+        // 2 conte 1 ate 100 atraves do while
+        n22 = 1;
+        while (n22 <= 3) {
+            console.log(
+                n22
+            );
+            n22++;
+        }
+    </script>
+    // 1 faça um loop que mostre todas as frutas
+    n22frutas = ['maçã', 'uva', 'banana'];
+    for (n22 of n22frutas) {
+        console.log(
+            n22
+        );
+    }
+    for (n22 in n22frutas) {
+        console.log(
+            n22, n22frutas[n22]
+        );
+    }
+
+    // 2 conte 1 ate 100 atraves do while
+    n22 = 1;
+    while (n22 <= 3) {
+        console.log(
+            n22
+        );
+        n22++;
+    }
+
 <hr>
 <strong>#23: Funções de array</strong>
+
+    <script>
+        // funcoes básicas
+        n23frutas = ['laranja', 'maçã', 'uva', 'banana'];
+        n23frutas.push('abacaxi');
+
+        console.log(
+            n23frutas, n23frutas.length
+        );
+
+        n23frutas.pop();
+        console.log(
+            'pop:', n23frutas, n23frutas.length
+        );
+
+        n23frutas.shift();
+        console.log(
+            'shift:', n23frutas, n23frutas.length
+        );
+
+        n23join = n23frutas.join(' .. +++ .. ')
+        console.log(
+            'join:', n23join
+        );
+
+        n23frutas[n23frutas.length - 1] = 'banana + aveia';
+        console.log(
+            'n23frutas[n23frutas.length - 1]', n23frutas[n23frutas.length - 1]
+        );
+        console.log( n23frutas );
+    </script>
+
+    // funcoes básicas
+    n23frutas = ['laranja', 'maçã', 'uva', 'banana'];
+    n23frutas.push('abacaxi');
+
+    console.log(
+        n23frutas, n23frutas.length
+    );
+
+    n23frutas.pop();
+    console.log(
+        'pop:', n23frutas, n23frutas.length
+    );
+
+    n23frutas.shift();
+    console.log(
+        'shift:', n23frutas, n23frutas.length
+    );
+
+    n23join = n23frutas.join(' .. +++ .. ')
+    console.log(
+        'join:', n23join
+    );
+
+    n23frutas[n23frutas.length - 1] = 'banana + aveia';
+    console.log(
+        'n23frutas[n23frutas.length - 1]', n23frutas[n23frutas.length - 1]
+    );
+    console.log( n23frutas );
 
 <hr>
 <strong>#24: Ordenação de array</strong>
 
+    <script>
+
+        n24frutas = ['laranja', 'maçã', 'uva', 'banana'];
+        console.log(n24frutas);
+        
+        n24frutas.sort();
+        console.log('sort:', n24frutas);
+
+        n24frutas.reverse();
+        console.log('reverse:', n24frutas);
+
+        n24carros = [
+            { brand: 'Fiat', year: 2022 },
+            { brand: 'BMW', year: 2018 },
+            { brand: 'Ferrari', year: 2020 }
+        ];
+        
+        console.log('n24carros: ', n24carros);
+
+        // 1 ordenar baseado no ano do carro
+        n24carros.sort(
+            (a, b)=>{
+                // vair retornar 0, 1 ou -1
+                // comparar o a com o b e saber se vai para frente ou para tras
+                // console.log(
+                //     'a: ' + a.brand,
+                //     'b: ' + b.brand
+                // );
+                if(a.year > b.year){
+                    return 1;
+                } else if (a.year < b.year){
+                    return -1;
+                } else {
+                    return 0;
+                }
+            }
+
+        );
+        console.log(
+            '1o sort:', n24carros
+        );
+
+        // voltando ao início para refazer o sort de um jeito simples
+        n24carros = [
+            { brand: 'Fiat', year: 2022 },
+            { brand: 'BMW', year: 2018 },
+            { brand: 'Ferrari', year: 2020 }
+        ];
+        n24carros.sort(
+            (a, b)=>{
+                return a.year - b.year;
+            }
+        );
+        console.log(
+            '2o sort:', n24carros
+        );
+
+
+        // o mais novo primeiro
+        n24carros.sort( (a, b) => b.year - a.year );
+        console.log(
+            '3o sort:', n24carros
+        );
+
+    </script>
+    n24frutas = ['laranja', 'maçã', 'uva', 'banana'];
+    console.log(n24frutas);
+    
+    n24frutas.sort();
+    console.log('sort:', n24frutas);
+
+    n24frutas.reverse();
+    console.log('reverse:', n24frutas);
+
+    n24carros = [
+        { brand: 'Fiat', year: 2022 },
+        { brand: 'BMW', year: 2018 },
+        { brand: 'Ferrari', year: 2020 }
+    ];
+    
+    console.log('n24carros: ', n24carros);
+
+    // 1 ordenar baseado no ano do carro
+    n24carros.sort(
+        (a, b)=>{
+            // vair retornar 0, 1 ou -1
+            // comparar o a com o b e saber se vai para frente ou para tras
+            // console.log(
+            //     'a: ' + a.brand,
+            //     'b: ' + b.brand
+            // );
+            if(a.year > b.year){
+                return 1;
+            } else if (a.year < b.year){
+                return -1;
+            } else {
+                return 0;
+            }
+        }
+
+    );
+    console.log(
+        '1o sort:', n24carros
+    );
+
+    // voltando ao início para refazer o sort de um jeito simples
+    n24carros = [
+        { brand: 'Fiat', year: 2022 },
+        { brand: 'BMW', year: 2018 },
+        { brand: 'Ferrari', year: 2020 }
+    ];
+    n24carros.sort(
+        (a, b)=>{
+            return a.year - b.year;
+        }
+    );
+    console.log(
+        '2o sort:', n24carros
+    );
+
+
+    // o mais novo primeiro
+    n24carros.sort( (a, b) => b.year - a.year );
+    console.log(
+        '3o sort:', n24carros
+    );
+
 <hr>
 <strong>#25: Iteração de array 1</strong>
+
+    <script>
+        // filtrar as frutas com mais 4 letras
+        n25frutas = ['laranja', 'maçã', 'uva', 'banana'];
+
+        maisde4letras = n25frutas.filter(
+            (item)=>{
+                if(item.length > 4) {
+                    return true;
+                }
+            }
+        );
+        console.log('maisde4letras: ', maisde4letras);
+
+        // every
+        // some
+
+        every_maisde3letras = n25frutas.every(
+            (valueItem) => {
+                return valueItem.length > 3;
+            }
+        );
+        console.log(
+            'EVERY',
+            n25frutas,
+            'every_maisde3letras: ', every_maisde3letras
+        );
+
+        some_maisde3letras = n25frutas.some(
+            (valueItem) => {
+                return valueItem.length > 3;
+            }
+        );
+        console.log(
+            'SOME',
+            n25frutas,
+            'some_maisde3letras: ', some_maisde3letras
+        );
+
+        if ( n25frutas.includes('Banana') ) {
+            console.log('includes: possui Banana');
+        } else {
+            console.log('includes: nao possui Banana');
+            
+        }
+
+
+    </script>
 
 
 </pre>    
