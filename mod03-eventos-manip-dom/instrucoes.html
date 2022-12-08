@@ -4,7 +4,6 @@
     <title></title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
 <pre>
@@ -17,32 +16,498 @@
     <hr>
     <strong>#1: O que é DOM?</strong>
 
+        Document object model: os elementos da tela, 
+        elementos que estão na página,
+        elementos que estão na memória do navegador:
+
+            html 
+            body 
+            h1 
+            etc etc
+
+            os elementos e as propriedades que estão na memória e 
+            que serão traduzidos de forma visual na tela do browser
+
     <hr>
     <strong>#2: Selecionando elementos 1</strong>
 
-    <hr>
-    <strong>#3: Selecionando elementos 2</strong>
+        <script>
+            console.log(document);
+            console.log(window);
+            console.log('location:', window.location);
+            console.log('href:', window.location.href);
+            console.log('protocol:', window.location.protocol);
+            console.log('host:', window.location.host);
+            console.log('origin:', window.location.origin);
+            console.log(document.getElementsByTagName('h3'));
+            console.log('.innerHTML:', document.getElementsByTagName('h3')[0].innerHTML);
+            console.log('.innerText:', document.getElementsByTagName('h3')[0].innerText);
+            console.log('.outerHTML:', document.getElementsByTagName('h3')[0].outerHTML);
+            console.log('.outerText:', document.getElementsByTagName('h3')[0].outerText);
+
+            // innerHTML
+            // innerText
+            // outerHTML
+            // outerText
+        </script>
+            console.log(document);
+            console.log(window);
+            console.log('location:', window.location);
+            console.log('href:', window.location.href);
+            console.log('protocol:', window.location.protocol);
+            console.log('host:', window.location.host);
+            console.log('origin:', window.location.origin);
+            console.log(document.getElementsByTagName('h3'));
+            console.log('.innerHTML:', document.getElementsByTagName('h3')[0].innerHTML);
+            console.log('.innerText:', document.getElementsByTagName('h3')[0].innerText);
+            console.log('.outerHTML:', document.getElementsByTagName('h3')[0].outerHTML);
+            console.log('.outerText:', document.getElementsByTagName('h3')[0].outerText);
+
+            // innerHTML
+            // innerText
+            // outerHTML
+            // outerText
 
     <hr>
-    <strong>#4: Eventos de clique</strong>
+    <strong id="id_3" class="class-3">#3: Selecionando elementos 2</strong>
+
+        <p id="p_4"></p>
+
+        <script>
+            console.log(document.getElementsByTagName('a')[0]);
+            console.log(document.getElementById('id_3'));
+            console.log(document.getElementsByClassName('class-3'));
+            console.log(document.querySelector('#p_4'));
+            console.log(document.querySelector('.class-3'));
+            console.log(document.querySelector('strong'));
+            console.log(document.querySelectorAll('strong'));
+            console.log(document.querySelectorAll('strong').length);
+        </script>
+            console.log(document.getElementsByTagName('a')[0]);
+            console.log(document.getElementById('id_3'));
+            console.log(document.getElementsByClassName('class-3'));
+            console.log(document.querySelector('#p_4'));
+            console.log(document.querySelector('.class-3'));
+            console.log(document.querySelector('strong'));
+            console.log(document.querySelectorAll('strong'));
+            console.log(document.querySelectorAll('strong').length);
+
+    <hr>
+    <strong id="id_4">#4: Eventos de clique</strong>
+
+        press down
+        press up
+
+        javascript entende q houve um clique em algum lugar
+        cabe a vc especificar onde
+
+        <button id="bt-4" onclick="f_bt4()">clique aqui</button>
+        veja resultado no console.log
+
+        <button id="bt-42">clique aqui, querySelector</button>
+
+        <script>
+            function f_bt4(){
+                console.log('4 clicou');
+            }
+
+            document.querySelector('#bt-42').addEventListener('click', () => {
+                f_bt4();
+            });
+
+        </script>
 
     <hr>
     <strong>#5: Manipulando elementos 1</strong>
 
+        children 
+        children[n]
+        innerHTML
+
+        <div id="e51">
+            <ul>
+                <li>item 1</li>
+                <li>item 2</li>
+            </ul>
+            <strong>testando 1,2,3..</strong>
+        </div>
+        <div id="e52">
+            <ul>
+                <li>item 1</li>
+                <li>item 2</li>
+            </ul>
+        </div>
+        <button id="bt51">click</button>
+
+        <script>
+            div51 = document.querySelector('#e51');
+            console.log(div51.children);
+            console.log(div51.children[0].children);
+            console.log(div51.children[1]);
+            console.log(div51.children[1].children);
+            console.log(div51.children[0].innerHTML);
+            div51.children[0].children[0].innerHTML = 'item 1 e 1';
+            div51.children[0].children[0].innerHTML = 'item 1 e <strong>1</strong>';
+            // div51.children[0].children[0].innerText = 'item 1 e <strong>1</strong>';
+            div51.children[0].innerHTML += '<li>item 3</li>';
+            console.log(div51.children[0].children[0].innerHTML);
+            console.log('innerHTML', div51.children[0].innerHTML);
+            console.log('outerHTML', div51.children[0].outerHTML);
+
+            document.querySelector('#bt51').addEventListener('click', ()=>{
+                
+                console.log(div51.children[0].innerHTML);
+
+            });
+
+        </script>
+
+        div id="e51">
+            ul>
+                li>item 1/li>
+                li>item 2/li>
+            /ul>
+            strong>testando 1,2,3../strong>
+        /div>
+        div id="e52">
+            ul>
+                li>item 1/li>
+                li>item 2/li>
+            /ul>
+        /div>
+        button id="bt51">click/button>
+
+        script>
+            div51 = document.querySelector('#e51');
+            console.log(div51.children);
+            console.log(div51.children[0].children);
+            console.log(div51.children[1]);
+            console.log(div51.children[1].children);
+            console.log(div51.children[0].innerHTML);
+            div51.children[0].children[0].innerHTML = 'item 1 e 1';
+            div51.children[0].children[0].innerHTML = 'item 1 e strong>1/strong>';
+            // div51.children[0].children[0].innerText = 'item 1 e strong>1/strong>';
+            div51.children[0].innerHTML += 'li>item 3/li>';
+            console.log(div51.children[0].children[0].innerHTML);
+            console.log('innerHTML', div51.children[0].innerHTML);
+            console.log('outerHTML', div51.children[0].outerHTML);
+
+            document.querySelector('#bt51').addEventListener('click', ()=>{
+                
+                console.log(div51.children[0].innerHTML);
+
+            });
+
+        /script>
+
     <hr>
     <strong>#6: Manipulando elementos 2</strong>
+
+            appendChild
+            append 
+            prepend
+
+        <div id="e61">
+            <ul>
+                <li>item 1</li>
+                <li>item 2</li>
+            </ul>
+            <strong>testando 1,2,3..</strong>
+        </div>
+        <div id="e62">
+            <ul>
+                <li>item 1</li>
+                <li>item 2</li>
+            </ul>
+        </div>
+
+        <script>
+            div61 = document.querySelector('#e61');
+            div61_children = div61.children;
+            div61_ul = div61.children[0];
+            div61_ul_li = div61_ul.children;
+            div61_ul_li1 = div61_ul.children[0];
+
+            console.log(div61);
+            console.log(div61_children);
+            console.log(div61_ul);
+            console.log(div61_ul_li);
+            console.log(div61_ul_li1);
+
+            div61_ul_li1.append(' :: Alterado');
+            console.log(div61_ul_li1);
+
+            div61_ul_li1.innerHTML += (' :: Alterado2');
+            console.log(div61_ul_li1);
+
+            div61_ul_li1.append(' :: Alterado3');
+            console.log(div61_ul_li1);
+
+            let newli = document.createElement('li');
+            newli.innerText = 'item 3, newli, createElement/append';
+            div61_ul.appendChild(newli);
+
+            let newli2 = document.createElement('li');
+            newli2.innerText = 'item 4, newli2 4, prepend';
+            div61_ul.prepend(newli2);
+
+        </script>
+
+        div id="e61">
+            ul>
+                li>item 1/li>
+                li>item 2/li>
+            /ul>
+            strong>testando 1,2,3../strong>
+        /div>
+        div id="e62">
+            ul>
+                li>item 1/li>
+                li>item 2/li>
+            /ul>
+        /div>
+
+        script>
+            div61 = document.querySelector('#e61');
+            div61_children = div61.children;
+            div61_ul = div61.children[0];
+            div61_ul_li = div61_ul.children;
+            div61_ul_li1 = div61_ul.children[0];
+
+            console.log(div61);
+            console.log(div61_children);
+            console.log(div61_ul);
+            console.log(div61_ul_li);
+            console.log(div61_ul_li1);
+
+            div61_ul_li1.append(' :: Alterado');
+            console.log(div61_ul_li1);
+
+            div61_ul_li1.innerHTML += (' :: Alterado2');
+            console.log(div61_ul_li1);
+
+            div61_ul_li1.append(' :: Alterado3');
+            console.log(div61_ul_li1);
+
+            let newli = document.createElement('li');
+            newli.innerText = 'item 3, newli, createElement/append';
+            div61_ul.appendChild(newli);
+
+            let newli2 = document.createElement('li');
+            newli2.innerText = 'item 4, newli2 4, prepend';
+            div61_ul.prepend(newli2);
+
+        /script>
 
     <hr>
     <strong>#7: Manipulando elementos 3</strong>
 
+        adicionar coisas ao redor do elemento
+        antes e depois do elemento 
+
+        <div id="e7">
+            <ul>
+                <li>item 71</li>
+                <li>item 72</li>
+            </ul>
+            <strong>texto qq</strong>
+        </div>
+        <button id="bt7">click bt7</button>
+        <script>
+
+            bt7 = document.querySelector('#bt7');
+
+            bt7.addEventListener('click', ()=>{
+
+                e7ul = e7.children[0];
+                console.log(e7ul);
+                
+                e7ul2 = document.createElement('ul');
+                e7ul.after(e7ul2);
+
+                for(let j = 0; j < 5; j++){
+                    let NEWLI = document.createElement('li');
+                    NEWLI.innerHTML = 'new lista, item '+ j;
+                    e7ul2.append(NEWLI);
+                }
+                
+            });
+
+        </script>
+        div id="e7">
+            ul>
+                li>item 71/li>
+                li>item 72/li>
+            /ul>
+            strong>texto qq/strong>
+        /div>
+        button id="bt7">click bt7/button>
+        script>
+
+            bt7 = document.querySelector('#bt7');
+
+            bt7.addEventListener('click', ()=>{
+
+                e7ul = e7.children[0];
+                console.log(e7ul);
+                
+                e7ul2 = document.createElement('ul');
+                e7ul.after(e7ul2);
+
+                for(let j = 0; j MAIOR 5; j++){
+                    let NEWLI = document.createElement('li');
+                    NEWLI.innerHTML = 'new lista, item '+ j;
+                    e7ul2.append(NEWLI);
+                }
+                
+            });
+
+        /script>
+
     <hr>
     <strong>#8: Manipulando atributos</strong>
+
+        <div class="contexto8">
+            <input id="input8" type="text" name="input8" placeholder="Digite algo">
+            <button id="bt8">botao 8</button>
+        </div>
+
+        <script>
+            qs = (e) => document.querySelector(e);
+            qsa = (e) => document.querySelectorAll(e);
+            bt8 = document.querySelector('#bt8');
+
+            bt8.addEventListener('click', function(){
+
+                input = qs('#input8');
+                console.log(input.type);
+                console.log(input.placeholder);
+                console.log(input.hasAttribute('placeholder'));
+                console.log(this);
+
+
+                if (input.getAttribute('type') === 'text') {
+                    input.setAttribute('placeholder', 'Digite uma senha');
+                    input.setAttribute('type','password');
+                } else {
+                    input.setAttribute('placeholder', 'Digite um texto');
+                    input.setAttribute('type','text');
+                }
+
+                console.log(input);
+            });
+        </script>
+        div class="contexto8">
+            input id="input8" type="text" name="input8" placeholder="Digite algo">
+            button id="bt8">botao 8/button>
+        /div>
+
+        script>
+            qs = (e) => document.querySelector(e);
+            qsa = (e) => document.querySelectorAll(e);
+            bt8 = document.querySelector('#bt8');
+
+            bt8.addEventListener('click', function(){
+
+                input = qs('#input8');
+                console.log(input.type);
+                console.log(input.placeholder);
+                console.log(input.hasAttribute('placeholder'));
+                console.log(this);
+
+
+                if (input.getAttribute('type') === 'text') {
+                    input.setAttribute('placeholder', 'Digite uma senha');
+                    input.setAttribute('type','password');
+                } else {
+                    input.setAttribute('placeholder', 'Digite um texto');
+                    input.setAttribute('type','text');
+                }
+
+                console.log(input);
+            });
+        /script>
 
     <hr>
     <strong>#9: Manipulando o CSS</strong>
 
+        <div class="div9">
+            <ul>
+                <li>texto 91</li>
+                <li>texto 92</li>
+                <li>texto 93</li>
+            </ul>
+        </div>
+        <button id="bt9">botão 9</button>
+
+        <script>
+            bt9 = qs('#bt9');
+            ul9 = qs('.div9 ul');
+            li91 = ul9.children[2];
+            console.log(bt9);
+            console.log(ul9);
+            console.log(li91);
+
+            bt9.addEventListener('click', function(){
+                li91.style.backgroundColor = '#00f';
+                li91.style.fontWeight = 'bold';
+                li91.style.color = 'white';
+                li91.style.padding = '10px';
+            });
+        </script>
+        div class="div9">
+            ul>
+                li>texto 91/li>
+                li>texto 92/li>
+                li>texto 93/li>
+            /ul>
+        /div>
+        button id="bt9">botão 9/button>
+
+        script>
+            bt9 = qs('#bt9');
+            ul9 = qs('.div9 ul');
+            li91 = ul9.children[2];
+            console.log(bt9);
+            console.log(ul9);
+            console.log(li91);
+
+            bt9.addEventListener('click', function(){
+                li91.style.backgroundColor = '#00f';
+                li91.style.fontWeight = 'bold';
+                li91.style.color = 'white';
+                li91.style.padding = '10px';
+            });
+        /script>
+
     <hr>
     <strong>#10: Trabalhando com Classes</strong>
+    
+        <button class="bt-novo bt-azul" id="bt10">botão 10</button>
+
+        <script>
+            bt10 = qs('#bt10');
+            console.log(bt10);
+            bt10.classList.add('bt-outro');
+            console.log(bt10.classList);
+
+            bt10.addEventListener('click', function(){
+                if (bt10.classList.contains('bt-azul')) {
+                    bt10.classList.remove('bt-outro');
+                    bt10.classList.replace('bt-azul', 'bt-vermelho');
+                } else {
+                    bt10.classList.add('bt-skateboard');
+                    bt10.classList.replace('bt-vermelho','bt-azul');
+                }
+                console.log(bt10.classList);
+            });
+        </script>
+        <style>
+            *{ font-family: sans-serif; }
+
+            .bt-azul{ background-color: #00f; color: #fff; font-weight: bold; }
+            .bt-vermelho{ background-color: #F00; color: #fff; font-weight: bold; }
+        </style>
 
     <hr>
     <strong>#11: Eventos de teclado 1</strong>
