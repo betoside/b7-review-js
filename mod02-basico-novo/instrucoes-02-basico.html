@@ -215,6 +215,32 @@
 <hr>
 <strong>#12: Funções dentro de funções</strong> 
 
+    <script>
+        function somarRaiz(a, b) {
+
+            // function raizQuadrada(x) {
+            //     return x * x;
+            // }
+
+            const raizQuadrada = (x) => x * x;
+
+            return raizQuadrada(a) + raizQuadrada(b);
+        }
+        console.log('#12: Funções dentro de funções', somarRaiz(2, 3) );
+    </script>
+
+    function somarRaiz(a, b) {
+
+        // function raizQuadrada(x) {
+        //     return x * x;
+        // }
+
+        const raizQuadrada = (x) => x * x;
+
+        return raizQuadrada(a) + raizQuadrada(b);
+    }
+    console.log('#12: Funções dentro de funções', somarRaiz(2, 3) );
+
 <hr>
 <strong>#13: Introdução a Array</strong> 
 
