@@ -174,9 +174,43 @@
         console.log(sobrenome('Lacerda'));
 
     </script>
-    
+
 <hr>
 <strong>#11: Variáveis dentro de funções</strong> 
+
+    <script>
+        let js_11_count = 0;
+        // variavel de escopo globol
+        // nao é uam variavel global
+
+        function add(){
+            let js_11_count = 0;
+            // variavel de escopo local
+            // tem preferencia sobre a variavel de escopo global
+
+            js_11_count += 10;
+            // js_11_count++;
+        }
+        add();
+        add();
+        console.log(js_11_count);
+    </script>
+
+    let js_11_count = 0;
+    // variavel de escopo globol
+    // nao é uam variavel global
+
+    function add(){
+        let js_11_count = 0;
+        // variavel de escopo local
+        // tem preferencia sobre a variavel de escopo global
+        
+        js_11_count += 10;
+        // js_11_count++;
+    }
+    add();
+    add();
+    console.log(js_11_count);
 
 <hr>
 <strong>#12: Funções dentro de funções</strong> 
