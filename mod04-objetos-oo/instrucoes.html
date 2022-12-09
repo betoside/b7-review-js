@@ -4,7 +4,6 @@
     <title>Módulo 4: Objetos e Orientação a Objetos novo</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
 <pre>
@@ -17,12 +16,168 @@
     
     <hr>
     <strong>#1: O que é OO?</strong>
+
+        Orientação a Objetos
+
     
     <hr>
     <strong>#2: POO no Javascript</strong>
+
+        programação orientada a Objetos (POO - OOP)
+            java
+            c++
+            javascript (suporta)
+
+        programação procedural 
+            javascript é assim nativamente 
+
+        programação funcional (PF - FP)
+            javascript (suporta)
+
+        
+        Nesse treinamento vamos estudar js usando:
+        - classes 
+        - funcoes/objetos no js toda funcao é um objeto
+
+        vamos aprender as duas formas e assim ter conhecimento suficiente
+        para escolher com qual trabalhar ou qual a melhor opçao para
+        o que se quer fazer
+
     
     <hr>
     <strong>#3: Classes: Construtor e This</strong>
+
+        conceitos:
+
+        primeiro vamos trabalhar um template/conceito.
+        ele anda nao funciona e vai passar a funcionar 
+        quando for transformado em objeto. exemplo, criar uma class 
+        para uma pessoa, vamos criar um TEMPLATE/modelo.
+
+        <script>
+
+            // template
+            class Person {
+
+                _age = 10;
+                steps = 0;
+
+
+                constructor(firstname, lastname){
+                    this.firstname = firstname;
+                    this.lastname = lastname;
+                }
+
+                get fullName(){
+                    return `${this.firstname} ${this.lastname}`;
+                }
+
+                takeStep(){
+                    this.steps++;
+                }
+
+                get age(){
+                    return this._age;
+                }
+
+                set age(newAge){
+                    if(typeof newAge == 'number'){
+                        this._age = newAge;
+                    } else {
+                        console.log('Idade precisa ser número');
+                    }
+                }
+
+            }
+
+            // instancias
+            let p1 = new Person('johnny', 'Corder');
+            let p2 = new Person('mércia', 'Fechio');
+            let p3 = new Person('fátima', 'Silva');
+
+            console.log(p1);
+            console.log(p2);
+            console.log(p3);
+
+            p1.age = 74;
+            p2.age = 76;
+            p3.age = 64;
+
+            console.log(p1.fullName, 'idade: ', p1.age);
+            console.log(p2.fullName, 'idade: ', p2.age);
+            console.log(p3.fullName, 'idade: ', p3.age);
+
+            p1.takeStep();
+            p1.takeStep();
+            console.log(`Passos de ${p1.fullName}: ${p1.steps}`);
+
+            p1.age = 20;
+            console.log(`${p1.fullName} tem ${p1.age} anos`);
+
+            console.log(`${p1.fullName} tem ${p1.age} anos de idade.`  );
+        </script> 
+        script>
+
+            // template
+            class Person {
+
+                _age = 10;
+                steps = 0;
+
+
+                constructor(firstname, lastname){
+                    this.firstname = firstname;
+                    this.lastname = lastname;
+                }
+
+                get fullName(){
+                    return `${this.firstname} ${this.lastname}`;
+                }
+
+                takeStep(){
+                    this.steps++;
+                }
+
+                get age(){
+                    return this._age;
+                }
+
+                set age(newAge){
+                    if(typeof newAge == 'number'){
+                        this._age = newAge;
+                    } else {
+                        console.log('Idade precisa ser número');
+                    }
+                }
+
+            }
+
+            // instancias
+            let p1 = new Person('johnny', 'Corder');
+            let p2 = new Person('mércia', 'Fechio');
+            let p3 = new Person('fátima', 'Silva');
+
+            console.log(p1);
+            console.log(p2);
+            console.log(p3);
+
+            p1.age = 74;
+            p2.age = 76;
+            p3.age = 64;
+
+            console.log(p1.fullName, 'idade: ', p1.age);
+            console.log(p2.fullName, 'idade: ', p2.age);
+            console.log(p3.fullName, 'idade: ', p3.age);
+
+            p1.takeStep();
+            p1.takeStep();
+            console.log(`Passos de ${p1.fullName}: ${p1.steps}`);
+
+            p1.age = 20;
+            console.log(`${p1.fullName} tem ${p1.age} anos`);
+
+            console.log(`${p1.fullName} tem ${p1.age} anos de idade.`  );
+        /script> 
     
     <hr>
     <strong>#4: Classes: Instância</strong>
@@ -35,12 +190,208 @@
     
     <hr>
     <strong>#7: Classes: Herança</strong>
+
+        pessoa
+         bebê
+         professor
+         aluno
+
+        <script>
+
+            class Pessoa {
+
+                age = 0;
+
+                constructor (nome) {
+                    this.nome = nome;
+                }
+
+                sayHi(){
+                    console.log(`${this.nome} diz Oi :D`);
+                }
+
+            }
+
+            class Estudante extends Pessoa {
+                // é uma pessoa 
+                // é um estudante 
+                // pode-se repetir as propriedades de pessoa 
+                // ou pode-se extender as propriedades de pessoa
+
+                constructor (nome, id){
+                    super(nome);
+                    this.id = id;
+                }
+
+                // sobrescreveu
+                // sayHi(){
+                sayHello(){
+                    // console.log(`${this.nome} é um estudante e diz Oi :D`);
+                    super.sayHi();
+                }
+            }
+
+            let pessoa1 = new Estudante('Kaiane', 1);
+            pessoa1.age = 19;
+            console.log(`${pessoa1.nome} tem ${pessoa1.age} anos e matrícula #${pessoa1.id}`);
+            pessoa1.sayHi();
+
+        </script>
+        script>
+
+            class Pessoa {
+
+                age = 0;
+
+                constructor (nome) {
+                    this.nome = nome;
+                }
+
+                sayHi(){
+                    console.log(`${this.nome} diz Oi :D`);
+                }
+
+            }
+
+            class Estudante extends Pessoa {
+                // é uma pessoa 
+                // é um estudante 
+                // pode-se repetir as propriedades de pessoa 
+                // ou pode-se extender as propriedades de pessoa
+
+                constructor (nome, id){
+                    super(nome);
+                    this.id = id;
+                }
+
+                // sobrescreveu
+                // sayHi(){
+                sayHello(){
+                    // console.log(`${this.nome} é um estudante e diz Oi :D`);
+                    super.sayHi();
+                }
+            }
+
+            let pessoa1 = new Estudante('Kaiane', 1);
+            pessoa1.age = 19;
+            console.log(`${pessoa1.nome} tem ${pessoa1.age} anos e matrícula #${pessoa1.id}`);
+            pessoa1.sayHi();
+
+        /script>
     
     <hr>
     <strong>#8: Classes: Variável/Método estático</strong>
+
+        pode ser para uma variável ou para um método 
+        que se aplique a todos, é impessoal 
+        pertence ou todas as instancias terao em comum 
+
+        <script>
+            class Pessoa8 {
+                
+                static cabeca = 1;
+                age = 0;
+
+                constructor(nome){
+                    this.nome = nome;
+                }
+
+                static sayHi(){
+                    console.log('Oi :D');
+                }
+            }
+
+            let butti = new Pessoa8('Marcelo Butti');
+            console.log(`Oi, meu nome é ${butti.nome} e tenho ${Pessoa8.cabeca} cabeça.`);
+            // impessoal: Pessoa8.cabeca
+            // nao se aplica a ninguem especificamente e sim àquela class
+
+            Pessoa8.cabeca = 3;
+            console.log(`Oi, meu nome é ${butti.nome} e tenho ${Pessoa8.cabeca} cabeça.`);
+
+            butti.sayHi; // nao acontece nada aqui.
+            Pessoa8.sayHi();
+
+        </script>
+        script>
+            class Pessoa8 {
+                
+                static cabeca = 1;
+                age = 0;
+
+                constructor(nome){
+                    this.nome = nome;
+                }
+
+                static sayHi(){
+                    console.log('Oi :D');
+                }
+            }
+
+            let butti = new Pessoa8('Marcelo Butti');
+            console.log(`Oi, meu nome é ${butti.nome} e tenho ${Pessoa8.cabeca} cabeça.`);
+            // impessoal: Pessoa8.cabeca
+            // nao se aplica a ninguem especificamente e sim àquela class
+
+            Pessoa8.cabeca = 3;
+            console.log(`Oi, meu nome é ${butti.nome} e tenho ${Pessoa8.cabeca} cabeça.`);
+
+            butti.sayHi; // nao acontece nada aqui.
+            Pessoa8.sayHi();
+
+        /script>
     
     <hr>
     <strong>#9: Classes: Factory</strong>
+
+        <script>
+            class Carro {
+
+                modelo = '';
+                ano = 0;
+
+                constructor(modelo){
+                    this.modelo = modelo;
+                }
+    
+            }
+    
+            function criarCarro(modelo, ano){
+                let c = new Carro(modelo);
+                c.ano = ano;
+                return c;
+            }
+
+            let carro1 = criarCarro('Fit', 2020);
+            console.log(carro1);
+            console.log(`O carro que conheço é um ${carro1.modelo}, ano ${carro1.ano}`);
+
+        </script>
+
+        script>
+            class Carro {
+
+                modelo = '';
+                ano = 0;
+
+                constructor(modelo){
+                    this.modelo = modelo;
+                }
+
+            }
+
+            function criarCarro(modelo, ano){
+                let c = new Carro(modelo);
+                c.ano = ano;
+                return c;
+            }
+
+            let carro1 = criarCarro('Fit', 2020);
+            console.log(carro1);
+            console.log(`O carro que conheço é um ${carro1.modelo}, ano ${carro1.ano}`);
+
+        /script>
+
     
     <hr>
     <strong>#10: Projeto: Criador de formulário 1</strong>
