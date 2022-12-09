@@ -508,9 +508,68 @@
             .bt-azul{ background-color: #00f; color: #fff; font-weight: bold; }
             .bt-vermelho{ background-color: #F00; color: #fff; font-weight: bold; }
         </style>
+    
+        button class="bt-novo bt-azul" id="bt10">botão 10/button>
+
+        script>
+            bt10 = qs('#bt10');
+            console.log(bt10);
+            bt10.classList.add('bt-outro');
+            console.log(bt10.classList);
+
+            bt10.addEventListener('click', function(){
+                if (bt10.classList.contains('bt-azul')) {
+                    bt10.classList.remove('bt-outro');
+                    bt10.classList.replace('bt-azul', 'bt-vermelho');
+                } else {
+                    bt10.classList.add('bt-skateboard');
+                    bt10.classList.replace('bt-vermelho','bt-azul');
+                }
+                console.log(bt10.classList);
+            });
+        /script>
+        style>
+            *{ font-family: sans-serif; }
+
+            .bt-azul{ background-color: #00f; color: #fff; font-weight: bold; }
+            .bt-vermelho{ background-color: #F00; color: #fff; font-weight: bold; }
+        /style>
 
     <hr>
     <strong>#11: Eventos de teclado 1</strong>
+
+        <!-- <input type="text" id="input11" onkeydown="segurou()" onkeypress="apertou()" onkeyup="soltou()" placeholder="tecle alguma coisa, confira no console.log"> -->
+        <input type="text" id="input11">
+    
+        <button class="classe-bt-11" id="bt11">botão 11</button>
+
+        <script>
+            apertou = function(e){
+                console.log('apertou', this);
+            }
+            segurou = function(e){
+                console.log('segurou', this);
+            }
+            soltou = function(e){
+                console.log('Tecla apertada', e.code);
+                console.log('Shift? ', e.shiftKey);
+            }
+
+            input11 = qs('#input11');
+            console.log(input11);
+            input11.addEventListener('keyup', soltou);
+
+            // document.addEventListener('keydown', function(e){
+            //     segurou(e);
+            // });
+            // document.addEventListener('keypress', function(e){
+            //     apertou(e);
+            // });
+            // document.addEventListener('keyup', function(e){
+            //     soltou(e);
+            // });
+
+        </script>
 
     <hr>
     <strong>#12: Eventos de teclado 2</strong>
@@ -518,8 +577,91 @@
     <hr>
     <strong>#13: Exercício: Lista de Tarefas Simples</strong>
 
+        <div class="div13">
+            <ul>
+                <li>algum item <span>x</span></li>
+                <li>algum item <span>x</span></li>
+            </ul>
+
+            <input type="text">
+        </div>
+        <style>
+            .div14 ul li,
+            .div13 ul li{ padding: 2px;}
+            .div14 ul li span,
+            .div13 ul li span{ display: inline-block; padding: 2px; border: 1px solid red; color: #f00; text-decoration: none; cursor: pointer;}
+        </style>
+        <script>
+            ul13 = qs('.div13 ul');
+            input13 = qs('.div13 input');
+
+            console.log(ul13);
+            console.log(input13);
+
+            enviar = function(e){
+                if (e.key == 'Enter') {
+                    if(input13.value.length > 1){
+                        li13 = document.createElement('li');
+                        li13.innerHTML = input13.value + ' <span>x</span>';
+                        ul13.append(li13);
+                        input13.value = '';
+                        aplicarLink13();
+                    }
+                }
+
+            }
+
+            excluir = function(e){
+                this.parentElement.remove();
+            }
+
+            function aplicarLink13(){
+                let excluirSpan =  qsa('.div13 span');
+                for(k=0; k<excluirSpan.length; k++){
+                    excluirSpan[k].addEventListener('click', excluir);
+                }
+            }
+            aplicarLink13();
+
+            input13.addEventListener('keyup', enviar);
+
+        </script>
+
     <hr>
     <strong>#14: Resolução: Lista de Tarefas Simples</strong>
+
+        <div class="div14">
+            <ul>
+                <li>algum item <span>x</span></li><li>algum item <span>x</span></li>
+            </ul>
+
+            <input type="text">
+        </div>
+        <script>
+            input14 = qs('.div14 input');
+            lista14 = qs('.div14 ul');
+
+            function handleKeyUp(e){
+                if(e.key === 'Enter'){
+                    li14 = document.createElement('li');
+                    li14.innerHTML = input14.value + ' <span>x</span>';
+                    lista14.append(li14);
+                    input14.value = '';
+                    aplicarLink14();
+                }
+            }
+
+            input14.addEventListener('keyup', handleKeyUp);
+
+            function aplicarLink14(){
+                let excluirSpan =  qsa('.div14 span');
+                for(k=0; k<excluirSpan.length; k++){
+                    excluirSpan[k].addEventListener('click', excluir);
+                }
+            }
+            aplicarLink14();
+
+        </script>
 
 
 </pre>
