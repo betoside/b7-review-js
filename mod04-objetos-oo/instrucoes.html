@@ -395,6 +395,243 @@
     
     <hr>
     <strong>#10: Projeto: Criador de formulário 1</strong>
+
+        <div class="formArea">
+
+        </div>
+
+        <script>
+            // implementação
+            //     campo de email 
+            //     campo de senha 
+            //     botao enviar
+
+            // precisaremos de 3 classes:
+            //     1 obj: formulario
+            //     1 obj: email (input)
+            //     1 obj: senha (input)
+            //     1 obj: botao (input type submit, pode herdar o input por exemplo)
+
+            class Form {
+
+                items = [];
+                method = 'GET';
+
+                constructor(container, method, action){
+                    this.container = document.querySelector(container);
+                    this.method = method;
+                    this.action = action;
+                }
+
+                addItem(item){
+                    this.items.push(item);
+                }
+
+                render(){
+                    let formElement = document.createElement('form');
+                    formElement.setAttribute('method', this.method);
+                    formElement.setAttribute('action', this.action);
+
+                    for(let i in this.items){
+                        this.items[i].render(formElement);
+
+                    }
+
+                    this.container.appendChild(formElement);
+                }
+            }
+
+            class Input {
+                
+                _type = 'text';
+                required = false;
+
+                constructor(name, label){
+                    this.name = name;
+                    this.label = label;
+                }
+
+                get type(){
+                    return this._type;
+                }
+
+                set type(t){
+                    if( ['text','password','email','submit'].includes(t) ){
+                        this._type = t;
+                    } else {
+                        throw new Error(`Input "${t}" type não existe.`);
+                    }
+                }
+
+                render(formElement) {
+                    let el = document.createElement('input');
+                    el.type = this.type;
+                    el.name = this.name;
+                    el.placeholder = this.label;
+                    el.required = this.required;
+                    formElement.appendChild(el);
+                }
+            }
+
+            class Button extends Input {
+
+                constructor(label){
+                    super('', label);
+                    this.type = 'submit';
+                }
+                
+                render(formElement) {
+                    let el = document.createElement('input');
+                    el.type = this.type;
+                    el.value = this.label
+                    formElement.appendChild(el);
+                }
+
+            }
+
+
+            // IMPLEMENTACAO
+            
+            let form = new Form('.formArea', 'POST', 'https://site.com.br');
+
+
+            let email = new Input('email', 'Digite seu e-mail');
+            email.type = 'email';
+            email.required = true;
+            form.addItem(email);
+
+            let password = new Input('password', 'Digite sua senha');
+            password.type = 'password';
+            password.required = true;
+            form.addItem(password);
+
+            let button = new Button('Enviar');
+            form.addItem(button);
+
+            console.log(form.items.length);
+            console.log(form.items);
+
+            form.render();
+        </script>
+
+        div class="formArea">
+
+        /div>
+
+        script>
+            // implementação
+            //     campo de email 
+            //     campo de senha 
+            //     botao enviar
+
+            // precisaremos de 3 classes:
+            //     1 obj: formulario
+            //     1 obj: email (input)
+            //     1 obj: senha (input)
+            //     1 obj: botao (input type submit, pode herdar o input por exemplo)
+
+            class Form {
+
+                items = [];
+                method = 'GET';
+
+                constructor(container, method, action){
+                    this.container = document.querySelector(container);
+                    this.method = method;
+                    this.action = action;
+                }
+
+                addItem(item){
+                    this.items.push(item);
+                }
+
+                render(){
+                    let formElement = document.createElement('form');
+                    formElement.setAttribute('method', this.method);
+                    formElement.setAttribute('action', this.action);
+
+                    for(let i in this.items){
+                        this.items[i].render(formElement);
+
+                    }
+
+                    this.container.appendChild(formElement);
+                }
+            }
+
+            class Input {
+                
+                _type = 'text';
+                required = false;
+
+                constructor(name, label){
+                    this.name = name;
+                    this.label = label;
+                }
+
+                get type(){
+                    return this._type;
+                }
+
+                set type(t){
+                    if( ['text','password','email','submit'].includes(t) ){
+                        this._type = t;
+                    } else {
+                        throw new Error(`Input "${t}" type não existe.`);
+                    }
+                }
+
+                render(formElement) {
+                    let el = document.createElement('input');
+                    el.type = this.type;
+                    el.name = this.name;
+                    el.placeholder = this.label;
+                    el.required = this.required;
+                    formElement.appendChild(el);
+                }
+            }
+
+            class Button extends Input {
+
+                constructor(label){
+                    super('', label);
+                    this.type = 'submit';
+                }
+                
+                render(formElement) {
+                    let el = document.createElement('input');
+                    el.type = this.type;
+                    el.value = this.label
+                    formElement.appendChild(el);
+                }
+
+            }
+
+
+            // IMPLEMENTACAO
+            
+            let form = new Form('.formArea', 'POST', 'https://site.com.br');
+
+
+            let email = new Input('email', 'Digite seu e-mail');
+            email.type = 'email';
+            email.required = true;
+            form.addItem(email);
+
+            let password = new Input('password', 'Digite sua senha');
+            password.type = 'password';
+            password.required = true;
+            form.addItem(password);
+
+            let button = new Button('Enviar');
+            form.addItem(button);
+
+            console.log(form.items.length);
+            console.log(form.items);
+
+            form.render();
+        /script>
+        
     
     <hr>
     <strong>#11: Projeto: Criador de formulário 2</strong>
