@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>#9: Classes: Factory</title>
+</head>
+<body>
+
+<pre>
+    criar usuario
+    definir email, senha, nome
+    verificar se email existe
+    fazer tudo isso no Factory
+    factory devolve/retorna o objeto 
+    com nome email e verificacoes 
+
+    em uma linha apenas usar o Factory
+    a utilidade do factory, é criar coisas, sistemas, funcoes 
+    que vao retornar o objeto pronto
+</pre>
+
+<script>
+    
+
+    class Person {
+
+        age = 0;
+
+        constructor(name){
+            this.name = name;
+        }
+
+    }
+
+    function createPerson(name, age){
+
+        let p = new Person(name);
+        p.age = age;
+        return p;
+
+    }
+
+    let p1 = createPerson('Boniek', 90);
+    console.log(p1);
+    let msg = `${p1.name} tem ${p1.age} anos`;
+    console.log(msg);
+
+
+</script>
+
+</body>
+</html>

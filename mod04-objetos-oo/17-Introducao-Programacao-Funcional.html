@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>#17: Introdução a Programação Funcional</title>
+</head>
+<body>
+
+<pre>
+    #17: Introdução a Programação Funcional
+
+    a grosso modo, qdo se faz o código usando funções
+    onde uma tem uma responsabilidade de processamento
+    em seguida passa dados para outra, ou funções se comunicando
+    para resolver coisas.
+
+    na programação funcional não temos classes, temos funções. quando criamos
+    o objeto já é ele mesmo que vamos manipular. mesmo ao criar um obj específico
+    uma pessoa por exemplo, nao precisa criar primeiro o conceito daquilo. o obj 
+    já é a propria instância dele
+
+    após estudar a teoria e conceitos será refeito o projeto de lutas
+    que foi feito anteriormente usando classes e OO
+
+    - <strong>Factory</strong>
+    - <strong>Instância e This</strong>
+    - <strong>Construtor</strong>
+        uma função start() para emular o conceito do constructor. 
+        o nome disso teórico é bootstrap, inicializador.
+        uma alternativa caso precise executar algo antes de qualquer coisa.
+
+        function createPerson(name, lastName, age){
+            return {
+                name, 
+                lastName, 
+                age,
+                getFullName() {
+                    return `${this.name} ${this.lastName}`;
+                },
+                start() {
+                    console.log('deu start na pessoa');
+                }
+            }
+        }
+
+        let person1 = createPerson('Boniek', 'Lacerda', 90);
+        console.log(person1.getFullName());
+        
+        let person2 = createPerson('Jorge', 'Yoshii', 80);
+        let person3 = createPerson('Emilia', 'Yoshii', 70);
+        
+    - <strong>Herança</strong>
+
+</pre>
+
+<script>
+    function createPerson(name, lastName, age){
+        return {
+            name, 
+            lastName, 
+            age,
+            getFullName() {
+                return `${this.name} ${this.lastName}`;
+            },
+            start() {
+                console.log('deu start na pessoa');
+            }
+        }
+    }
+
+    let person1 = createPerson('Boniek', 'Lacerda', 90);
+    console.log(person1.getFullName());
+
+    let person2 = createPerson('Jorge', 'Yoshii', 80);
+    let person3 = createPerson('Emilia', 'Yoshii', 70);
+
+    // HERANÇA
+    const defaultUser = { // generalista
+        name: '',
+        email: '',
+        level: 1
+    }
+
+    let user1 = { // específico 
+        ... defaultUser,
+        name: 'Boniek',
+        email: 'suporte@b7web.com.br'
+    }
+
+    let adm1 = { // específico 
+        ... defaultUser,
+        name: 'Admin Boladão',
+        email: 'adm@adm.com.br',
+        level: 2
+    }
+
+    console.log(user1);
+    console.log(adm1);
+
+
+
+</script>
+
+</body>
+</html>

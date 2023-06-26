@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>#3: Classes: Construtor e This</title>
+</head>
+<body>
+
+<pre>
+    1. criar o modelo, um template (classe) de uma pessoa
+    2. criar objetos (josé, kátia, pedro etc, seguindo o template)
+    
+    #3: Classes: Construtor e This
+    #4: Classes: Instância
+    #5: Classes: Action
+    #6: Classes: Getter e Setter
+    #7: Classes: Herança - 
+    #8: Classes: Variável/Método estático
+</pre>
+
+<script>
+    class Person { 
+        // padrão, primeiro nome Maiúsculo
+        // caracteristicas/propriedades
+        // acoes
+
+        _age = 10;
+        steps = 0;
+
+        constructor(firstName, lastName = ''){ 
+            this.firstName = firstName;
+            this.lastName = lastName;
+        }
+
+        takeAStep(){
+            this.steps++;
+        }
+
+        get fullName(){
+            return `${this.firstName} ${this.lastName}`; 
+            // devolve como resultado
+        }
+
+        get age(){
+            return this._age;
+        }
+
+        set age(x){
+            if (typeof x == 'number') {
+                this._age = x;                
+            }
+        }
+
+        sayHi(){
+            console.log(`${this.firstName} diz OI`);
+        }
+
+        // OBS: nem sempre é necessário criar setter e getter para propriedades
+
+    }
+
+    class Student extends Person { // herança
+
+        constructor(firstName, id){
+            super(firstName);
+            this.id = id;
+        }
+
+        sayHello(){ 
+            // funcoes c mesmo nome sobrescrevem o que é extendido. pode com métodos e com variáveis
+            // console.log(`${this.firstName} é um estudante e diz OI`);
+            super.sayHi();
+        }
+    }
+
+    // instância
+    let p1 = new Student("Boniek", 1);
+    p1.age = 20;
+
+
+    console.log(`p1 = ${p1.firstName} tem ${p1.age} anos e matricula #${p1.id}`);
+    p1.sayHello();
+
+
+</script>
+
+</body>
+</html>

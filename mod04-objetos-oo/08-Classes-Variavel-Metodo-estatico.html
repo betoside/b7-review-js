@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>#8: Classes: Variável/Método estático</title>
+</head>
+<body>
+
+<pre>
+    #8: Classes: Variável/Método estático
+
+        static hands = 2;
+        console.log Person.hands
+        -> impessoal, a classe Pessoa tem hands
+
+        STATIC é independente de qualquer objeto específico.
+        é inerente a classe.
+
+
+        class Person {
+
+            static hands = 2;
+            age = 0;
+    
+            constructor(name){
+                this.name = name;
+            }
+    
+            sayHi(){
+                console.log(`Oi, eu sou ${this.name} e tenho ${Person.hands} mãos`);
+            }
+    
+            static sayOi(){
+                console.log(`Oi ${this.name}`);
+            }
+            
+        }
+    
+        let p1 = new Person('Boniek');
+        p1.sayHi();
+        Person.sayOi();
+        
+
+</pre>
+
+<script>
+
+    class Person {
+
+        static hands = 2;
+        age = 0;
+
+        constructor(name){
+            this.name = name;
+        }
+
+        sayHi(){
+            console.log(`Oi, eu sou ${this.name} e tenho ${Person.hands} mãos`);
+        }
+
+        static sayOi(){
+            console.log(`Oi ${this.name}`);
+        }
+        
+    }
+
+    let p1 = new Person('Boniek');
+    p1.sayHi();
+    Person.sayOi();
+    
+
+
+</script>
+
+</body>
+</html>
