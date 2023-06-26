@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>#23: Funções de array</title>
+</head>
+<body>
+    <p>#23: Funções de array</p>
+    <pre>
+        pop()
+        shift()
+
+        let frutas = ['Maçã', 'Uva', 'Laranja', 'Banana'];
+
+        console.log(frutas);
+        console.log(frutas.length);
+        frutas.push('Kiwi');
+        console.log(frutas.length);
+        console.log(frutas);
+        frutas.pop(); // remove o último
+        console.log(frutas);
+        frutas.shift(); // remove o primeiro
+        console.log(frutas);
+
+        str_frutas = frutas.join('_._');
+        console.log('join',str_frutas);
+        console.log('join',frutas.join('_._'));
+        
+        // alterar as frutas
+        let novaFruta = 'Pera';
+
+        frutas[frutas.length - 1] = novaFruta; // substitui o último
+        console.log(frutas);
+    </pre>
+    <script>
+
+        let frutas = ['Maçã', 'Uva', 'Laranja', 'Banana'];
+
+        console.log(frutas);
+        console.log(frutas.length);
+        frutas.push('Kiwi');
+        console.log(frutas.length);
+        console.log(frutas);
+        frutas.pop(); // remove o último
+        console.log(frutas);
+        frutas.shift(); // remove o primeiro
+        console.log(frutas);
+
+        str_frutas = frutas.join('_._');
+        console.log('join',str_frutas);
+        console.log('join',frutas.join('_._'));
+        
+        // alterar as frutas
+        let novaFruta = 'Pera';
+
+        frutas[frutas.length - 1] = novaFruta; // substitui o último
+        console.log(frutas);
+        
+    </script>
+</body>
+</html>

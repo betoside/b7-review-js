@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>#22: Exercício de loops #8</title>
+</head>
+<body>
+    <p>#22: Exercício de loops #8</p>
+    <pre>
+        
+    </pre>
+    <script>
+        
+        // 1. Faça um loop que mostre todas as frutas
+        let frutas = ['Maçã','Uva','Banana'];
+        for(fruta of frutas){
+            console.log('of',fruta);
+        }
+        for(chave in frutas){
+            console.log('in',`[${chave}] ${frutas[chave]}`);
+        }
+
+        // 2. conte de 1 até 100 através de um WHILE
+        let contador_while = 1;
+        let resultado_w100 = "";
+        let virgula = ', ';
+
+        while(contador_while <= 100){
+
+            if(contador_while == 100) {
+                virgula = '';
+            }
+
+            resultado_w100 += contador_while + virgula;
+            contador_while++;
+        }
+        console.log(resultado_w100);
+        
+    </script>
+</body>
+</html>

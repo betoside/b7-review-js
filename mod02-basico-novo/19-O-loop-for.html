@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>#19: O loop for</title>
+</head>
+<body>
+    <p>#19: O loop for</p>
+    <pre>
+        
+
+        for(i=0; i<=5; i+=3){
+            console.log(i);
+        }
+
+        pessoa = ['Lacerda', 90, 'Campina Grande'];
+        for(chave in pessoa){
+            console.log(chave);
+        }
+
+        for(valor of pessoa){
+            console.log(valor);
+        }
+
+        console.log('-'.repeat(15));
+
+        let esportes = {
+            nome: 'surf',
+            equipamento: 'prancha',
+            icone: 'Medina',
+            [Symbol.iterator]: function* (){
+                yield this.nome;
+                yield this.equipamento;
+                yield this.icone;
+            }
+        }
+        for(chave in esportes){
+            console.log('chave:',chave);
+        }
+        for(valor of esportes){
+            console.log('valor:',valor);
+        }
+        
+    
+
+        
+    </pre>
+    <script>
+
+        for(i=0; i<=5; i+=3){
+            console.log(i);
+        }
+
+        pessoa = ['Lacerda', 90, 'Campina Grande'];
+        for(chave in pessoa){
+            console.log(chave);
+        }
+
+        for(valor of pessoa){
+            console.log(valor);
+        }
+
+        console.log('-'.repeat(15));
+
+        let esportes = {
+            nome: 'surf',
+            equipamento: 'prancha',
+            icone: 'Medina',
+            [Symbol.iterator]: function* (){
+                yield this.nome;
+                yield this.equipamento;
+                yield this.icone;
+            }
+        }
+        for(chave in esportes){
+            console.log('chave:',chave);
+        }
+        for(valor of esportes){
+            console.log('valor:',valor);
+        }
+        
+    </script>
+</body>
+</html>
