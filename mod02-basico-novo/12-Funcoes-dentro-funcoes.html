@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>#12: Funções dentro de funções</title>
+</head>
+<body>
+    <p>#12: Funções dentro de funções    </p>
+    <p>
+        * é legal usar arrow function para criar funções dentro de funções.
+    </p>
+    <pre>
+
+        function addSquares(a,b) {
+
+            function square(x) {
+                return x*x;
+            }
+
+            let sqrA = square(a);
+            let sqrB = square(b);
+            return sqrA + sqrB;
+        }
+
+
+        function addSquares2(a,b) {
+
+            const square = (x) => {
+                return x*x;
+            }
+
+            let sqrA = square(a);
+            let sqrB = square(b);
+            return sqrA + sqrB;
+        }
+
+        console.log(addSquares(2,3));
+        console.log(addSquares2(2,3));
+        
+    </pre>
+    <script>
+
+        function addSquares(a,b) {
+
+            function square(x) {
+                return x*x;
+            }
+
+            let sqrA = square(a);
+            let sqrB = square(b);
+            return sqrA + sqrB;
+        }
+
+
+        function addSquares2(a,b) {
+
+            const square = (x) => {
+                return x*x;
+            }
+
+            let sqrA = square(a);
+            let sqrB = square(b);
+            return sqrA + sqrB;
+        }
+
+        console.log(addSquares(2,3));
+        console.log(addSquares2(2,3));
+        
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>#11: Variáveis dentro de funções</title>
+</head>
+<body>
+    <p>#11: Variáveis dentro de funções    </p>
+    <p>
+        variável de escopo global <br>
+        variável de escopo local (dentro da função)
+        
+    </p>
+    <pre>
+
+        let count = 0;
+
+        function add(){
+            let count = 0;
+            count++;
+        }
+        add();
+        add();
+        console.log(count);
+    </pre>
+    <script>
+        let count = 0;
+
+        function add(){
+            let count = 0;
+            count++;
+        }
+        add();
+        add();
+        console.log(count);
+
+    </script>
+</body>
+</html>

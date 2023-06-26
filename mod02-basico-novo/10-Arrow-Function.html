@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>#10: Arrow Function    </title>
+</head>
+<body>
+    <p>#10: Arrow Function</p>
+    <pre>
+        // 1
+        function somar_v1(x,y){
+            let resultado = x+y;
+            return resultado;
+        }
+
+        // 2
+        const somar_v2 = (x,y) => x+y;
+
+        console.log(somar_v1(2,3));
+        console.log(somar_v2(2,3));
+
+        // 3
+        function sobrenome_1(sob) {
+            return 'Boniek ' + sob;
+        }
+
+        // 4
+        const sobrenome_2 = sob => 'Boniek ' + sob;
+
+        console.log( sobrenome_1('Lacerda') );
+        console.log( sobrenome_2('Lacerda') );        
+    </pre>
+    <script>
+
+        // 1
+        function somar_v1(x,y){
+            let resultado = x+y;
+            return resultado;
+        }
+
+        // 2
+        const somar_v2 = (x,y) => x+y;
+
+        console.log(somar_v1(2,3));
+        console.log(somar_v2(2,3));
+
+        // 3
+        function sobrenome_1(sob) {
+            return 'Boniek ' + sob;
+        }
+
+        // 4
+        const sobrenome_2 = sob => 'Boniek ' + sob;
+
+        console.log( sobrenome_1('Lacerda') );
+        console.log( sobrenome_2('Lacerda') );
+
+        
+    </script>
+</body>
+</html>
