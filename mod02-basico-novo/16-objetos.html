@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>#16: O que são objetos?</title>
+</head>
+<body>
+    <p>#16: O que são objetos?</p>
+    <pre>
+        
+        let personagem = {
+            nome: 'Boniek',
+            idade: 90,
+            pais: 'Brasil',
+            olhos: ['preto', 'azul'],
+            caracteristicas: {
+                forca: 20,
+                magia: 5,
+                stamina: 15
+            }
+        }
+
+        personagem.nome = 'Pedro';
+        personagem.caracteristicas.forca += 5;
+        personagem.olhos.push('verde');
+
+        console.log(personagem);
+        console.log('Nome:',personagem.nome);
+        console.log(personagem.idade);
+        console.log('País:', personagem.pais);
+        console.log('Olhos:', personagem.olhos);
+        console.log('Magia:', personagem.caracteristicas.magia);
+        console.log('Força:', personagem.caracteristicas.forca);
+    
+        
+    </pre>
+    <script>
+        let personagem = {
+            nome: 'Boniek',
+            idade: 90,
+            pais: 'Brasil',
+            olhos: ['preto', 'azul'],
+            caracteristicas: {
+                forca: 20,
+                magia: 5,
+                stamina: 15
+            }
+        }
+
+        personagem.nome = 'Pedro';
+        personagem.caracteristicas.forca += 5;
+        personagem.olhos.push('verde');
+
+        console.log(personagem);
+        console.log('Nome:',personagem.nome);
+        console.log(personagem.idade);
+        console.log('País:', personagem.pais);
+        console.log('Olhos:', personagem.olhos);
+        console.log('Magia:', personagem.caracteristicas.magia);
+        console.log('Força:', personagem.caracteristicas.forca);
+    </script>
+</body>
+</html>

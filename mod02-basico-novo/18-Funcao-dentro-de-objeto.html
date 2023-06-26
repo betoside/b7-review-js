@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>#18: Função dentro de objeto</title>
+</head>
+<body>
+    <p>#18: Função dentro de objeto</p>
+    <pre>
+        
+        let personagem = {
+            nome: 'Boniek',
+            sobrenome: 'Lacerda',
+            idade: 90,
+            nomeCompleto: function(){
+                // return this.nome + ' ' + this.sobrenome,
+                return `${this.nome} ${this.sobrenome}`;
+            }
+        }
+
+        console.log(personagem);
+        console.log('Nome completo:', personagem.nomeCompleto());
+    
+        
+    </pre>
+    <script>
+        let personagem = {
+            nome: 'Boniek',
+            sobrenome: 'Lacerda',
+            idade: 90,
+            nomeCompleto: function(){
+                // return this.nome + ' ' + this.sobrenome,
+                return `${this.nome} ${this.sobrenome}`;
+            }
+        }
+
+        console.log(personagem);
+        console.log('Nome completo:', personagem.nomeCompleto());
+    </script>
+</body>
+</html>
