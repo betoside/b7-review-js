@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>#8: Manipulando atributos</title>
+</head>
+<body>
+    <p>#8: Manipulando atributos</p> 
+    <input type="text" name="inp01" placeholder="Digite o que quiser">
+    <button onclick="clicou();">Clique para manipular o INPUT</button>
+
+    <br>
+
+    <input id="senha" type="password" name="senha" placeholder="Digite uma senha">
+    <button id="bt-pass" onclick="senha(this);">Mostrar senha</button>
+    
+    <pre>
+        function senha(el) {
+            password = document.querySelector('#senha');
+
+            if( password.getAttribute('type') === 'password'){
+                password.setAttribute('type', 'text');
+                el.innerHTML = 'Esconder senha';
+            } else {
+                password.setAttribute('type', 'password');
+                el.innerHTML = 'Mostrar senha';
+            }
+        }
+
+        function clicou() {
+            input = document.querySelector('input');
+
+            console.log(input.getAttribute('type'));
+            console.log(input.getAttribute('placeholder'));
+
+            if (input.hasAttribute('placeholder')) {
+                console.log('Tem placeholder');
+
+                input.setAttribute('placeholder', 'placeholder alterado')
+            } else {
+                console.log('Não Tem placeholder');
+            }
+        }
+    </pre>
+    <script>
+        function senha(el) {
+            password = document.querySelector('#senha');
+
+            if( password.getAttribute('type') === 'password'){
+                password.setAttribute('type', 'text');
+                el.innerHTML = 'Esconder senha';
+            } else {
+                password.setAttribute('type', 'password');
+                el.innerHTML = 'Mostrar senha';
+            }
+        }
+
+        function clicou() {
+            input = document.querySelector('input');
+
+            console.log(input.getAttribute('type'));
+            console.log(input.getAttribute('placeholder'));
+
+            if (input.hasAttribute('placeholder')) {
+                console.log('Tem placeholder');
+
+                input.setAttribute('placeholder', 'placeholder alterado')
+            } else {
+                console.log('Não Tem placeholder');
+            }
+        }
+        
+    </script>
+</body>
+</html>

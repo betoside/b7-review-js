@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>#9: Manipulando o CSS</title>
+</head>
+<body>
+    <p>#9: Manipulando o CSS</p> 
+    
+    <div style="background-color: red; font-weight: bold; color: #fff;">Texto de teste</div>
+    <button onclick="clicou();">Clique para manipular o parágrafo</button>
+    
+    <pre>
+        function clicou() {
+            let div = document.querySelector('div');
+            console.log(div);
+            div.style.backgroundColor = 'black';
+            div.style.color = 'lime';
+            div.style.padding = '5px';
+
+            document.querySelector('body').style.fontFamily = 'verdana';
+        }
+
+    </pre>
+    <script>
+
+        function clicou() {
+            let div = document.querySelector('div');
+            console.log(div);
+            div.style.backgroundColor = 'black';
+            div.style.color = 'lime';
+            div.style.padding = '5px';
+
+            document.querySelector('body').style.fontFamily = 'verdana';
+        }
+        
+    </script>
+</body>
+</html>

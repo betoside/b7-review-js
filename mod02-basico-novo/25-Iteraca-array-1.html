@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>#25: Iteração de array 1</title>
+</head>
+<body>
+    <p>#25: Iteração de array 1</p>
+    <pre>
+        
+        let frutas = ['Maçã', 'Uva', 'Laranja', 'Banana'];
+        console.log('frutas',frutas);
+
+        let caracter_4 = frutas.filter((valor)=>{
+            return valor.length > 4;
+        });
+        console.log('caracter_4', caracter_4);
+
+        let maior_31 = frutas.every((valor)=>{
+            return valor.length > 3;
+        });
+        console.log('nenhum item é > 3',maior_31);
+
+        let maior_32 = frutas.some((valor)=>{
+            return valor.length > 3;
+        });
+        console.log('algum item é > 3',maior_32);
+
+        // descobrir se tem "Uva" dentro do array
+        if(frutas.includes('Uva')){
+            console.log('Tem uva ...');
+        } else {
+            console.log('Não tem uva ...');
+        }
+
+
+    </pre>
+    <script>
+
+        let frutas = ['Maçã', 'Uva', 'Laranja', 'Banana'];
+        console.log('frutas',frutas);
+
+        let caracter_4 = frutas.filter((valor)=>{
+            return valor.length > 4;
+        });
+        console.log('caracter_4', caracter_4);
+
+        let maior_31 = frutas.every((valor)=>{
+            return valor.length > 3;
+        });
+        console.log('nenhum item é > 3',maior_31);
+
+        let maior_32 = frutas.some((valor)=>{
+            return valor.length > 3;
+        });
+        console.log('algum item é > 3',maior_32);
+
+        // descobrir se tem "Uva" dentro do array
+        if(frutas.includes('Uva')){
+            console.log('Tem uva ...');
+        } else {
+            console.log('Não tem uva ...');
+        }
+
+    </script>
+</body>
+</html>

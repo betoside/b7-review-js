@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>#10: Trabalhando com Classes#</title>
+    <style>
+
+        .painel {
+            padding: 5px;
+            background-color:lime;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        .painel-sinalizar {
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <p>#10: Trabalhando com Classes#</p> 
+    
+    <div class="painel">Texto de teste</div>
+    <button onclick="clicou();">Clique para manipular a classe</button>
+    
+    <pre>
+
+        function clicou() {
+            let div = document.querySelector('div');
+            console.log(div);
+            // div.classList.toggle('painel-sinalizar');
+            if(div.classList.contains('painel')){
+                div.classList.replace('painel','painel-sinalizar');
+            } else {
+                div.classList.replace('painel-sinalizar','painel');
+            }
+        }
+        
+    </pre>
+    <script>
+
+        function clicou() {
+            let div = document.querySelector('div');
+            console.log(div);
+            // div.classList.toggle('painel-sinalizar');
+            if(div.classList.contains('painel')){
+                div.classList.replace('painel','painel-sinalizar');
+            } else {
+                div.classList.replace('painel-sinalizar','painel');
+            }
+        }
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>#24: Ordenação de array</title>
+</head>
+<body>
+    <p>#24: Ordenação de array</p>
+    <pre>
+        
+        let frutas = ['Maçã', 'Uva', 'Laranja', 'Banana'];
+        
+        frutas.sort(); // ordem alfabética
+        console.log(frutas);
+
+        frutas.reverse(); // inverter a ordem do itens
+        console.log(frutas);
+
+        for(chave in frutas){
+            console.log(`[${chave}]`,frutas[chave]);
+        }
+
+        let carros1 = [
+            { marca: 'chevrolet', ano: 1984 },
+            { marca: 'Fiat', ano: 1986 },
+            { marca: 'Ford', ano: 1982 }
+        ];
+        console.log('carros1 original',carros1);
+
+        // ordenar a lista pelo ano do carro
+        carros1.sort();
+        console.log('carros1 sort',carros1);
+
+        let carros2 = [
+            { marca: 'chevrolet', ano: 1984 },
+            { marca: 'Fiat', ano: 1986 },
+            { marca: 'Ford', ano: 1982 }
+        ];
+        // forma 1
+        carros2.sort((a, b) => {
+            if(a.ano > b.ano) {
+                return 1;
+            } else if(a.ano < b.ano) {
+                return -1;
+            } else {
+                return 0;
+            }
+        });
+        console.log('carros2 sort(a, b)',carros2);
+
+        carros3 = [
+            { marca: 'chevrolet', ano: 1984 },
+            { marca: 'Fiat', ano: 1986 },
+            { marca: 'Ford', ano: 1982 }
+        ];
+
+        // forma 2
+        carros3.sort((a, b) => {
+            // return b.ano - a.ano;
+            return a.ano - b.ano;
+        });
+
+        console.log(carros3);
+
+
+        // resumindo mais ainda a sintaxe
+        carros4 = [
+            { marca: 'chevrolet', ano: 1984 },
+            { marca: 'Fiat', ano: 1986 },
+            { marca: 'Ford', ano: 1982 }
+        ];        
+
+        carros4.sort((a, b) => b.ano - a.ano);
+        console.log('carros4', carros4);
+
+    </pre>
+    <script>
+
+        let frutas = ['Maçã', 'Uva', 'Laranja', 'Banana'];
+        
+        frutas.sort(); // ordem alfabética
+        console.log(frutas);
+
+        frutas.reverse(); // inverter a ordem do itens
+        console.log(frutas);
+
+        for(chave in frutas){
+            console.log(`[${chave}]`,frutas[chave]);
+        }
+
+        let carros1 = [
+            { marca: 'chevrolet', ano: 1984 },
+            { marca: 'Fiat', ano: 1986 },
+            { marca: 'Ford', ano: 1982 }
+        ];
+        console.log('carros1 original',carros1);
+
+        // ordenar a lista pelo ano do carro
+        carros1.sort();
+        console.log('carros1 sort',carros1);
+
+        let carros2 = [
+            { marca: 'chevrolet', ano: 1984 },
+            { marca: 'Fiat', ano: 1986 },
+            { marca: 'Ford', ano: 1982 }
+        ];
+        // forma 1
+        carros2.sort((a, b) => {
+            if(a.ano > b.ano) {
+                return 1;
+            } else if(a.ano < b.ano) {
+                return -1;
+            } else {
+                return 0;
+            }
+        });
+        console.log('carros2 sort(a, b)',carros2);
+
+        carros3 = [
+            { marca: 'chevrolet', ano: 1984 },
+            { marca: 'Fiat', ano: 1986 },
+            { marca: 'Ford', ano: 1982 }
+        ];
+
+        // forma 2
+        carros3.sort((a, b) => {
+            // return b.ano - a.ano;
+            return a.ano - b.ano;
+        });
+
+        console.log(carros3);
+
+
+        // resumindo mais ainda a sintaxe
+        carros4 = [
+            { marca: 'chevrolet', ano: 1984 },
+            { marca: 'Fiat', ano: 1986 },
+            { marca: 'Ford', ano: 1982 }
+        ];        
+
+        carros4.sort((a, b) => b.ano - a.ano);
+        console.log('carros4', carros4);
+
+    </script>
+</body>
+</html>

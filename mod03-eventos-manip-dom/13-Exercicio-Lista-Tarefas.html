@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>#13: Exercício: Lista de Tarefas Simples</title>
+    <style>
+        *{font-family: Verdana, Geneva, sans-serif;}
+        .excluir{display: inline-block; padding: 2px;background-color: yellow; margin-left: 10px;cursor: pointer;}
+    </style>
+</head>
+<body>
+    <p>#13: Exercício: Lista de Tarefas Simples</p> 
+
+    <ul>
+        <li><strong>Lista de Tarefas</strong></li>
+    </ul>
+
+    <input type="text" placeholder="Digite algo">
+    
+    <pre>
+        
+    </pre>
+    <script>
+
+        // elementos
+        const input = document.querySelector('input');
+        const ul = document.querySelector('ul');
+
+        // funcoes
+        function delete_row(e) {
+            this.parentNode.remove();
+        }
+
+        soltou = function(e){
+            /*
+            console.log('Tecla:',e);
+            console.log('Teclado:',e.keyCode);
+            console.log('code:',e.key);
+            console.log('Shift?:',e.shiftKey);
+            console.log('Ctrl?:',e.ctrlKey);
+            console.log('Alt?:',e.altKey);
+            console.log('Cmd?:',e.metaKey);
+            console.log('-'.repeat(15));
+            */ 
+
+            if(e.keyCode == 13){
+                let newLi = document.createElement('li');
+                newLi.innerHTML = input.value;
+                input.value = '';
+                input.focus();
+                ul.appendChild(newLi);
+
+                let a = document.createElement('a');
+                a.innerHTML = 'x';
+                a.classList.add('excluir');
+                a.addEventListener('click',delete_row);
+
+                newLi.append(a);
+            }
+        }
+
+        // eventos
+        input.addEventListener('keyup', soltou);
+
+    
+    </script>
+</body>
+</html>

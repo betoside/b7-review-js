@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11: Eventos de teclado 1</title>
+</head>
+<body>
+    <p>11: Eventos de teclado 1</p> 
+
+    <ul>
+        <li>item 1</li>
+        <li>item 2</li>
+    </ul>
+
+    <!-- <input type="text" placeholder="Digite algo" onkeydown="apertou();" onkeypress="segurou();" onkeyup="soltou();"> -->
+
+    <input type="text" placeholder="Digite algo">
+    
+    <pre>
+    
+    apertar 
+    manter
+    soltar
+
+    </pre>
+    <script>
+
+        apertou = function(){
+            console.log('apertou');
+        }
+        segurou = function(){
+            console.log('segurou');
+            
+        }
+        soltou = function(e){
+            console.log('Teclado:',e.keyCode);
+            console.log('code:',e.key);
+            console.log('Shift?:',e.shiftKey);
+            console.log('Ctrl?:',e.ctrlKey);
+            console.log('Alt?:',e.altKey);
+            console.log('Cmd?:',e.metaKey);
+            console.log('-'.repeat(15));
+        }
+    
+        const input = document.querySelector('input');
+        input.addEventListener('keyup', soltou);
+
+        // document.addEventListener('keyup', soltou);
+
+    
+    </script>
+</body>
+</html>
