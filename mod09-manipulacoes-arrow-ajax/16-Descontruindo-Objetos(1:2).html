@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>#16: Descontruindo Objetos (1/2)</title>
+</head>
+<body>
+    <h3>#16: Descontruindo Objetos (1/2)</h3>
+    <pre>
+        let pessoa = {
+            nome:'Boniek', 
+            sobrenome:'Lacerda',
+            idade:90,
+            social:{
+                facebook:'fb@b7web',
+                instagram:'insta@boniek'
+            },
+            nomeCompleto: function(){
+                return `${this.nome} ${this.sobrenome}`;
+            }
+        };
+
+        console.log('nome:',pessoa.nome);
+        console.log('rede social:', pessoa.social);
+        console.log('instagram:',pessoa.social.instagram);
+        console.log('nome completo', pessoa.nomeCompleto());
+
+        let {nome:novoNome, sobrenome, idade = 0} = pessoa;
+        console.log(novoNome, sobrenome, idade);
+
+        let {facebook, instagram} = pessoa.social;
+        console.log(facebook, instagram);
+
+        let {nome:nome3, idade:idade3, social:{instagram:instagram3}} = pessoa;
+        console.log('nome3: '+nome3+'\n', 'idade3: '+idade3+'\n', 'instagram3: '+instagram3);
+
+        function pegarNomeCompleto(obj){
+            return `${obj.nome} ${obj.sobrenome}`;
+        }
+        console.log('pegar nome completo:',pegarNomeCompleto(pessoa));
+
+
+        function pegarNomeCompleto2({nome, sobrenome}){ // desconstruindo no próprio parâmetro
+            return `${nome} ${sobrenome}`;
+        }
+        console.log('pegar nome completo 2:',pegarNomeCompleto2(pessoa));        
+    </pre>
+    
+    
+    <script>
+        let pessoa = {
+            nome:'Boniek', 
+            sobrenome:'Lacerda',
+            idade:90,
+            social:{
+                facebook:'fb@b7web',
+                instagram:'insta@boniek'
+            },
+            nomeCompleto: function(){
+                return `${this.nome} ${this.sobrenome}`;
+            }
+        };
+
+        console.log('nome:',pessoa.nome);
+        console.log('rede social:', pessoa.social);
+        console.log('instagram:',pessoa.social.instagram);
+        console.log('nome completo', pessoa.nomeCompleto());
+
+        let {nome:novoNome, sobrenome, idade = 0} = pessoa;
+        console.log(novoNome, sobrenome, idade);
+
+        let {facebook, instagram} = pessoa.social;
+        console.log(facebook, instagram);
+
+        let {nome:nome3, idade:idade3, social:{instagram:instagram3}} = pessoa;
+        console.log('nome3: '+nome3+'\n', 'idade3: '+idade3+'\n', 'instagram3: '+instagram3);
+
+        function pegarNomeCompleto(obj){
+            return `${obj.nome} ${obj.sobrenome}`;
+        }
+        console.log('pegar nome completo:',pegarNomeCompleto(pessoa));
+
+
+        function pegarNomeCompleto2({nome, sobrenome}){ // desconstruindo no próprio parâmetro
+            return `${nome} ${sobrenome}`;
+        }
+        console.log('pegar nome completo 2:',pegarNomeCompleto2(pessoa));
+
+
+
+
+
+
+    </script>
+</body>
+</html>

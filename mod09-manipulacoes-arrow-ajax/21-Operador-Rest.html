@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>21-Operador-Rest.html</title>
+</head>
+<body>
+    <h3>21-Operador-Rest.html</h3>
+    <pre>
+        function adicionar(...numeros){
+
+            console.log(numeros);
+            console.log(numeros.length);
+            for(i in numeros){
+                console.log(i);
+            }
+            for(i of numeros){
+                console.log(i);
+            }
+
+        }
+
+        adicionar(5, 7, 9, 11, 13, 15);
+        adicionar('betao','bruno','fernando','haurelio');
+
+        function exe2_add(nomes, ...novosNomes){
+            let novoConjunto = [
+                ...nomes, // operador spread
+                ...novosNomes // operador rest
+            ];
+            return novoConjunto;
+        }
+
+        let nomes2 = ['carlos','anselmo'];
+        let outros2 = exe2_add(nomes2, 'artur','liliane','célia','joao olímpio');
+        console.log(outros2);
+    </pre>
+    <script>
+        function adicionar(...numeros){
+
+            console.log(numeros);
+            console.log(numeros.length);
+            for(i in numeros){
+                console.log(i);
+            }
+            for(i of numeros){
+                console.log(i);
+            }
+
+        }
+
+        adicionar(5, 7, 9, 11, 13, 15);
+        adicionar('betao','bruno','fernando','haurelio');
+
+        function exe2_add(nomes, ...novosNomes){
+            let novoConjunto = [
+                ...nomes, // operador spread
+                ...novosNomes // operador rest
+            ];
+            return novoConjunto;
+        }
+
+        let nomes2 = ['carlos','anselmo'];
+        let outros2 = exe2_add(nomes2, 'artur','liliane','célia','joao olímpio');
+        console.log(outros2);
+    </script>
+</body>
+</html>

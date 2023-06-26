@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>#9: Datas (1/3)</title>
+</head>
+<body>
+    <h3>#9: Datas (1/3)</h3>
+    <pre>
+        // PEGAR A DATA ATUAL
+        let data = new Date(); 
+        console.log('new Date():',data);
+        console.log('toDateString:',data.toDateString());
+        console.log('toUTCString:',data.toUTCString());
+        console.log('toString:',data.toString());
+
+        // aceita 7 parametros
+        data2 = new Date(2023, 0, 1, 12, 30, 12); // 1 de janeiro de 2023
+        // mês começa do 0
+        // o dia começa do 1
+        console.log('data2:', data2);
+
+        // DATE STRING, respeitando o formato
+        data3 = new Date('2023-01-01 12:30:12');
+        console.log('data3:', data3);
+
+        // parametro minimo são DATA E O MES
+        data4 = new Date(2022, 10);
+        console.log('data4:', data4);
+
+        // USANDO MILISEGUNDOS. 
+        // milisegundo sao contados a partir de 1970
+        // para usar milisegundo antes de 1970 basta 
+        // usar número negativo "-87637763871628"
+
+        // timestamp é o valor da data em milisegundos
+
+        // MÉTODOS PARA PEGAR INFORMAÇÃO DA DATA
+        data5 = new Date();
+        console.log('getFullYear:', data5.getFullYear());
+        console.log('getMonth:', data5.getMonth());
+        console.log('getDay (o dia da semana):', data5.getDay());
+        console.log('getDate (dia do mês):', data5.getDate());
+        console.log('getMinutes:', data5.getMinutes());
+        console.log('getSeconds:', data5.getSeconds());
+        console.log('getMilliseconds:', data5.getMilliseconds());
+        console.log('getTime:', data5.getTime(), 'milisegundos');
+        console.log('Date.now():', Date.now(), 'um jeito independente');
+
+        
+        console.log('// MANIPULAR A DATA, ALTERAR A DATA');
+        data6 = new Date();
+        console.log('data6', data6);
+        console.log('setFullyear 2020', data6.setFullYear(2020));
+        console.log('getFullyear', data6.getFullYear());
+        console.log('setMonth 8', data6.setMonth(8));
+        console.log('getMonth', data6.getMonth());
+        console.log('setDate(14)', data6.setDate(14));
+        console.log('Somando 7 dias pra frente');
+        console.log('setDate(data6.getDate() + 7)', data6.setDate(data6.getDate() + 7));
+        function diadasemana(dia){
+            diasSemana = [
+                'domingo',
+                'segunda-feira',
+                'terça-feira',
+                'quarta-feira',
+                'quinta-feira',
+                'sexta-feira',
+                'sábado',
+            ];
+            return diasSemana[dia];
+        }
+        console.log('getDay()', diadasemana(data6.getDay()));
+        console.log(data6);
+
+        data7 = new Date();
+        console.log('data7:', data7);
+        console.log('dia da semana hoje:', diadasemana(data7.getDay()));
+        sabado = new Date( data7.setDate( data7.getDate() + 1 ) );
+        console.log('sabado:', sabado.getDate());
+
+        
+        hoje = new Date();
+        console.log('hoje', hoje.getDate());
+        
+        amanha = new Date();
+        amanha.setDate( hoje.getDate() + 1 );
+        console.log('amanha', amanha.getDate());
+
+        ontem = new Date();
+        ontem.setDate( hoje.getDate() - 1 );
+        console.log('ontem', ontem.getDate());
+
+        futuro1semana = new Date();
+        futuro1semana.setDate( hoje.getDate()+7);
+        console.log('Daqui a 1 semana', futuro1semana.toDateString());
+    </pre>
+    <script>
+
+        // PEGAR A DATA ATUAL
+        let data = new Date(); 
+        console.log('new Date():',data);
+        console.log('toDateString:',data.toDateString());
+        console.log('toUTCString:',data.toUTCString());
+        console.log('toString:',data.toString());
+
+        // aceita 7 parametros
+        data2 = new Date(2023, 0, 1, 12, 30, 12); // 1 de janeiro de 2023
+        // mês começa do 0
+        // o dia começa do 1
+        console.log('data2:', data2);
+
+        // DATE STRING, respeitando o formato
+        data3 = new Date('2023-01-01 12:30:12');
+        console.log('data3:', data3);
+
+        // parametro minimo são DATA E O MES
+        data4 = new Date(2022, 10);
+        console.log('data4:', data4);
+
+        // USANDO MILISEGUNDOS. 
+        // milisegundo sao contados a partir de 1970
+        // para usar milisegundo antes de 1970 basta 
+        // usar número negativo "-87637763871628"
+
+        // timestamp é o valor da data em milisegundos
+
+        // MÉTODOS PARA PEGAR INFORMAÇÃO DA DATA
+        data5 = new Date();
+        console.log('getFullYear:', data5.getFullYear());
+        console.log('getMonth:', data5.getMonth());
+        console.log('getDay (o dia da semana):', data5.getDay());
+        console.log('getDate (dia do mês):', data5.getDate());
+        console.log('getMinutes:', data5.getMinutes());
+        console.log('getSeconds:', data5.getSeconds());
+        console.log('getMilliseconds:', data5.getMilliseconds());
+        console.log('getTime:', data5.getTime(), 'milisegundos');
+        console.log('Date.now():', Date.now(), 'um jeito independente');
+
+        
+        console.log('// MANIPULAR A DATA, ALTERAR A DATA');
+        data6 = new Date();
+        console.log('data6', data6);
+        console.log('setFullyear 2020', data6.setFullYear(2020));
+        console.log('getFullyear', data6.getFullYear());
+        console.log('setMonth 8', data6.setMonth(8));
+        console.log('getMonth', data6.getMonth());
+        console.log('setDate(14)', data6.setDate(14));
+        console.log('Somando 7 dias pra frente');
+        console.log('setDate(data6.getDate() + 7)', data6.setDate(data6.getDate() + 7));
+        function diadasemana(dia){
+            diasSemana = [
+                'domingo',
+                'segunda-feira',
+                'terça-feira',
+                'quarta-feira',
+                'quinta-feira',
+                'sexta-feira',
+                'sábado',
+            ];
+            return diasSemana[dia];
+        }
+        console.log('getDay()', diadasemana(data6.getDay()));
+        console.log(data6);
+
+        data7 = new Date();
+        console.log('data7:', data7);
+        console.log('dia da semana hoje:', diadasemana(data7.getDay()));
+        sabado = new Date( data7.setDate( data7.getDate() + 1 ) );
+        console.log('sabado:', sabado.getDate());
+
+        
+        hoje = new Date();
+        console.log('hoje', hoje.getDate());
+        
+        amanha = new Date();
+        amanha.setDate( hoje.getDate() + 1 );
+        console.log('amanha', amanha.getDate());
+
+        ontem = new Date();
+        ontem.setDate( hoje.getDate() - 1 );
+        console.log('ontem', ontem.getDate());
+
+        futuro1semana = new Date();
+        futuro1semana.setDate( hoje.getDate()+7);
+        console.log('Daqui a 1 semana', futuro1semana.toDateString());
+    </script>
+</body>
+</html>

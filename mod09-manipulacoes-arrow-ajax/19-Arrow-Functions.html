@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>#19: Arrow Functions</title>
+</head>
+<body>
+    <h3>#19: Arrow Functions</h3>
+    <pre>       
+        function somar(a,b){
+            return a+b;
+        }
+        console.log(somar(1,2));
+
+        let somar2 = function(a,b){
+            return a+b;
+        }
+        console.log(somar2(3,2));
+
+        let somar3 = (a,b) => {
+            return a+b;
+        }
+
+        let somar4 = (a,b) => a+b; // uma ação direta não precisa do 'return'
+        // ou
+        let somar5 = (a,b) => { return a+b; }
+
+        // step 1, apenas 1 parametro, sintaxe
+        letrasnonome = (nome) => {
+            return nome.length;
+        }
+        console.log(letrasnonome('betao'));
+        
+        // step 2
+        letrasnonome2 = (nome) => nome.length;
+        console.log(letrasnonome2('betao'));
+        
+        // step 3, com um parâmetro só, loco! parenteses é opcional com 1 parametro apenas
+        letrasnonome3 = nome => nome.length; // menor tamanho possível de uma função
+        console.log(letrasnonome3('betao'));
+
+        // arrow function não tem o obj this. 
+        console.log('OBS: arrow function não tem o obj THIS');
+        console.log('OBS: arrow function também é chamada de FUNÇAO ANONIMA'); 
+    </pre>
+    <script>
+        function somar(a,b){
+            return a+b;
+        }
+        console.log(somar(1,2));
+
+        let somar2 = function(a,b){
+            return a+b;
+        }
+        console.log(somar2(3,2));
+
+        let somar3 = (a,b) => {
+            return a+b;
+        }
+
+        let somar4 = (a,b) => a+b; // uma ação direta não precisa do 'return'
+        // ou
+        let somar5 = (a,b) => { return a+b; }
+
+        // step 1, apenas 1 parametro, sintaxe
+        letrasnonome = (nome) => {
+            return nome.length;
+        }
+        console.log(letrasnonome('betao'));
+        
+        // step 2
+        letrasnonome2 = (nome) => nome.length;
+        console.log(letrasnonome2('betao'));
+        
+        // step 3, com um parâmetro só, loco! parenteses é opcional com 1 parametro apenas
+        letrasnonome3 = nome => nome.length; // menor tamanho possível de uma função
+        console.log(letrasnonome3('betao'));
+
+        // arrow function não tem o obj this. 
+        console.log('OBS: arrow function não tem o obj THIS');
+        console.log('OBS: arrow function também é chamada de FUNÇAO ANONIMA');
+
+    </script>
+</body>
+</html>

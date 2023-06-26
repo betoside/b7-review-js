@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 5: Requisições</title>
+</head>
+<body>
+
+<pre>
+    <strong>Módulo 5: Requisições</strong>
+
+    #1: Introdução a requisições
+    #2: O que é Síncrono e Assíncrono?
+
+        Síncrono: 
+            
+            uma coisa depende da outra.
+            uma linha de código vai ser processada antes da outra
+            e serão processadas em sequência
+
+            let nome = 'boniek';
+            let sobrenome = 'lacerda';
+            let nomecompleto = nome + sobrenome;
+
+
+        Assíncrono:
+
+            Uma requisição tem um processo que precisa de um tempo de resposta.
+            Não é instantâneo pq envolve uma série de passos de atividades
+            que envolver em solicitar, receber solicitação, preparar a resposta,
+            responder, receber a resposta...
+
+            é utilizado para o site não parar, não travar.
+
+    #3: Como a Web funciona (Req e Resp)?
+
+        Conceitos:
+
+        requisição é um acesso. digitar www.google.com é um acesso. 
+        acessar um site, um servidor.
+
+        requisição e resposta. request and response.
+
+        Request:
+
+            -> cabeçalhos / headers 
+            (as informações principais) (de requisição)
+
+                se é um computador ou celular
+                qual browser
+                versão do sistema
+                cookies
+                etc
+
+            -> corpo / body 
+
+                não é obrigatório enviar nada. 
+                pode ir vazio.
+
+        Response:
+
+            -> cabeçalhos / headers (de resposta)
+
+                salvar a logo do google durante as 
+                próximas 3 horas (cache, data de expiração)
+
+            -> corpo / body
+
+                um texto
+                um html para montar uma página
+
+
+    #4: Como uma API funciona?
+
+        última aula teórica.
+        a partir da próxima começa a meter a mão na massa.
+
+        API application programming interface
+
+        a comunicação funciona entre o browser e o servidor, 
+        entre uma máquina e outra.
+        eles usam uma API.
+
+        são máquinas se comunicando, não necessitam de 
+        interface visual ou cores. apenas a 
+        mensagem pura e simples. precisa de um padrao 
+        de comunicacao por exemplo JSON (antiga//e XML).
+
+        json javascript object notation. virou um padrao de comunicacao.
+
+        JSONPlaceholder, um site feita para testar e prototipar as coisas.
+
+        https://jsonplaceholder.typicode.com/
+
+        métodos:
+
+            get, post
+
+        criar uma api é basicamente criar um site sem interface visual.
+
+    #5: O que é um Callback?
+
+        se aplica a eventos de click, teclado e tb a requisições
+
+        <button id="id_callback">callback</button>
+
+        <script>
+            function fn_callback(){
+                alert('Oi, callback');
+            }
+
+            document.querySelector('#id_callback')
+                .addEventListener('click', fn_callback);
+        </script>
+        
+            function fn_callback(){
+                alert('Oi, callback');
+            }
+
+            document.querySelector('#id_callback')
+                .addEventListener('click', fn_callback);
+                
+
+        PROCESSO:
+        Função para quando clicar no botão
+        - requisição a url X
+        - tá aqui o callback para quando você tiver a resposta
+        -- callbackMaroto
+
+
+    #6: Fazendo uma requisição na prática
+        <a href="06-Fazendo-uma-requisicao.html">
+            06-Fazendo-uma-requisicao.html
+        </a>
+
+    #7: Como ver as requisições acontecendo
+            ALT + CMD + I = developer tools / Network
+
+    #8: Entendendo Promise
+
+        função assíncrona, ela não fica esperando 
+        terminar algo para então dar prosseguimento.
+
+        tudo que tem promisse, ela vai ser executada 
+        e vc vai dar um callback pra ela.
+        quando ela tiver a resposta ela manda mas 
+        todo o restante da página vai 
+        seguindo a vida.
+
+        function fetch(input: RequestInfo | URL, init?: RequestInit): Promise<Response>
+
+        (method) 
+            Promise<Response>.then<any, never>
+                (onfulfilled?: (value: Response) => any, 
+                onrejected?: (reason: any) => PromiseLike<never>): Promise<any>
+    
+
+    #9: Gerenciando erros na Promise
+        .catch // para ser executado quando der algum problema na execução 
+        .finally // 
+        .then // 
+
+        
+        function clicou(){
+            fetch('https://jsonplaceholder.typicode.com/pos2ts')
+
+                .then((response) => {
+                    // console.log('Executou o callback da requisição');
+                    // console.log(response);
+                    return response.json();
+                })
+                .then((data_json) => {
+                    // console.log(data_json[0]);
+                    // console.log('userId', data_json[0].userId);
+                    // console.log('id', data_json[0].id);
+                    // console.log('title', data_json[0].title);
+                })
+                .catch((error)=>{
+                    console.log('Deu problema na requisição, pegar o ERRO aqui com catch');
+                    console.log('ERRO',error);
+                })
+                .finally(()=>{ 
+                    console.log("Acabou finally o fetch");
+
+                    // utilizado para bloquear os campos de um form até concluir uma tarefa
+                })
+        }
+
+    #10: Tipos de status de uma requisição
+
+        200, 404, etc
+
+        <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status">
+            https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
+        </a>
+
+        grupos de status.
+
+        <button class="statusOk">verificar status ok</button>
+
+        <button class="statusErr">verificar status Err</button>
+
+        <script>
+            document.querySelector('.statusErr')
+            .addEventListener('click',()=>{
+                fetch('https://jsonplaceholder.typicode.com/pos2ts')
+                .then((response)=>{
+                    console.log('Status:',response.status);
+                    console.log(response);
+                })
+            });
+            document.querySelector('.statusOk')
+            .addEventListener('click',()=>{
+                fetch('https://jsonplaceholder.typicode.com/posts')
+                .then((response)=>{
+                    console.log('Status:',response.status);
+                    console.log(response);
+                })
+            });
+        </script>
+
+
+    #11: Métodos de envio de requisição
+
+        GET pedindo informações ao servidor
+        quando vc nao manda nada informando o método, 
+        por padrão ele assume o metodo GET.
+        buscar informação de umm USER ou um Post/matéria
+
+        POST mandando informações, 
+        criar novo post ou inserir um usuário
+        PUT pode ser para alterar alguma informação que existe
+        DELETE excluir
+
+        <button class="inserirPost">Inserir post</button>
+
+        <script>
+            document.querySelector('.inserirPost')
+            .addEventListener('click', inserir);
+
+            function inserir(){
+                fetch(
+                    'https://jsonplaceholder.typicode.com/posts',
+                    {
+                        method:'POST',
+                        headers:{
+                            'Content-Type':'application/json'
+                        },
+                        body: JSON.stringify({
+                            title:'Título do post',
+                            body:'Corpo do teste',
+                            userId:2
+                        })
+                    })
+                    .then((response)=>{
+                        return response.json();
+                    })
+                    .then((json)=>{
+                        console.log(json);
+                    });
+            }
+        </script>
+
+        document.querySelector('.inserirPost')
+        .addEventListener('click', inserir);
+
+        function inserir(){
+            fetch(
+                'https://jsonplaceholder.typicode.com/posts',
+                {
+                    method:'POST',
+                    headers:{
+                        'Content-Type':'application/json'
+                    },
+                    body: JSON.stringify({
+                        title:'Título do post',
+                        body:'Corpo do teste',
+                        userId:2
+                    })
+                })
+                .then((response)=>{
+                    return response.json();
+                })
+                .then((json)=>{
+                    console.log(json);
+                });
+        }
+
+
+    #12: Promises com async/await <a name="teste" id="asyncawait">...</a>
+
+        uma segunda forma de fazer a mesma coisa mas agora 
+        com menos código, menos linhas, mais fácil de entender.
+
+        Uma requesicão é formada por uma promisse e depois pelos callbacks
+
+        <button class="async_await">async await requisição</button>
+
+        <script>
+            document.querySelector('.async_await').addEventListener('click', fn_async_await);
+            
+            async function fn_async_await() {
+
+                let resposta = await fetch('https://jsonplaceholder.typicode.com/posts');
+                let json = await resposta.json();
+                console.log(`Lista de posts: ${json[0].title} `);
+                alert('antes do clicou');
+
+                alert('clicou');
+                
+            }
+        </script>
+
+
+
+
+    #13: Projeto: Blog do JSONPlaceholder 1
+    #14: Projeto: Blog do JSONPlaceholder 2
+</pre>
+
+<div class="blog_container">
+    <h2>blog fake</h2>
+
+    <fieldset class="fieldset">
+        <legend>inserir um novo post</legend>
+
+        <div>
+            <input type="text" id="titleField" placeholder="título do post">
+        </div>
+        <div>
+            <textarea id="bodyField" placeholder="corpo do post"></textarea>            
+        </div>
+        <div>
+            <button id="insertButton">Inserir</button>
+        </div>
+    </fieldset>
+    <div class="posts"></div>
+    <script>
+
+        async function addNewPost(title, body){
+
+            await fetch(
+                'https://jsonplaceholder.typicode.com/posts',
+                {
+                    method:'POST',
+                    headers:{
+                        'Content-type':'application/json'
+                    },
+                    body: JSON.stringify({
+                        title:title,
+                        body:body,
+                        id:222
+                    })
+                });
+
+            document.querySelector('#titleField').value = '';
+            document.querySelector('#bodyField').value = '';
+
+            readPosts();
+        }
+
+        document.querySelector('#insertButton').addEventListener('click', ()=>{
+            let title = document.querySelector('#titleField').value;
+            let body= document.querySelector('#bodyField').value;
+
+            if(title && body){
+                addNewPost(title, body);
+            } else {
+                alert('Preencha os campos');
+            }
+        });
+
+        async function readPosts(){
+            let postArea = document.querySelector('.posts');
+            postArea.innerHTML = 'carregando...';
+
+            let resposta = await fetch('https://jsonplaceholder.typicode.com/posts')
+            let json = await resposta.json();
+
+            if(json.length > 0){
+                // console.log('Carregou a tela, existe posts');
+                postArea.innerHTML = '';
+
+                for(i in json){
+                    let postHtml = `<div><u>${json[i].id} | ${json[i].title}</u> - ${json[i].body}</div><hr>`;
+                    postArea.innerHTML += postHtml;
+                    // o melhor é inserir usando do APPEND
+                }
+
+            } else {
+                postArea.innerHTML = 'Nenhum post para exibir';
+            }
+        }
+        readPosts();
+                
+        window.scroll(0, document.body.scrollHeight);
+
+        window.addEventListener('load',()=>{
+            console.log(document.body.scrollHeight);            
+            // console.log( document.querySelector('#asyncawait').scrollTop );
+        });
+
+    </script>
+    <style>
+        *{
+            box-sizing: border-box;
+            font-family: Geneva, sans-serif;
+        }
+        body{
+            font-size: .98em;
+        }
+        html {
+           scroll-behavior: smooth;
+        }
+        .fieldset{
+            max-width: 500px;
+            border: 1px dotted #000;
+            margin: 20px 0;
+        }
+        .posts{
+            max-width: 500px;
+            border: 1px dotted #f00;
+            padding: 1em;
+        }
+        input, textarea{
+            width: 100%;
+            margin-bottom: 20px;
+        }           
+
+    </style>
+
+
+</div>
+
+</body>
+</html>

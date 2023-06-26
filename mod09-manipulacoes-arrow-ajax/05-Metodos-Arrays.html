@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>#5: Métodos de Arrays (1/4)</title>
+</head>
+<body>
+    <h3>#5: Métodos de Arrays (1/4)</h3>
+    <pre>
+
+        lista = ['ovo','farinha','corante','massa'];
+        resultado = lista.toString();
+        console.log(lista);
+        console.log(resultado);
+
+        resultado2 = lista.join('__'); // transforma array em string
+        console.log(resultado2);
+
+        resultado3 = lista.indexOf('corante'); // retorna -1 ou a posição (0 inclusive)
+        console.log(resultado3);
+
+        lista2 = lista;
+        console.log(lista2);
+
+        resultado4 = lista2.pop(); // ultimo
+        console.log(resultado4);
+        console.log(lista2);
+
+        resultado5 = lista2.shift(); // primeiro
+        console.log(resultado5);
+        console.log(lista2);
+
+        resultado6 = lista2.push('prato');
+        console.log(resultado6); // 3. ?
+        console.log(lista2);
+
+        resultado7 = lista2[0] = 'ovos';
+        console.log(resultado7);
+        console.log(lista2);
+
+        resultado8 = lista2[4] = 'liquidificador';
+        console.log(resultado8);
+        console.log(lista2);
+        console.log(lista2[lista2.length - 1]);
+
+        // remover um item do array excluindo o slot
+        resultado9 = lista2.splice(3,1); // qual posicao remover, qtd
+        console.log(resultado9);
+        console.log(lista2);
+
+        // exercicio
+        lista3 = lista2.join(' - - ');
+        console.log('lista3:',lista3);
+        lista4 = lista3.split(' ');
+        lista5 = lista3.split(' ');
+        console.log('lista4:',lista4);
+        lista4marcador = [];
+        for(i in lista4){
+            if(lista4[i] == '-'){
+                // console.log('i', i);
+                // console.log('lista4', lista4[i]);
+               lista4marcador.push(i);
+            }
+        }
+        console.log('lista4:',lista4);
+        console.log('lista4marcador:',lista4marcador);
+        for(i of lista4marcador){
+            // console.log(i);
+            lista4.splice(i,1);
+        }
+        console.log('lista4:',lista4);
+
+        console.log('lista5:',lista5);
+        lista6 = [];
+        for(i of lista5){
+            if(i != '-'){
+                lista6.push(i);
+                // console.log(i);;
+            }
+        }
+        console.log('lista6:',lista6);
+
+        // concatenar 2 Arrays
+        lista7 = ['Rio Pequeno', 'Quitaúna'];
+        lista8 = ['Lapa', 'Pompeia', 'Bertioga', 'São Sebastião'];
+        lista9 = lista7.concat(lista8);
+        console.log('lista9:',lista9);
+
+        // ordenar o array
+        lista10 = lista9.sort();
+        console.log('lista9:',lista9);
+        console.log('lista10:',lista10);
+
+        // irverter a ordem do array, inverte a ordem que estiver.
+        lista11 = lista10.reverse();
+        console.log('lista11:',lista11);
+
+        // PARTE 3, mais avançado, funções extra, configurações extra.
+
+        // MAP
+        lista12 = [13, 23, 33, 43, 53];
+        lista12a = [];
+        lista12a = lista12.map((item)=>{
+            return item * 2;
+        });
+        console.log('lista12', lista12);
+        console.log('lista12a', lista12a);
+        lista12.map((item)=>{
+            (item % 2 == 0)? console.log('item par:',item) : console.log('item ímpar:',item) ;
+        });
+
+        lista12b = [];
+        for(i in lista12){
+            lista12b.push(lista12[i] * 2);
+        }
+        console.log('lista12b', lista12b);
+
+        lista12c = [];
+        for(i of lista12){
+            lista12c.push(i * 2);
+        }
+        console.log('lista12c', lista12c);
+
+        // FILTER
+        // util para listar por exemplo posts 
+        // com mais de 5 comentarios, ou criados até x data.
+        lista13 = lista12.filter((item)=>{
+            if(item < 50){
+                return true;
+            } else {
+                return false;
+            }            
+        });
+        console.log('lista13', lista13);
+
+        // EVERY, retorna true quando todo mundo der OK para a condiçao
+        lista14 = lista12.every((item)=>{
+            if(item < 50){
+                return true;
+            } else {
+                return false;
+            }
+        });
+        console.log('lista14 "EVERY",', lista14, ', todo mundo tem que estar ok com a condição');
+
+        // EVERY, retorna true quando todo mundo der OK para a condiçao
+        lista15 = lista12.some((item)=>{
+            return (item < 50)? true : false;
+        });
+        console.log('lista15 "SOME"', lista15);
+
+        // FIND procurar dentro do array
+        // retorna o primeiro item que satisfaça a condição
+        // exe: retornar usuario com nome "XYZ"
+        lista16 = lista12.find((item)=>{
+            return (item == 33)? true : false;
+        });
+        console.log('lista16 "FIND"', lista16);
+
+        // RETORNA A POSICAO
+        lista17 = lista12.findIndex((item)=>{
+            return (item == 33)? true : false;
+        });
+        console.log('lista17 "FINDINDEX"', lista17);
+
+        lista18 = [
+            {id:1, nome:'alex', cidade:'Praia Grande'},
+            {id:2, nome:'morcego', cidade:'Sorocaba'},
+            {id:3, nome:'Evandro', cidade:'Campinas'},
+            {id:4, nome:'Chico', cidade:'Carapicuíba'}
+        ];
+        lista19 = lista18.find((item)=>{
+            // return (item.nome == 'morcego')? true : false;
+            // return (item.id == 4)? true : false;
+            return (item.cidade.toLowerCase() == 'campinas')? true : false;
+        });
+        console.log('lista19 "FIND"', lista19);
+    </pre>
+    <script>
+        lista = ['ovo','farinha','corante','massa'];
+        resultado = lista.toString();
+        console.log(lista);
+        console.log(resultado);
+
+        resultado2 = lista.join('__'); // transforma array em string
+        console.log(resultado2);
+
+        resultado3 = lista.indexOf('corante'); // retorna -1 ou a posição (0 inclusive)
+        console.log(resultado3);
+
+        lista2 = lista;
+        console.log(lista2);
+
+        resultado4 = lista2.pop(); // ultimo
+        console.log(resultado4);
+        console.log(lista2);
+
+        resultado5 = lista2.shift(); // primeiro
+        console.log(resultado5);
+        console.log(lista2);
+
+        resultado6 = lista2.push('prato');
+        console.log(resultado6); // 3. ?
+        console.log(lista2);
+
+        resultado7 = lista2[0] = 'ovos';
+        console.log(resultado7);
+        console.log(lista2);
+
+        resultado8 = lista2[4] = 'liquidificador';
+        console.log(resultado8);
+        console.log(lista2);
+        console.log(lista2[lista2.length - 1]);
+
+        // remover um item do array excluindo o slot
+        resultado9 = lista2.splice(3,1); // qual posicao remover, qtd
+        console.log(resultado9);
+        console.log(lista2);
+
+        // exercicio
+        lista3 = lista2.join(' - - ');
+        console.log('lista3:',lista3);
+        lista4 = lista3.split(' ');
+        lista5 = lista3.split(' ');
+        console.log('lista4:',lista4);
+        lista4marcador = [];
+        for(i in lista4){
+            if(lista4[i] == '-'){
+                // console.log('i', i);
+                // console.log('lista4', lista4[i]);
+               lista4marcador.push(i);
+            }
+        }
+        console.log('lista4:',lista4);
+        console.log('lista4marcador:',lista4marcador);
+        for(i of lista4marcador){
+            // console.log(i);
+            lista4.splice(i,1);
+        }
+        console.log('lista4:',lista4);
+
+        console.log('lista5:',lista5);
+        lista6 = [];
+        for(i of lista5){
+            if(i != '-'){
+                lista6.push(i);
+                // console.log(i);;
+            }
+        }
+        console.log('lista6:',lista6);
+
+        // concatenar 2 Arrays
+        lista7 = ['Rio Pequeno', 'Quitaúna'];
+        lista8 = ['Lapa', 'Pompeia', 'Bertioga', 'São Sebastião'];
+        lista9 = lista7.concat(lista8);
+        console.log('lista9:',lista9);
+
+        // ordenar o array
+        lista10 = lista9.sort();
+        console.log('lista9:',lista9);
+        console.log('lista10:',lista10);
+
+        // irverter a ordem do array, inverte a ordem que estiver.
+        lista11 = lista10.reverse();
+        console.log('lista11:',lista11);
+
+        // PARTE 3, mais avançado, funções extra, configurações extra.
+
+        // MAP
+        lista12 = [13, 23, 33, 43, 53];
+        lista12a = [];
+        lista12a = lista12.map((item)=>{
+            return item * 2;
+        });
+        console.log('lista12', lista12);
+        console.log('lista12a', lista12a);
+        lista12.map((item)=>{
+            (item % 2 == 0)? console.log('item par:',item) : console.log('item ímpar:',item) ;
+        });
+
+        lista12b = [];
+        for(i in lista12){
+            lista12b.push(lista12[i] * 2);
+        }
+        console.log('lista12b', lista12b);
+
+        lista12c = [];
+        for(i of lista12){
+            lista12c.push(i * 2);
+        }
+        console.log('lista12c', lista12c);
+
+        // FILTER
+        // util para listar por exemplo posts 
+        // com mais de 5 comentarios, ou criados até x data.
+        lista13 = lista12.filter((item)=>{
+            if(item < 50){
+                return true;
+            } else {
+                return false;
+            }            
+        });
+        console.log('lista13', lista13);
+
+        // EVERY, retorna true quando todo mundo der OK para a condiçao
+        lista14 = lista12.every((item)=>{
+            if(item < 50){
+                return true;
+            } else {
+                return false;
+            }
+        });
+        console.log('lista14 "EVERY",', lista14, ', todo mundo tem que estar ok com a condição');
+
+        // EVERY, retorna true quando todo mundo der OK para a condiçao
+        lista15 = lista12.some((item)=>{
+            return (item < 50)? true : false;
+        });
+        console.log('lista15 "SOME"', lista15);
+
+        // FIND procurar dentro do array
+        // retorna o primeiro item que satisfaça a condição
+        // exe: retornar usuario com nome "XYZ"
+        lista16 = lista12.find((item)=>{
+            return (item == 33)? true : false;
+        });
+        console.log('lista16 "FIND"', lista16);
+
+        // RETORNA A POSICAO
+        lista17 = lista12.findIndex((item)=>{
+            return (item == 33)? true : false;
+        });
+        console.log('lista17 "FINDINDEX"', lista17);
+
+        lista18 = [
+            {id:1, nome:'alex', cidade:'Praia Grande'},
+            {id:2, nome:'morcego', cidade:'Sorocaba'},
+            {id:3, nome:'Evandro', cidade:'Campinas'},
+            {id:4, nome:'Chico', cidade:'Carapicuíba'}
+        ];
+        lista19 = lista18.find((item)=>{
+            // return (item.nome == 'morcego')? true : false;
+            // return (item.id == 4)? true : false;
+            return (item.cidade.toLowerCase() == 'campinas')? true : false;
+        });
+        console.log('lista19 "FIND"', lista19);
+
+ 
+
+
+    </script>
+</body>
+</html>

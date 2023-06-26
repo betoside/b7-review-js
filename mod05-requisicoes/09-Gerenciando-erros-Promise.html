@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>#8: Entendendo Promise</title>
+</head>
+<body>
+    <h3>#9: Gerenciando erros na Promise</h3>
+
+    <button>Fazer requisição</button>
+
+    ( https://jsonplaceholder.typicode.com/posts )
+
+    <pre>
+    .catch // para ser executado quando der algum problema na execução 
+    .finally // 
+    .then //    
+
+
+
+    function clicou(){
+        fetch('https://jsonplaceholder.typicode.com/pos2ts')
+
+            .then((response) => {
+                // console.log('Executou o callback da requisição');
+                // console.log(response);
+                console.log(`Status: ${response.status}`);
+                return response.json();
+            })
+            .then((data_json) => {
+                // console.log(data_json[0]);
+                // console.log('userId', data_json[0].userId);
+                // console.log('id', data_json[0].id);
+                // console.log('title', data_json[0].title);
+            })
+            .catch((error)=>{
+                console.log('Deu problema na requisição, pegar o ERRO aqui com catch');
+                console.log('ERRO',error);
+            })
+            .finally(()=>{ 
+                console.log("Acabou finally o fetch");
+
+                // utilizado para bloquear os campos de um form até concluir uma tarefa
+            })
+    }
+
+    document.querySelector('button')
+        .addEventListener('click', clicou);
+        
+
+
+    </pre>
+    
+
+    <script>
+
+        function clicou(){
+            fetch('https://jsonplaceholder.typicode.com/pos2ts')
+
+                .then((response) => {
+                    // console.log('Executou o callback da requisição');
+                    // console.log(response);
+                    console.log(`Status: ${response.status}`);
+                    return response.json();
+                })
+                .then((data_json) => {
+                    // console.log(data_json[0]);
+                    // console.log('userId', data_json[0].userId);
+                    // console.log('id', data_json[0].id);
+                    // console.log('title', data_json[0].title);
+                })
+                .catch((error)=>{
+                    console.log('Deu problema na requisição, pegar o ERRO aqui com catch');
+                    console.log('ERRO',error);
+                })
+                .finally(()=>{ 
+                    console.log("Acabou finally o fetch");
+
+                    // utilizado para bloquear os campos de um form até concluir uma tarefa
+                })
+        }
+
+        document.querySelector('button')
+            .addEventListener('click', clicou);
+            
+
+    </script>
+
+</body>
+</html>

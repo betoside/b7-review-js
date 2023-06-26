@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>#18: Descontruindo Arrays</title>
+</head>
+<body>
+    <h3>#18: Descontruindo Arrays</h3>
+    <pre>        
+        let info = ['boniek lacerda','boniek','lacerda','insta@boniek'];
+
+        let [nomeCompleto, nome, sobrenome, instagram] = info;
+
+        console.log('nomeCompleto:',nomeCompleto);
+        console.log('nome:',nome);
+        console.log('sobrenome:',sobrenome);
+        console.log('instagram:',instagram);
+
+        console.log('-'.repeat(20));
+        let [nomeCompleto2, , , instagram2] = info;
+        console.log('nomeCompleto2:',nomeCompleto2);
+        console.log('instagram2:',instagram2);
+
+        console.log('-'.repeat(20));
+        // criando já desconstruindo
+        let [missao1, missao2, missao3] = ['rejunte carapicuiba','elder','b7web html'];
+        console.log('missao1:',missao1);
+        console.log('missao2:',missao2);
+        console.log('missao3:',missao3);
+
+        console.log('-'.repeat(20));
+        // atribuindo valor padrao
+        let [missao11, missao22, missao33='contas, apto, tecnologia currículo'] = ['xt225 corrente','relação crosser'];
+        console.log('missao11:',missao11);
+        console.log('missao22:',missao22);
+        console.log('missao33:',missao33);
+
+        console.log('-'.repeat(20));
+        function criar(){
+            return [1,2,3];
+        }
+        let [a ,b, c] = criar();
+        console.log('a:',a);
+        console.log('b:',b);
+        console.log('c:',c);
+
+    </pre>
+    <script>
+        let info = ['boniek lacerda','boniek','lacerda','insta@boniek'];
+
+        let [nomeCompleto, nome, sobrenome, instagram] = info;
+
+        console.log('nomeCompleto:',nomeCompleto);
+        console.log('nome:',nome);
+        console.log('sobrenome:',sobrenome);
+        console.log('instagram:',instagram);
+
+        console.log('-'.repeat(20));
+        let [nomeCompleto2, , , instagram2] = info;
+        console.log('nomeCompleto2:',nomeCompleto2);
+        console.log('instagram2:',instagram2);
+
+        console.log('-'.repeat(20));
+        // criando já desconstruindo
+        let [missao1, missao2, missao3] = ['rejunte carapicuiba','elder','b7web html'];
+        console.log('missao1:',missao1);
+        console.log('missao2:',missao2);
+        console.log('missao3:',missao3);
+
+        console.log('-'.repeat(20));
+        // atribuindo valor padrao
+        let [missao11, missao22, missao33='contas, apto, tecnologia currículo'] = ['xt225 corrente','relação crosser'];
+        console.log('missao11:',missao11);
+        console.log('missao22:',missao22);
+        console.log('missao33:',missao33);
+
+        console.log('-'.repeat(20));
+        function criar(){
+            return [1,2,3];
+        }
+        let [a ,b, c] = criar();
+        console.log('a:',a);
+        console.log('b:',b);
+        console.log('c:',c);
+
+
+
+    </script>
+</body>
+</html>

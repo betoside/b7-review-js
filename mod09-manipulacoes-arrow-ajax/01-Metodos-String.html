@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>#1: Métodos de String (1/3)</title>
+</head>
+<body>
+    <pre>
+
+        let nome = 'Boniek Lacerda';
+
+        let log_length = nome.length;
+        let log_indexof = nome.indexOf('Lacerda');
+        
+        // slice(pos ini, pos end)
+        let log_slice = nome.slice(log_indexof, log_length);
+        let log_slice2 = nome.slice(log_indexof);
+        // OBS: SLICE com número negativo começa do fim
+        let log_slice3 = nome.slice(-log_slice.length);
+        let log_slice4 = nome.slice(0,nome.indexOf(' '));
+        let log_slice5 = nome.slice((nome.indexOf(' ') - nome.length) * -1);
+        let log_slice6 = nome.slice((nome.length) * -1, nome.indexOf(' '));
+        let log_slice7 = nome.slice(-4);
+
+        // OBS: substring não opção de começar do fim
+
+        console.log('nome log_length', log_length);
+        console.log('Lacerda log_indexof', log_indexof);
+        console.log('log_slice', log_slice);
+        console.log('log_slice2', log_slice2);
+        console.log('log_slice3', log_slice3);
+        console.log('log_slice4', log_slice4 +'_');
+        console.log('log_slice5', log_slice5 +'_');
+        console.log('log_slice6', log_slice6 +'_');
+        console.log('log_slice7', log_slice7);
+
+        console.log('slice(pos ini, pos end) *func c nro negativo');
+        console.log('substring(pos ini, pos end) *n func c nro negativo');
+        console.log('substr (pos ini, qtd) *fun c nro negativo');
+
+        log_substr1 = nome.substr(0,nome.indexOf(' '));
+        log_substr2 = nome.substr(nome.indexOf('L'));
+        log_substr3 = nome.substr(nome.indexOf('L'),2);
+
+        console.log('log_substr1',log_substr1);
+        console.log('log_substr2',log_substr2);
+        console.log('log_substr3',log_substr3);
+
+        log_replace1 = nome.replace('Lacerda', 'gosta de moto, carro, surf e skate');
+        console.log('log_replace1 de:', nome);
+        console.log('log_replace1 para:', log_replace1);
+        log_replace1 = log_replace1.toUpperCase();
+        console.log('log_replace1 para:', log_replace1);
+        log_replace1 = log_replace1.toLowerCase();
+        console.log('log_replace1 para:', log_replace1);
+
+        nomeComEspaco = '   skate   surf   musica   tecnologia   ';
+        console.log('nomeComEspaco.length',nomeComEspaco.length);
+        console.log('nomeComEspaco',nomeComEspaco);
+        console.log('nomeComEspaco.replace',nomeComEspaco.replace(' ','_'));
+        console.log('nomeComEspaco',nomeComEspaco);
+        console.log('nomeComEspaco.trim',nomeComEspaco.trim());
+        console.log('nomeComEspaco',nomeComEspaco);
+
+        nomeComEspaco_replace = '';
+        for(i=0;i<nomeComEspaco.length;i++){
+            if(nomeComEspaco[i] == ' '){
+                nomeComEspaco_replace += nomeComEspaco[i].replace(' ','_');
+            } else {
+                nomeComEspaco_replace += nomeComEspaco[i];
+            }
+        }
+        
+        console.log('nomeComEspaco_replace',nomeComEspaco_replace);
+
+        // charAt(pos)
+        log_charAt1 = nome.charAt(1);
+        console.log('log_charAt1', log_charAt1);
+        log_charAt2 = nome[2];
+        console.log('nome[2]', log_charAt2); // ecma script 5
+
+        // split
+        nomeComEspacoSplit = nomeComEspaco.split(' ');
+        console.log(nomeComEspacoSplit);
+
+
+    
+    </pre>
+    <script>
+        let nome = 'Boniek Lacerda';
+
+        let log_length = nome.length;
+        let log_indexof = nome.indexOf('Lacerda');
+        
+        // slice(pos ini, pos end)
+        let log_slice = nome.slice(log_indexof, log_length);
+        let log_slice2 = nome.slice(log_indexof);
+        // OBS: SLICE com número negativo começa do fim
+        let log_slice3 = nome.slice(-log_slice.length);
+        let log_slice4 = nome.slice(0,nome.indexOf(' '));
+        let log_slice5 = nome.slice((nome.indexOf(' ') - nome.length) * -1);
+        let log_slice6 = nome.slice((nome.length) * -1, nome.indexOf(' '));
+        let log_slice7 = nome.slice(-4);
+
+        // OBS: substring não opção de começar do fim
+
+        console.log('nome log_length', log_length);
+        console.log('Lacerda log_indexof', log_indexof);
+        console.log('log_slice', log_slice);
+        console.log('log_slice2', log_slice2);
+        console.log('log_slice3', log_slice3);
+        console.log('log_slice4', log_slice4 +'_');
+        console.log('log_slice5', log_slice5 +'_');
+        console.log('log_slice6', log_slice6 +'_');
+        console.log('log_slice7', log_slice7);
+
+        console.log('slice(pos ini, pos end) *func c nro negativo');
+        console.log('substring(pos ini, pos end) *n func c nro negativo');
+        console.log('substr (pos ini, qtd) *fun c nro negativo');
+
+        log_substr1 = nome.substr(0,nome.indexOf(' '));
+        log_substr2 = nome.substr(nome.indexOf('L'));
+        log_substr3 = nome.substr(nome.indexOf('L'),2);
+
+        console.log('log_substr1',log_substr1);
+        console.log('log_substr2',log_substr2);
+        console.log('log_substr3',log_substr3);
+
+        log_replace1 = nome.replace('Lacerda', 'gosta de moto, carro, surf e skate');
+        console.log('log_replace1 de:', nome);
+        console.log('log_replace1 para:', log_replace1);
+        log_replace1 = log_replace1.toUpperCase();
+        console.log('log_replace1 para:', log_replace1);
+        log_replace1 = log_replace1.toLowerCase();
+        console.log('log_replace1 para:', log_replace1);
+
+        nomeComEspaco = '   skate   surf   musica   tecnologia   ';
+        console.log('nomeComEspaco.length',nomeComEspaco.length);
+        console.log('nomeComEspaco',nomeComEspaco);
+        console.log('nomeComEspaco.replace',nomeComEspaco.replace(' ','_'));
+        console.log('nomeComEspaco',nomeComEspaco);
+        console.log('nomeComEspaco.trim',nomeComEspaco.trim());
+        console.log('nomeComEspaco',nomeComEspaco);
+
+        nomeComEspaco_replace = '';
+        for(i=0;i<nomeComEspaco.length;i++){
+            if(nomeComEspaco[i] == ' '){
+                nomeComEspaco_replace += nomeComEspaco[i].replace(' ','_');
+            } else {
+                nomeComEspaco_replace += nomeComEspaco[i];
+            }
+        }
+        
+        console.log('nomeComEspaco_replace',nomeComEspaco_replace);
+
+        // charAt(pos)
+        log_charAt1 = nome.charAt(1);
+        console.log('log_charAt1', log_charAt1);
+        log_charAt2 = nome[2];
+        console.log('nome[2]', log_charAt2); // ecma script 5
+
+        // split
+        nomeComEspacoSplit = nomeComEspaco.split(' ');
+        console.log(nomeComEspacoSplit);
+
+
+    </script>
+</body>
+</html>

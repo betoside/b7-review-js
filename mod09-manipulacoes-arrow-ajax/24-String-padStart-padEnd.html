@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>#24: String, padStart, padEnd</title>
+</head>
+<body>
+    <h3>#24: String, padStart, padEnd</h3>
+    <pre>        
+
+        // Funçoes de manipulação de string
+        // antigamente dava muito trabalho fazer essas coisas
+
+        let telefone = '123456789';
+        // 999-999999
+        console.log(telefone.padEnd(9,'*'));
+        console.log(telefone.padStart(9,'*'));
+
+        let cartao = '1234432112348765';
+        let lastDigits = cartao.slice(-4);
+        console.log(` ${lastDigits}`);
+        console.log(`Este é o seu ${cartao} ?`);
+        console.log(`Este é o seu ${lastDigits.padStart(16, '*')} ?`);
+
+    </pre>
+    <script>
+        // Funçoes de manipulação de string
+        // antigamente dava muito trabalho fazer essas coisas
+
+        let telefone = '123456789';
+        // 999-999999
+        console.log(telefone.padEnd(9,'*'));
+        console.log(telefone.padStart(9,'*'));
+
+        let cartao = '1234432112348765';
+        let lastDigits = cartao.slice(-4);
+        console.log(` ${lastDigits}`);
+        console.log(`Este é o seu ${cartao} ?`);
+        console.log(`Este é o seu ${lastDigits.padStart(16, '*')} ?`);
+
+    </script>
+</body>
+</html>
