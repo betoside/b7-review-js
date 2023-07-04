@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>21-Operador-Rest.html</title>
+</head>
+<body>
+    <h3>21-Operador-Rest.html</h3>
+    <pre>
+        
+        function adicionarNumeros(...numeros){
+
+            console.log(numeros);
+            console.log('length:',numeros.length);
+
+        }
+        adicionarNumeros(5,6,7,8,9,10);
+
+        function adicionarNomes(...nomes){
+
+            console.log(nomes);
+            console.log('length:',nomes.length);
+
+        }
+        adicionarNomes('Pedro', 'José', 'Maria', 'Gustavo', 'Kaiane');
+
+        
+        function adicionarVeiculos(veiculos1, veiculos2){
+
+            let garagem = [
+                ...veiculos1, 
+                ...veiculos2
+            ];
+
+            return garagem;
+
+        }
+
+        let carros = ['honda', 'peugeot'];
+        let motos = ['yamaha', 'honda'];
+
+        console.log( adicionarVeiculos(carros, motos) );
+
+    
+    </pre>
+    <script>
+        function adicionarNumeros(...numeros){
+
+            console.log(numeros);
+            console.log('length:',numeros.length);
+
+        }
+        adicionarNumeros(5,6,7,8,9,10);
+
+        function adicionarNomes(...nomes){
+
+            console.log(nomes);
+            console.log('length:',nomes.length);
+
+        }
+        adicionarNomes('Pedro', 'José', 'Maria', 'Gustavo', 'Kaiane');
+
+        
+        function adicionarVeiculos(veiculos1, veiculos2){
+
+            let garagem = [
+                ...veiculos1, 
+                ...veiculos2
+            ];
+
+            return garagem;
+
+        }
+
+        let carros = ['honda', 'peugeot'];
+        let motos = ['yamaha', 'honda'];
+
+        console.log( adicionarVeiculos(carros, motos) );
+
+    </script>
+</body>
+</html>
