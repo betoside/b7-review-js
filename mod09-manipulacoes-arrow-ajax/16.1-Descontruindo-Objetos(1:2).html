@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>#16: Descontruindo Objetos (1/2)</title>
+</head>
+<body>
+    <h3>#16: Descontruindo Objetos (1/2)</h3>
+    <pre>
+        Recurso que veio com o ecma 6, 
+        recurso de desconstrução.
+
+        desconstrução = acessar info específica do obj e transformar em variável
+
+        
+        let pessoa = {
+            nome: 'Bonieky',
+            sobrenome: 'Lacerda',
+            idade: 90,
+            social: {
+                facebook: 'fb_b7web',
+                instagram: '@boniek',
+            },
+            nomeCompleto: function (){
+                return `${this.nome} ${this.sobrenome}`;
+            },
+            filho: 'Gutaco',
+            filha: 'Kaiane',
+            namorada: 'Japa'
+        
+        } 
+        
+        console.log(pessoa);
+        console.log(pessoa.social.instagram);
+        console.log(pessoa.nomeCompleto());
+
+        let idade_ = pessoa.idade;
+        let nome_ = pessoa.nome;
+        let sobrenome_ = pessoa.sobrenome;
+        let instagram_ = pessoa.social.instagram;
+
+        console.log(idade_, nome_, sobrenome_, instagram_);
+
+        // desconstruindo
+
+        let {nome, sobrenome, idade} = pessoa;
+        console.log(nome, sobrenome, idade);
+
+        let {nome:pessoaNome, sobrenome:pessoaSobrenome, idade:pessoaIdade} = pessoa;
+        console.log(pessoaNome, pessoaSobrenome, pessoaIdade);
+
+        let { esporte = 'skate' } = pessoa;
+        console.log('esporte:',esporte);
+
+        pessoa.esporte = 'surf';
+        let { esporte:esporteAtualizado } = pessoa;
+        console.log('esporte:',esporteAtualizado);
+
+        let filho = {
+            apelido: 'Gutaco',
+            aniversario: 11,
+            pai: 'Betao',
+            irma: 'Kaiane',
+            redeSocial: {
+                facebook: 'fb_gus',
+                instagram: '@_gutaco',
+                spotify: {
+                    nickname: 'spotify',
+                    estilo: 'funk',
+                    seguidores: 1010
+                }
+            }
+        };
+
+        function desconstruindoObj ({apelido, aniversario = '16/09', redeSocial:{spotify:{nickname, estilo, seguidores}}}) {
+
+            return `Apelido: ${apelido}, Dt niver: ${aniversario}. Segue lá no ${nickname} Estilo ${estilo}, seguidores: ${seguidores}`;
+
+        }
+        console.log(desconstruindoObj(filho));
+
+        console.log('Filho:', filho);
+        console.log('Filho:', filho.apelido);
+        console.log('Filho:', filho.aniversario);
+
+        let { facebook:guFB, instagram:guInsta } = filho.redeSocial;
+        console.log(guFB, guInsta);
+
+        let { apelido, aniversario, redeSocial: {instagram} } = filho;
+        console.log(apelido, aniversario, instagram);
+
+        let {redeSocial : {facebook}} = filho;
+        console.log(facebook);
+
+        function pegarNomeCompleto(obj){
+            return obj.apelido + ' ' + obj.irma;
+        }
+        console.log(pegarNomeCompleto(filho));
+
+
+
+
+    
+    </pre>
+    <script>
+        let pessoa = {
+            nome: 'Bonieky',
+            sobrenome: 'Lacerda',
+            idade: 90,
+            social: {
+                facebook: 'fb_b7web',
+                instagram: '@boniek',
+            },
+            nomeCompleto: function (){
+                return `${this.nome} ${this.sobrenome}`;
+            },
+            filho: 'Gutaco',
+            filha: 'Kaiane',
+            namorada: 'Japa'
+        
+        } 
+        
+        console.log(pessoa);
+        console.log(pessoa.social.instagram);
+        console.log(pessoa.nomeCompleto());
+
+        let idade_ = pessoa.idade;
+        let nome_ = pessoa.nome;
+        let sobrenome_ = pessoa.sobrenome;
+        let instagram_ = pessoa.social.instagram;
+
+        console.log(idade_, nome_, sobrenome_, instagram_);
+
+        // desconstruindo
+
+        let {nome, sobrenome, idade} = pessoa;
+        console.log(nome, sobrenome, idade);
+
+        let {nome:pessoaNome, sobrenome:pessoaSobrenome, idade:pessoaIdade} = pessoa;
+        console.log(pessoaNome, pessoaSobrenome, pessoaIdade);
+
+        let { esporte = 'skate' } = pessoa;
+        console.log('esporte:',esporte);
+
+        pessoa.esporte = 'surf';
+        let { esporte:esporteAtualizado } = pessoa;
+        console.log('esporte:',esporteAtualizado);
+
+        let filho = {
+            apelido: 'Gutaco',
+            aniversario: 11,
+            pai: 'Betao',
+            irma: 'Kaiane',
+            redeSocial: {
+                facebook: 'fb_gus',
+                instagram: '@_gutaco',
+                spotify: {
+                    nickname: 'spotify',
+                    estilo: 'funk',
+                    seguidores: 1010
+                }
+            }
+        };
+
+        function desconstruindoObj ({apelido, aniversario = '16/09', redeSocial:{spotify:{nickname, estilo, seguidores}}}) {
+
+            return `Apelido: ${apelido}, Dt niver: ${aniversario}. Segue lá no ${nickname} Estilo ${estilo}, seguidores: ${seguidores}`;
+
+        }
+        console.log(desconstruindoObj(filho));
+
+        console.log('Filho:', filho);
+        console.log('Filho:', filho.apelido);
+        console.log('Filho:', filho.aniversario);
+
+        let { facebook:guFB, instagram:guInsta } = filho.redeSocial;
+        console.log(guFB, guInsta);
+
+        let { apelido, aniversario, redeSocial: {instagram} } = filho;
+        console.log(apelido, aniversario, instagram);
+
+        let {redeSocial : {facebook}} = filho;
+        console.log(facebook);
+
+        function pegarNomeCompleto(obj){
+            return obj.apelido + ' ' + obj.irma;
+        }
+        console.log(pegarNomeCompleto(filho));
+
+
+
+
+    </script>
+</body>
+</html>
