@@ -9,6 +9,50 @@
 
     <pre>
         
+        let mapa1 = new Map();
+        console.log(mapa1);
+        mapa1.set('a',1);
+        mapa1.set('b',2);
+        mapa1.set('c',3);
+        console.log(mapa1.get('a'));
+        console.log(mapa1.set('a', 97));
+        console.log(mapa1.get('a'));
+        console.log('size:',mapa1.size);
+        console.log(mapa1.delete('b'));
+        console.log(mapa1);
+        console.log('xX'.repeat(10));
+
+        let arrayMap_esportes = ['surf', 'skate', 'futebol', 'volei', 'basquete', 'natação']
+        console.log(arrayMap_esportes.map((x)=>x));
+        console.log('teste:',arrayMap_esportes.map(()=>{}));
+        console.log('Encontrar "skate":',arrayMap_esportes.map((x)=>{if(x==='skate'){return 'skate total'} else {return ':/'}}));
+        console.log('xX'.repeat(10));
+
+        console.log('FIND');
+        let cidades = [
+            { cidade: 'Los Angeles', pais: 'EUA'},
+            { cidade: 'NYC', pais: 'EUA'},
+            { cidade: 'París', pais: 'França'},
+            { cidade: 'Buenos Aires', pais: 'Argentina'}
+        ];
+        console.log(
+            cidades.find(
+                ({cidade}) => cidade === 'París'
+            )
+        );
+
+        console.log('SOME');
+        const array_numeros = [1, 2, 3, 4, 5];
+
+        // Checks whether an element is even
+        const par = (element) => element % 2 === 0;
+
+        console.log(array_numeros.some(par));
+        // Expected output: true
+
+
+
+    
     </pre>
     <script>
         let mapa1 = new Map();

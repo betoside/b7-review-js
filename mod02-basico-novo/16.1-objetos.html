@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>#16: O que são objetos?</title>
+</head>
+<body>
+    <p>#16: O que são objetos?</p>
+    <pre>
+        
+
+        let personagens = {
+            nome: 'bonieky',
+            idade: 90,
+            pais: 'Brasil',
+            esportes: ['skate', 'futebol', 'surf'],
+            caracteristicas: {
+                forca: 20,
+                magia: 5,
+                stamina: 15
+            }
+        }
+        console.log('personagens:',personagens);
+        console.log('personagens.nome:',personagens.nome);
+        console.log(personagens.idade);
+        console.log('personagens.caracteristicas.magia:', personagens.caracteristicas.magia);
+        console.log('personagens.esportes.length:', personagens.esportes.length);
+        console.log('personagens.esportes[0]:', personagens.esportes[0]);
+
+        // um ARRAY é uma lista ordenada de alguma coisa
+        // um OBJETO geral//e é quando se tem um grupo de informações
+
+        personagens.nome = 'Pedro';
+        console.log('personagens.nome:',personagens.nome);
+        console.log('personagens.caracteristica.forca:',personagens.caracteristicas.forca);
+        console.log('personagens somando força:',personagens.caracteristicas.forca += 5);
+
+
+    
+    </pre>
+    <script>
+
+        let personagens = {
+            nome: 'bonieky',
+            idade: 90,
+            pais: 'Brasil',
+            esportes: ['skate', 'futebol', 'surf'],
+            caracteristicas: {
+                forca: 20,
+                magia: 5,
+                stamina: 15
+            }
+        }
+        console.log('personagens:',personagens);
+        console.log('personagens.nome:',personagens.nome);
+        console.log(personagens.idade);
+        console.log('personagens.caracteristicas.magia:', personagens.caracteristicas.magia);
+        console.log('personagens.esportes.length:', personagens.esportes.length);
+        console.log('personagens.esportes[0]:', personagens.esportes[0]);
+
+        // um ARRAY é uma lista ordenada de alguma coisa
+        // um OBJETO geral//e é quando se tem um grupo de informações
+
+        personagens.nome = 'Pedro';
+        console.log('personagens.nome:',personagens.nome);
+        console.log('personagens.caracteristica.forca:',personagens.caracteristicas.forca);
+        console.log('personagens somando força:',personagens.caracteristicas.forca += 5);
+
+
+    </script>
+</body>
+</html>

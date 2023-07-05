@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>#18: Função dentro de objeto</title>
+</head>
+<body>
+    <p>#18: Função dentro de objeto</p>
+    <pre>
+        
+        let pessoa = {
+            nome:'Bonieky',
+            sobrenome:'Lacerda',
+            idade: 90,
+            nomeCompleto: function(){
+                // return this;
+                // return `${pessoa.nome}  ${pessoa.sobrenome}, ${pessoa.idade}`;
+                return `${this.nome}  ${this.sobrenome}, ${this.idade}`;
+            },
+            infoAdicional: () =>{
+                return "Essa função anônima não tem acesso ao THIS"
+            }
+        }
+
+        // console.log(`${pessoa.nome}  ${pessoa.sobrenome}, ${pessoa.idade}`);
+        console.log(`${pessoa.nomeCompleto()}`);
+        console.log(`${pessoa.infoAdicional()}`);
+    </pre>
+    <script>
+
+        let pessoa = {
+            nome:'Bonieky',
+            sobrenome:'Lacerda',
+            idade: 90,
+            nomeCompleto: function(){
+                // return this;
+                // return `${pessoa.nome}  ${pessoa.sobrenome}, ${pessoa.idade}`;
+                return `${this.nome}  ${this.sobrenome}, ${this.idade}`;
+            },
+            infoAdicional: () =>{
+                return "Essa função anônima não tem acesso ao THIS"
+            }
+        }
+
+        // console.log(`${pessoa.nome}  ${pessoa.sobrenome}, ${pessoa.idade}`);
+        console.log(`${pessoa.nomeCompleto()}`);
+        console.log(`${pessoa.infoAdicional()}`);
+
+    </script>
+</body>
+</html>
